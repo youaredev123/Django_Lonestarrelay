@@ -1,0 +1,44 @@
+#comp-jswkwjarinlineContent {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+#comp-jswkwjarinlineContent-gridWrapper {
+    pointer-events: none;
+}
+
+#comp-jswkwjarinlineContent-gridContainer {
+    position: static;
+    display: grid;
+    height: auto;
+    width: 100%;
+    min-height: auto;
+    grid-template-rows: 1fr;
+    grid-template-columns: 100%;
+}
+
+#comp-jswl0kzv {
+    position: relative;
+    margin: 53px 0px 54px calc((100% - 980px) * 0.5);
+    left: 180px;
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#comp-jswkwjarcenteredContent {
+    position: relative;
+}
+
+#comp-jswkwjarinlineContent-gridContainer > * {
+    pointer-events: auto;
+}
+
+#comp-jswkwjarinlineContent-gridContainer > [id$="-rotated-wrapper"] {
+    pointer-events: none;
+}
+
+#comp-jswkwjarinlineContent-gridContainer > [id$="-rotated-wrapper"] > * {
+    pointer-events: auto;
+}

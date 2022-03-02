@@ -1,0 +1,501 @@
+{% extends 'register/index.html' %}
+{% load static %}
+{% block content %}
+<div class="container" data-csrf-token="{{ csrf_token }}">
+	<div class="row">
+		<div class="main col-md-12" name="calcfeeurl"  data-url="{% url 'calc_fee' %}" {{ csrf_token }}>
+			<h1 class="page-title margin-top-clear">{{ data.event_year }} Texas Independence Relay</h1>
+			<input type="hidden" id='isevent' value="{{data.isevent}}" >
+			<input type="hidden" id='runnerid' value="{{ data.userinfo.runner.0.id }}" >
+			
+			<input type="hidden" id='teamid' value="{{ data.selectedteam.0.id }}" >
+			<input type="hidden" id='checkemail' data-url="{% url 'check_email'  %}" >
+			<input type="hidden" id='is_full' value="{{ data.is_full }}" >
+			<input type="hidden" name='paypal_url' data-url=""="{% url 'payment-paypal'  %}" >
+			<input type="hidden" name='active_url' data-url="{% url 'active_team_runner'  %}" >
+
+
+
+
+			{% if data.iscaptain  %}
+				<h2>Team Registration</h2>
+				<div>You are signing up to captain a new team. If you're an individual (or with a small group) that would like to be placed on a team, click <a href="/individualplacement">here</a>.</div>
+			{% else %}
+				<h3 style="color:#0000ff;"><u>Joining Team {{ data.selectedteam.0.Bib }} : {{ data.selectedteam.0.Name }}</u></h3>
+				<div>This form is for joining an existing team.</div>
+			{% endif %}
+			 
+			<div class="row">
+				<div class="col-sm-12">
+					<h3 id="contactInfoTitle" data-csrf-token="{{ csrf_token }}">
+						{% if data.iscaptain %} Captain's {% endif %}  Contact Information
+					</h3>
+					<div class="separator-2"></div>
+					<form role="form" style="overflow:hidden;"{{ csrf_token }}>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="firstName">First Name*</label>
+							<input id="firstName" class="form-control" type="text" placeholder="First Name" maxlength="60" value="{{ data.userinfo.runner.0.FirstName}}"  required  >
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="lastName">Last Name*</label>
+							<input id="lastName" class="form-control" type="text" placeholder="Last Name" maxlength="60" value="{{ data.userinfo.runner.0.LastName }}" required  >
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="email">Email*</label>
+							<input id="email" class="form-control" type="email" placeholder="Email" maxlength="60" value="{{ data.userinfo.runner.0.Email }}" required  >
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="phone">Phone*</label>
+							<input id="phone" class="form-control" type="tel" maxlength="15" value="{{ data.userinfo.runner.0.Phone }}" required  >
+						</div>
+						<div class="form-group col-xs-12">
+							<label class="control-label" for="street">Mailing Address*</label>
+							<input id="street" class="form-control" type="text" placeholder="Address" maxlength="100" value="{{ data.userinfo.runner.0.Street }}" required  >
+						</div>
+						<div class="form-group col-xs-12 col-md-4">
+							<label class="control-label" for="city">City*</label>
+							<input id="city" class="form-control" type="text" placeholder="City" value="{{ data.userinfo.runner.0.City }}" maxlength="60" required  >
+						</div>
+						<div class="form-group col-xs-12 col-md-4">
+							<label class="control-label" for="state">State*</label>
+							<select id="state" class="form-control" > 
+								<option value=""  ></option>
+								<option value="AL" {% if data.userinfo.runner.0.State == 'AL' %} selected {% endif %}  >alabama</option>
+								<option value="AK"	{% if data.userinfo.runner.0.State == 'AK' %} selected {% endif %}  >alaska</option>
+								<option value="AZ"	{% if data.userinfo.runner.0.State == 'AZ' %} selected {% endif %}  >arizona</option>
+								<option value="AR"	{% if data.userinfo.runner.0.State == 'AR' %} selected {% endif %}  >arkansas</option>
+								<option value="CA"	{% if data.userinfo.runner.0.State == 'CA' %} selected {% endif %}  >california</option>
+								<option value="CO"	{% if data.userinfo.runner.0.State == 'CO' %} selected {% endif %}  >colorado</option>
+								<option value="CT"	{% if data.userinfo.runner.0.State == 'CT' %} selected {% endif %}  >connecticut</option>
+								<option value="DE"	{% if data.userinfo.runner.0.State == 'DE' %} selected {% endif %}  >delaware</option>
+								<option value="FL"	{% if data.userinfo.runner.0.State == 'FL' %} selected {% endif %}  >florida</option>
+								<option value="GA"	{% if data.userinfo.runner.0.State == 'GA' %} selected {% endif %}  >georgia</option>
+								<option value="HI"	{% if data.userinfo.runner.0.State == 'HI' %} selected {% endif %}  >hawaii</option>
+								<option value="ID"	{% if data.userinfo.runner.0.State == 'ID' %} selected {% endif %}  >idaho</option>
+								<option value="IL"	{% if data.userinfo.runner.0.State == 'IL' %} selected {% endif %}  >illinois</option>
+								<option value="IN"	{% if data.userinfo.runner.0.State == 'IN' %} selected {% endif %}  >indiana</option>
+								<option value="IA"	{% if data.userinfo.runner.0.State == 'IA' %} selected {% endif %}  >iowa</option>
+								<option value="KS"	{% if data.userinfo.runner.0.State == 'KS' %} selected {% endif %}  >kansas</option>
+								<option value="KY" {% if data.userinfo.runner.0.State == 'KY' %} selected {% endif %}  >kentucky</option>
+								<option value="LA" {% if data.userinfo.runner.0.State == 'LA' %} selected {% endif %}  >louisiana</option>
+								<option value="ME" {% if data.userinfo.runner.0.State == 'ME' %} selected {% endif %}  >maine</option>
+								<option value="MD" {% if data.userinfo.runner.0.State == 'MD' %} selected {% endif %}  >maryland</option>
+								<option value="MA" {% if data.userinfo.runner.0.State == 'MA' %} selected {% endif %}  >massachusetts</option>
+								<option value="MI" {% if data.userinfo.runner.0.State == 'MI' %} selected {% endif %}  >michigan</option>
+								<option value="MN" {% if data.userinfo.runner.0.State == 'MN' %} selected {% endif %}  >minnesota</option>
+								<option value="MS" {% if data.userinfo.runner.0.State == 'MS' %} selected {% endif %}  >mississippi</option>
+								<option value="MO" {% if data.userinfo.runner.0.State == 'MO' %} selected {% endif %}  >missouri</option>
+								<option value="MT" {% if data.userinfo.runner.0.State == 'MT' %} selected {% endif %}  >montana</option>
+								<option value="NE" {% if data.userinfo.runner.0.State == 'NE' %} selected {% endif %}  >nebraska</option>
+								<option value="NV" {% if data.userinfo.runner.0.State == 'NV' %} selected {% endif %}  >nevada</option>
+								<option value="NH" {% if data.userinfo.runner.0.State == 'NH' %} selected {% endif %}  >new hampshire</option>
+								<option value="NJ" {% if data.userinfo.runner.0.State == 'NJ' %} selected {% endif %}  >new jersey</option>
+								<option value="NM" {% if data.userinfo.runner.0.State == 'NM' %} selected {% endif %}  >new mexico</option>
+								<option value="NY" {% if data.userinfo.runner.0.State == 'NY' %} selected {% endif %}  >new york</option>
+								<option value="NC" {% if data.userinfo.runner.0.State == 'NC' %} selected {% endif %}  >north carolina</option>
+								<option value="ND" {% if data.userinfo.runner.0.State == 'ND' %} selected {% endif %}  >north dakota</option>
+								<option value="OH" {% if data.userinfo.runner.0.State == 'OH' %} selected {% endif %}  >ohio</option>
+								<option value="OK" {% if data.userinfo.runner.0.State == 'OK' %} selected {% endif %}  >oklahoma</option>
+								<option value="OR" {% if data.userinfo.runner.0.State == 'OR' %} selected {% endif %}  >oregon</option>
+								<option value="PA" {% if data.userinfo.runner.0.State == 'PA' %} selected {% endif %}  >pennsylvania</option>
+								<option value="RI" {% if data.userinfo.runner.0.State == 'RI' %} selected {% endif %}  >rhode island</option>
+								<option value="SC" {% if data.userinfo.runner.0.State == 'SC' %} selected {% endif %}  >south carolina</option>
+								<option value="SD" {% if data.userinfo.runner.0.State == 'SD' %} selected {% endif %}  >south dakota</option>
+								<option value="TN" {% if data.userinfo.runner.0.State == 'TN' %} selected {% endif %}  >tennessee</option>
+								<option value="TX"  {% if data.userinfo.runner.0.State == 'TX' %} selected {% endif %}  >TEXAS</option>
+								<option value="UT" {% if data.userinfo.runner.0.State == 'UT' %} selected {% endif %}  >utah</option>
+								<option value="VT" {% if data.userinfo.runner.0.State == 'VT' %} selected {% endif %}  >vermont</option>
+								<option value="VA" {% if data.userinfo.runner.0.State == 'VA' %} selected {% endif %}  >virginia</option>
+								<option value="WA" {% if data.userinfo.runner.0.State == 'WA' %} selected {% endif %}  >washington</option>
+								<option value="WV" {% if data.userinfo.runner.0.State == 'WV' %} selected {% endif %}  >west virginia</option>
+								<option value="WI" {% if data.userinfo.runner.0.State == 'WI' %} selected {% endif %}  >wisconsin</option>
+								<option value="WY" {% if data.userinfo.runner.0.State == 'WY' %} selected {% endif %}  >wyoming</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-4">
+							<label class="control-label" for="zip">Zip*</label>
+							<input id="zip" class="form-control" type="text" placeholder="Zip" maxlength="10" value="{{ data.userinfo.runner.0.Zip }}"  required      >
+						</div>
+						<div class="form-group col-xs-12">
+							<label class="control-label" for="referredbyentity">What marketing/outreach was most influential towards your participation of the TIR?</label>
+							<select id="referredbyentity" class="form-control"  name="referredbyentity_"   >
+								<option value="" ></option>
+								<option value="Print Advertising"  {% if data.userinfo.runner.0.ReferredByEntity == 'Print Advertising' %} selected {% endif %}  >Print Advertising</option>
+								<option value="Social Media" {% if data.userinfo.runner.0.ReferredByEntity == 'Social Media' %} selected {% endif %} >Social Media</option>
+								<option value="TIR Emails" {% if data.userinfo.runner.0.ReferredByEntity == 'TIR Emails' %} selected {% endif %} >TIR Emails</option>
+								<option value="Marathon Expos" {% if data.userinfo.runner.0.ReferredByEntity == 'Marathon Expos' %} selected {% endif %} >Marathon Expos</option>
+								<option value="Store Banners" {% if data.userinfo.runner.0.ReferredByEntity == 'Store Banners' %} selected {% endif %} >Store Banners</option>
+								<option value="Word of Mouth" {% if data.userinfo.runner.0.ReferredByEntity == 'Word of Mouth' %} selected {% endif %} >Word of Mouth</option>
+								<option value="Referral Program"  {% if data.userinfo.runner.0.ReferredByEntity == 'Referral Program' %} selected {% endif %} >Referral Program</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12">
+							<label class="control-label" for="referredbyperson">If you're a new Team Captain entering as a result of the Referral Program, please submit the name of the person who referred you here.  Or, if there is information you would like to pass along to make the TIR better (such as a possible sponsor, or a better way to advertise, etc).</label>
+							<input id="referredbyperson" class="form-control" type="text" maxlength="500"  required value="{{ data.userinfo.runner.0.ReferredByPerson }}"   >
+						</div>
+						<div style="clear:both"></div>
+					</form>
+				</div>
+
+				<div class="col-sm-12">
+					<h3 id="regInfoTitle" data-csrf-token="{{ csrf_token }}">
+						{% if  data.userteaminfo.iscaptain %} Captain's {% endif %} Registration Information</h3>
+					<div class="separator-2"></div>
+					<form role="form" style="overflow:hidden;"   data-csrf-token="{{ csrf_token }}" >
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="dob">Date of Birth*</label>
+							<input id="dob" class="form-control" type="date" placeholder="Date of Birth"   value="{{ data.userinfo.runner.0.DOB | date:'m/d/Y'}}"  required >
+						</div>
+					 
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="10kpace">10K Pace*</label>
+							<select id="10kpace" class="form-control" >
+								<option value=""  ></option>
+								<option value="300" {% if data.userinfo.runner.0.Pace == 300 %} selected {% endif %} >5:00</option>
+								<option value="315" {% if data.userinfo.runner.0.Pace == 315 %} selected {% endif %} >5:15</option>
+								<option value="330" {% if data.userinfo.runner.0.Pace == 330 %} selected {% endif %} >5:30</option>
+								<option value="345" {% if data.userinfo.runner.0.Pace == 345 %} selected {% endif %} >5:45</option>
+								<option value="360" {% if data.userinfo.runner.0.Pace == 360 %} selected {% endif %} >6:00</option>
+								<option value="375"{% if data.userinfo.runner.0.Pace == 375 %} selected {% endif %} >6:15</option>
+								<option value="390"{% if data.userinfo.runner.0.Pace == 390 %} selected {% endif %} >6:30</option>
+								<option value="405"{% if data.userinfo.runner.0.Pace == 405 %} selected {% endif %} >6:45</option>
+								<option value="420"{% if data.userinfo.runner.0.Pace == 420 %} selected {% endif %} >7:00</option>
+								<option value="435"{% if data.userinfo.runner.0.Pace == 435 %} selected {% endif %} >7:15</option>
+								<option value="450"{% if data.userinfo.runner.0.Pace == 450 %} selected {% endif %} >7:30</option>
+								<option value="465"{% if data.userinfo.runner.0.Pace == 465 %} selected {% endif %} >7:45</option>
+								<option value="480" {% if data.userinfo.runner.0.Pace == 480 %} selected {% endif %}   >8:00</option>
+								<option value="495" {% if data.userinfo.runner.0.Pace == 495 %} selected {% endif %}   >8:15</option>
+								<option value="510" {% if data.userinfo.runner.0.Pace == 510 %} selected {% endif %}   >8:30</option>
+								<option value="525" {% if data.userinfo.runner.0.Pace == 525 %} selected {% endif %}   >8:45</option>
+								<option value="540" {% if data.userinfo.runner.0.Pace == 540 %} selected {% endif %}   >9:00</option>
+								<option value="555" {% if data.userinfo.runner.0.Pace == 555 %} selected {% endif %}   >9:15</option>
+								<option value="570" {% if data.userinfo.runner.0.Pace == 570 %} selected {% endif %}   >9:30</option>
+								<option value="585" {% if data.userinfo.runner.0.Pace == 585 %} selected {% endif %}   >9:45</option>
+								<option value="600" {% if data.userinfo.runner.0.Pace == 600 %} selected {% endif %}   >10:00</option>
+								<option value="615" {% if data.userinfo.runner.0.Pace == 615 %} selected {% endif %}   >10:15</option>
+								<option value="630" {% if data.userinfo.runner.0.Pace == 630 %} selected {% endif %}   >10:30</option>
+								<option value="645" {% if data.userinfo.runner.0.Pace == 645 %} selected {% endif %}   >10:45</option>
+								<option value="660" {% if data.userinfo.runner.0.Pace == 660 %} selected {% endif %}   >11:00</option>
+								<option value="675" {% if data.userinfo.runner.0.Pace == 675 %} selected {% endif %}   >11:15</option>
+								<option value="690" {% if data.userinfo.runner.0.Pace == 690 %} selected {% endif %}   >11:30</option>
+								<option value="705" {% if data.userinfo.runner.0.Pace == 705 %} selected {% endif %}   >11:45</option>
+								<option value="720" {% if data.userinfo.runner.0.Pace == 720 %} selected {% endif %}   >12:00</option>
+								<option value="735" {% if data.userinfo.runner.0.Pace == 735 %} selected {% endif %}   >12:15</option>
+								<option value="750" {% if data.userinfo.runner.0.Pace == 750 %} selected {% endif %}   >12:30</option>
+								<option value="765" {% if data.userinfo.runner.0.Pace == 765 %} selected {% endif %}   >12:45</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="gender">Gender*</label>
+							<select id="gender" class="form-control" >
+								<option value=""></option>
+								<option value="F" {% if data.userinfo.runner.0.Gender == 'F' %} selected {% endif %} >Female</option>
+								<option value="M" {% if data.userinfo.runner.0.Gender == 'M' %} selected {% endif %} >Male</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="shirtsize">Shirt Size</label>
+							<select id="shirtsize" class="form-control" >
+								<option value=""  ></option>
+								<option value='WS' {% if data.userinfo.runner.0.ShirtSize == 'WS' %} selected {% endif %} >Womens Small</option>
+								<option value='WM'  {% if data.userinfo.runner.0.ShirtSize == 'WM' %} selected {% endif %} >Womens Medium</option>
+								<option value='WL'  {% if data.userinfo.runner.0.ShirtSize == 'WL' %} selected {% endif %} >Womens Large</option>
+								<option value='WXL'  {% if data.userinfo.runner.0.ShirtSize == 'WXL' %} selected {% endif %} >Womens XL</option>
+								<option value='MS'  {% if data.userinfo.runner.0.ShirtSize == 'MS' %} selected {% endif %} >Mens Small</option>
+								<option value='MM'  {% if data.userinfo.runner.0.ShirtSize == 'MM' %} selected {% endif %} >Mens Medium</option>
+								<option value='ML'  {% if data.userinfo.runner.0.ShirtSize == 'ML' %} selected {% endif %} >Mens Large</option>
+								<option value='MXL'  {% if data.userinfo.runner.0.ShirtSize == 'MXL' %} selected {% endif %} >Mens XL</option>
+								<option value='MXXL'  {% if data.userinfo.runner.0.ShirtSize == 'MXXL' %} selected {% endif %} >Mens XXL</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="socksize">Sock Size</label>
+							<select id="socksize" class="form-control" >
+								<option value="" ></option>
+								<option value='XL-L' {% if data.userinfo.runner.0.SockSize == 'XL-L' %} selected {% endif %} >Mens' 9 & up</option>
+								<option value='S-M' {% if data.userinfo.runner.0.SockSize == 'S-M' %} selected {% endif %} >Mens' 8 & down</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="pw">Password*</label>
+							<input id="pw" class="form-control" type="password" placeholder=""  required value="" data-pwd="{{data.userinfo.runner.0.PassHash}}"   >
+						</div>
+						<div style="clear:both"></div>
+					</form>
+				</div>
+				{% if data.iscaptain  %} 
+					<div data-csrf-token="{{ csrf_token }}" class="col-sm-12">
+				{% else %}
+					<div data-csrf-token="{{ csrf_token }}" class="col-sm-12" >
+				{% endif %}
+				
+					<h3 id="teamInfo" data-csrf-token="{{ csrf_token }}" joincode="{{data.selectedteam.0.JoinCode  }}">Team Information</h3>
+					<div class="separator-2"></div>
+					<form role="form" style="overflow:hidden;">
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="teamName">Team Name*&nbsp;&nbsp;&nbsp;<div class="fa fa-info-circle pointer songinfo"></div></label>
+
+							<input id="teamName" class="form-control" type="text" placeholder="Best Fastest Team" value="{{data.selectedteam.0.Name}}" 
+							{% if not data.iscaptain %}  disabled {% endif %} 
+							required  >
+
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="teamSong">Team Song&nbsp;&nbsp;&nbsp;<div class="fa fa-info-circle pointer songinfo"></div></label>
+							<input id="teamSong" class="form-control" type="text" placeholder="Eye of the Tiger by Survivor" value="{{data.selectedteam.0.Song}}"
+							{% if not data.iscaptain %}  disabled {% endif %}
+							required  >
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="teamTypeOptions">Team Type&nbsp;&nbsp;&nbsp;<div class="fa fa-info-circle pointer typeinfo"></div></label>
+							<div>
+								<div class="radio"><label>
+									<input name="teamTypeOptions" type="radio" value="Men" 
+									{% if data.selectedteam.0.Type == "Men" %}  checked {% endif %} 
+									{% if not  data.iscaptain %}  disabled {% endif %}
+									> Men (2 or fewer women on the team)
+								</label></div>
+								<div class="radio"><label>
+									<input name="teamTypeOptions" type="radio" value="Mixed" 
+									{% if data.selectedteam.0.teamType == Mixed %}  checked {% endif %} 
+									{% if  not  data.iscaptain %}  disabled {% endif %}
+									> Mixed (3 or more women with at least 1 man)
+								</label></div>
+								<div class="radio"><label>
+									<input name="teamTypeOptions" type="radio" value="Women" 
+									{% if data.selectedteam.0.teamType == "Women" %}  checked {% endif %} 
+									{% if  not  data.iscaptain %}  disabled {% endif %}
+									> Women (All Women)
+								</label></div>
+							</div>
+						</div>
+						<div class="form-group col-xs-12 col-md-6">
+							<label class="control-label" for="teamClassOptions">Team Classification&nbsp;&nbsp;&nbsp;<div class="fa fa-info-circle pointer typeinfo"></div></label>
+							<div>
+								<div class="radio"><label>
+									<input name="teamClassOptions" type="radio" onchange="updateFee();" value="Open" 
+
+									{% if data.selectedteam.0.Classification == "Open" %}  checked {% endif %} 
+									{% if not data.iscaptain %}  disabled {% endif %}
+								
+									> Open
+								</label></div>
+								<div class="radio"><label>
+									<input name="teamClassOptions" type="radio" onchange="updateFee();" value="Masters" 
+
+									{% if data.selectedteam.0.Classification == "Masters" %}  checked {% endif %} 
+									{% if not data.iscaptain %}  disabled {% endif %}
+								
+									> Masters (All team members aged 40+)
+								</label></div>
+								<div class="radio"><label>
+									<input name="teamClassOptions" type="radio" onchange="updateFee();" value="Veterans" 
+									
+									{% if data.selectedteam.0.Classification == "Veterans" %}  checked {% endif %} 
+									{% if not data.iscaptain %}  disabled {% endif %}
+							
+									> Veterans (All team members aged 50+)
+								</label></div>
+								<div class="radio"><label>
+									<input name="teamClassOptions" type="radio" onchange="updateFee();" value="Corporate" 
+
+									{% if  data.selectedteam.0.Classification == "Corporate" %}  checked {% endif %} 
+									{% if  not data.iscaptain %}  disabled {% endif %}
+						
+									> Corporate (8+ work for the company)
+								</label></div>
+								<div class="radio"><label>
+									<input name="teamClassOptions" type="radio" onchange="updateFee();" value="Military" 
+									
+									{% if data.selectedteam.0.Classification == "Military" %}  checked {% endif %} 
+									{% if  not data.iscaptain %}  disabled {% endif %}
+							
+									> Armed Forces (6+ have served - Thank You!!)
+								</label></div>
+							</div>
+							<div>*contact us if there can be an additional classification formed (requiring at least 5 teams).</div>
+						</div>
+						<div class="form-group col-xs-12">
+							<input id="isUntimed" type="checkbox"
+
+							{% if  data.selectedteam.0.IsUntimed == 1 %}  checked {% endif %} 
+							{% if  not data.iscaptain %}  disabled {% endif %}
+						
+							> Check this box if your team will not be timed. This is primarily for teams that will average slower than 11:00 per mile.
+						</div>
+						<div style="clear:both"></div>
+					</form>
+				</div>
+
+				<div class="col-sm-12"  data-csrf-token="{{ csrf_token }}" >
+					<h3>TIR Gear</h3>
+					<div class="separator-2"></div>
+					<b><font color="white">GET A FREE TIR KOOZIE WITH THE PURCHASE OF ANY ITEM! (except when buying a koozie)</b></font>
+
+					<form class="form-horizontal" role="form" style="overflow:hidden;"  data-csrf-token="{{ csrf_token }}" >
+		
+						{% for promo in data.promoitems %}
+							<div class="form-group col-xs-12 col-md-6 promoitem">
+									<input type="number" id="promoid{{promo.id}}" rowid="{{promo.id}}" placeholder="#" class="col-xs-3 col-md-2"  cents="{{promo.Cost}}" onchange="updateFee();"  />
+								{% if promo.Sizes is not null %}
+									<label class="col-xs-9 col-md-10 padtop5">{{promo.Name}} - $ {{promo.Cost }} - Sizes: {{promo.Sizes }}</label>
+								{% else %}
+									<label class="col-xs-9 col-md-10 padtop5">{{promo.Name}} - $ {{promo.Cost }}</label>
+								{% endif %}
+								{% if promo.Sizes %}
+									<input type="text" id="promoOpts{{promo.id}}" placeholder="Type in the sizes you need" class="col-xs-offset-3 col-xs-8 col-md-offset-1 col-md-10"   />
+								{% endif %}
+							</div>
+						{% endfor %}
+								
+					
+						<div style="clear:both"></div>
+					</form>
+				</div>
+
+				<div class="col-md-7 col-sm-12">
+					<h3>Payment Options</h3>
+					<div class="separator-2"></div>
+					<form class="form-horizontal" role="form" id="ppform" action="https://www.paypal.com/cgi-bin/webscr" method="post" style="overflow:hidden;"  data-csrf-token="{{ csrf_token }}" >
+						<div class="form-group"><div class="col-sm-12">
+							<input id="release" type="checkbox"> I have read and agree to the <a href="{% static 'files/TIR_Rules.pdf' %}" target="_blank">event rules <i class="fa fa-external-link"></i></a> and <a href="{% static 'files/2020_TIR_Waiver.pdf' %}" target="_blank">waiver <i class="fa fa-external-link"></i></a>.
+						</div></div>
+						<div class="form-group">
+							<div class="col-sm-12"><B>REGISTRATION FOR 2020 WILL CLOSE AT 11:59:59PM ON FEBRUARY 29! THIS IS THE LAST DAY TO START YOUR TEAM - TEAM MEMBERS MAY STILL REGISTER INTO MARCH.  THE TIR DOES NOT OFFER ANY REFUNDS.  TYPICALLY, THERE ARE A FEW TEAMS WHO DEFER THEIR REGISTRATION FROM ONE YEAR TO THE NEXT FOR A FEE.  HOWEVER, DUE TO THE UNFORESEEN CORONAVIRUS, NO MORE DEFFERALS CAN BE PROVIDED TOWARD 2021.  THAT SAID, TEAMS WHO REGISTERED FOR 2020 AND CAN NOT RUN ANY OTHER RACE WILL GET A DISCOUNTED REGISTRATION FEE FOR 2021. THE TIR WILL ASSIST IN INDIVIDUAL TRANSFERS IN 2020 FOR NO ADDITIONAL FEE DUE TO THE VIRUS. THE TOTAL TEAM COST FOR TEAMS PAYING BY INDIVIDUAL IS MORE THAN THAN THE UPFRONT AND IN FULL PRICE IF THE TEAM IS 11 OR !2 MEMBERS, BUT LESS IF THE TEAM IS 9 OR FEWER.
+						<div class="
+							{% if data.iscaptain %} 'form-group' {% else %} 
+							'form-group hide' {% endif %}
+							">
+							<label class="col-sm-3 control-label" for="payStyle">Payment Style:</label>
+							<div class="col-sm-9">
+								<div class="radio"><label>
+									<input type="radio" onchange="updateFee();" value="full" name="payStyleOptions" 
+									
+									{% if data.selectedteam.0.PayStyle == 'full' %}  checked {% endif %} 
+									{% if not data.iscaptain %}  disabled {% endif %}
+							
+									> Pay in full now
+								</label></div>
+								<div class="radio"><label>
+									<input type="radio" onchange="updateFee();" value="indiv" name="payStyleOptions" 
+									
+									{% if not data.selectedteam.0.PayStyle == "indiv" %}  checked {% endif %} 
+									{% if  not data.iscaptain %}  disabled {% endif %}
+								
+									> Pay individually
+								</label>
+							</div>
+							</div>
+						</div>
+						<div class="form-group" id="regRow">
+							<label class="col-sm-3 control-label">Registration Price:</label>
+							<label class="col-sm-3 control-label" id="regPrice">$0</label>
+						</div>
+						<div class="form-group" id="discountRow">
+							<label class="col-sm-3 control-label">Discount:</label>
+							<label class="col-sm-3 control-label" id="discount">$0</label>
+							<input type="hidden" id="paypal_amount" />
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Total Due Now:</label>
+							<label class="col-sm-3 control-label" id="currentFee">$0</label>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="discountCode">Discount Code:</label>
+							<div class="col-sm-3">
+								<input id="discountCode" class="form-control input-sm" type="text" placeholder="" appliedCode="" >
+							</div>
+							<div class="col-sm-4">
+								<a class="btn btn-success btn-sm" href="javascript:updateFee();">Apply</a>
+							</div>
+						</div>
+						<div class="form-group margintop">
+							<label class="col-sm-6 control-label margintop" for="">Pay by credit card or PayPal account:</label>
+							<div class="col-sm-6">
+								<input type="hidden" name="cmd" value="_xclick">
+								<input type="hidden" name="business" value="">
+								<input type="hidden" name="item_name" value="TIR Registration">
+								<input type="hidden" name="item_number" value="">
+								<input type="hidden" name="currency_code" value="USD">
+								<input type="hidden" name="amount" value="0.00">
+								<input type="hidden" name="invoice" value="">
+								<input type="hidden" name="custom" value="">
+								<input type="hidden" name="no_shipping" value="1">
+								<input type="hidden" name="no_note" value="1">
+								<input type="hidden" name="notify_url" value={{homeurl.ppipn}}>
+								<input type="hidden" name="return" value={{homeurl.team}}>
+								<input type="hidden" name="cancel_return" value={{homeurl.register}}>
+								<a class="btn btn-success" href="javascript:saveAndPay();"  data-url="{% url 'save_pay'  %}" name='save_payurl' data-csrf-token="{{ csrf_token }}" >Register and Pay</a>
+								<div id="paypal-button" style="display:none;"></div>
+							</div>
+						</div>
+						<div style="clear:both"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+<script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
+<!-- Load the client component. -->
+<script src="https://js.braintreegateway.com/web/3.62.1/js/client.min.js"></script>
+<!-- Load the PayPal Checkout component. -->
+<script src="https://js.braintreegateway.com/web/3.62.1/js/paypal-checkout.min.js"></script>
+<script>
+
+    paypal.Button.render({
+		braintree: braintree,
+		client: {
+			production: "access_token$sandbox$123",
+			sandbox: "access_token$sandbox$123",
+		},
+		env: 'sandbox', // Or 'product'
+		commit: true, // This will add the transaction amount to the PayPal button
+
+		payment: function (data, actions) {
+			return actions.braintree.create({
+				flow: 'checkout', // Required
+				amount:  $("input[name=amount]").val(), // Required
+				currency: 'USD', // Required
+			
+			});
+		},
+		
+		onAuthorize: function (payload) {
+			// Submit `payload.nonce` to your server.
+			var amount_ = $("input[name=amount]").val();
+			var item_number_ = $("input[name=item_number]").val();
+			var invoice_ = $("input[name=invoice]").val();
+			var custom_ = $("input[name=custom]").val();
+			var paypal_url = $("[name=paypal_url]").data('url');
+			var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+			$.ajax({
+				headers: { "X-CSRFToken": csrftoken },
+				url: paypal_url,
+				type: 'POST',
+				data: {
+					payment_method_nonce: payload.nonce,
+					amount: amount_,
+					description: "PayPal result file",
+				},
+				success: function(data) {
+					
+					if(data['statusCode'] == 1){
+						console.log('Paypal Success');
+						updateOrderfn(data.ret);
+					}else{
+						alert("Processing about payment was failed.");
+					}
+				},
+				error: function(data) {
+					false;
+				}
+			});
+		},
+	}, '#paypal-button');
+	
+</script>
+{% endblock content %}

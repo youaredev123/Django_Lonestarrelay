@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="section clearfix">
+	<div class="container">
+		<div class="row">
+			<!-- sidebar start -->
+			<aside class="col-md-3">
+				<div class="sidebar">
+					<div class="block clearfix">
+						<h3 class="title">Pages</h3>
+						<div class="separator"></div>
+						<nav>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="/adminteams">Team List</a></li>
+								<li><a href="/adminroster">Runner Roster</a></li>
+								<li><a href="/admintirgear">TIR Gear</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</aside>
+			<!-- sidebar end -->
+
+			<!-- main start -->
+			<div class="main col-md-6">
+
+				<!-- page-title start -->
+				<!-- ================ -->
+				<h1 class="page-title">Admin Page Content</h1>
+				<hr>
+				<!-- page-title end -->
+				<p>Stuff will be here when we have it.</p>
+			</div>
+			<!-- main end -->
+
+			<!-- sidebar start -->
+			<aside class="col-md-3">
+				<div class="sidebar">
+					<div class="block clearfix">
+						<h3 class="title">Right side</h3>
+						<div class="separator"></div>
+						<p>More stuff here when needed.</p>
+
+					</div>
+				</div>
+			</aside>
+			<!-- sidebar end -->
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

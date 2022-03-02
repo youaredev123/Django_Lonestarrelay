@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="section clearfix">
+	<div class="container">
+		<div class="form-group has-feedback">
+			<label class="control-label">ID</label>
+			<input id="loginid" type="text" class="form-control" placeholder="">
+			<i class="fa fa-user form-control-feedback"></i>
+		</div>
+		<div class="form-group has-feedback">
+			<label class="control-label">Password</label>
+			<input id="loginpw" type="password" class="form-control" placeholder="">
+			<i class="fa fa-lock form-control-feedback"></i>
+		</div>
+		<button id="loginbtn" type="button" class="btn btn-group btn-dark btn-sm inline">Log In</button>
+		<div id="loginstatus" class="inline"></div>
+	</div>
+</div>
+<script>
+	$("#loginbtn").click(function(evt) {
+		evt.preventDefault();
+		$("#loginstatus").html("");
+		var id = $("#loginid").val();
+		var pw = $("#loginpw").val();
+
+		var data = { id: id, pwd: pw };
+		console.log(data)
+		$.ajax({
+            url: '/adminlogin/',
+            headers:{ "X-CSRFToken": $("[name=csrfmiddlewaretoken]").val()  },
+            data: {
+                'id_': id,
+                'pw_': pw
+            },
+            dataType: 'json',
+            type: "POST",
+            success: function (response) {
+				console.log(response)
+				if (response.data.valid) {
+					window.location.assign("/adminmanager");
+				} else {
+					$("#loginstatus").html(response.data.content);
+				}
+                
+            },
+            error: function(response) {
+				console.log(response)
+				$("#loginstatus").html("Internet issues; login failed.");
+                // $.alert({
+                //     title: 'Alert', content: 'SERVER ERROR',
+                //     icon: 'fa fa-rocket', animation: 'scale', closeAnimation: 'scale',
+                //     buttons: {
+                //         okay: {  }
+                //     }
+                // });
+            },
+            timeout: 2000
+        });
+
+
+
+		// $.post("/adminlogin", data
+		// , function (results, textStatus, jqXHR) {
+		// 	console.log(results, textStatus, jqXHR)
+		// 	if (results["success"] == true) {
+		// 		window.location.assign("admin");
+		// 	} else {
+		// 		$("#loginstatus").html(results["ErrorMessage"]);
+		// 	}
+		// }, "json")
+		// .fail(function (results, textStatus, jqXHR) {
+		// 	console.log(results)
+		// 	$("#loginstatus").html("Internet issues; login failed.");
+		// });
+	});
+</script>
+{% endblock content %}

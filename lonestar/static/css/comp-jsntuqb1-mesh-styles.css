@@ -1,0 +1,32 @@
+#comp-jsntuqb1inlineContent {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+#comp-jsntuqb1inlineContent-gridContainer {
+    position: static;
+    height: auto;
+    width: 100%;
+    min-height: 455px;
+}
+
+#comp-jsntuqb1centeredContent {
+    position: relative;
+}
+
+#comp-jsntuqb1inlineContent-gridWrapper {
+    pointer-events: none;
+}
+
+#comp-jsntuqb1inlineContent-gridContainer > * {
+    pointer-events: auto;
+}
+
+#comp-jsntuqb1inlineContent-gridContainer > [id$="-rotated-wrapper"] {
+    pointer-events: none;
+}
+
+#comp-jsntuqb1inlineContent-gridContainer > [id$="-rotated-wrapper"] > * {
+    pointer-events: auto;
+}

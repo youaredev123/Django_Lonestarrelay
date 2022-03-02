@@ -1,0 +1,32 @@
+#comp-jhratfqhinlineContent {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+#comp-jhratfqhinlineContent-gridContainer {
+    position: static;
+    height: auto;
+    width: 100%;
+    min-height: 458px;
+}
+
+#comp-jhratfqhcenteredContent {
+    position: relative;
+}
+
+#comp-jhratfqhinlineContent-gridWrapper {
+    pointer-events: none;
+}
+
+#comp-jhratfqhinlineContent-gridContainer > * {
+    pointer-events: auto;
+}
+
+#comp-jhratfqhinlineContent-gridContainer > [id$="-rotated-wrapper"] {
+    pointer-events: none;
+}
+
+#comp-jhratfqhinlineContent-gridContainer > [id$="-rotated-wrapper"] > * {
+    pointer-events: auto;
+}

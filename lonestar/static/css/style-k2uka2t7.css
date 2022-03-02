@@ -1,0 +1,15 @@
+.style-k2uka2t7 button.style-k2uka2t7link {width:100%;}
+.style-k2uka2t7[data-state~="shouldUseFlex"] .style-k2uka2t7link,.style-k2uka2t7[data-state~="shouldUseFlex"] .style-k2uka2t7labelwrapper {text-align:initial;display:flex;align-items:center;}
+.style-k2uka2t7[data-state~="shouldUseFlex"][data-state~="center"] .style-k2uka2t7link,.style-k2uka2t7[data-state~="shouldUseFlex"][data-state~="center"] .style-k2uka2t7labelwrapper {justify-content:center;}
+.style-k2uka2t7[data-state~="shouldUseFlex"][data-state~="left"] .style-k2uka2t7link,.style-k2uka2t7[data-state~="shouldUseFlex"][data-state~="left"] .style-k2uka2t7labelwrapper {justify-content:flex-start;}
+.style-k2uka2t7[data-state~="shouldUseFlex"][data-state~="right"] .style-k2uka2t7link,.style-k2uka2t7[data-state~="shouldUseFlex"][data-state~="right"] .style-k2uka2t7labelwrapper {justify-content:flex-end;}
+.style-k2uka2t7link {border-radius:0 0 0 0;  position:absolute;top:0;right:0;bottom:0;left:0;transition:border-color 0.4s ease 0s, background-color 0.4s ease 0s;  }
+.style-k2uka2t7label {font:normal normal normal 59px/1.4em dinneuzeitgroteskltw01-_812426,sans-serif;  transition:color 0.4s ease 0s;  color:#1C1C1C;display:inline-block;margin:calc(-1 * 7px) 7px 0;position:relative;white-space:nowrap;}
+.style-k2uka2t7[data-state~="shouldUseFlex"] .style-k2uka2t7label {margin:0;}
+.style-k2uka2t7[data-disabled="false"] .style-k2uka2t7link {background-color:transparent;border:solid rgba(28, 28, 28, 1) 7px;cursor:pointer !important;}
+
+.style-k2uka2t7[data-disabled="false"]:active[data-state~="mobile"] .style-k2uka2t7link,.style-k2uka2t7[data-disabled="false"]:hover[data-state~="desktop"] .style-k2uka2t7link,.style-k2uka2t7[data-disabled="false"][data-preview~="hover"] .style-k2uka2t7link {background-color:rgba(127, 204, 247, 1);border-color:transparent;}
+
+.style-k2uka2t7[data-disabled="false"]:active[data-state~="mobile"] .style-k2uka2t7label,.style-k2uka2t7[data-disabled="false"]:hover[data-state~="desktop"] .style-k2uka2t7label,.style-k2uka2t7[data-disabled="false"][data-preview~="hover"] .style-k2uka2t7label {color:#FFFFFF;}
+.style-k2uka2t7[data-disabled="true"] .style-k2uka2t7link,.style-k2uka2t7[data-preview~="disabled"] .style-k2uka2t7link {background-color:rgba(204, 204, 204, 1);border:solid rgba(65, 65, 65, 1) 7px;}
+.style-k2uka2t7[data-disabled="true"] .style-k2uka2t7label,.style-k2uka2t7[data-preview~="disabled"] .style-k2uka2t7label {color:#FFFFFF;}

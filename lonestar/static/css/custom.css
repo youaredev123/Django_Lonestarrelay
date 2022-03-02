@@ -1,0 +1,16 @@
+
+.marginbottom { margin-bottom: 1em; }
+.margintop { margin-top: 1em; }
+.padtop5 { padding-top:5px; }
+.pointer { cursor:pointer; }
+
+.team-member { border: 1px solid #e0e0e0; }
+
+.marquee {
+	font-family:arial,sans-serif;
+	overflow: hidden;
+}
+
+.openteam {margin:30px 0;}
+.openteam h4 {margin:0;}
+

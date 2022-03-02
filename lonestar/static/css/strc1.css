@@ -1,0 +1,6 @@
+.strc1:not([data-mobile-responsive]) > .strc1inlineContent {position:absolute;top:0;right:0;bottom:0;left:0;}
+.strc1[data-mobile-responsive] > .strc1inlineContent {position:relative;}
+.strc1[data-responsive] {display:-ms-grid;display:grid;justify-content:center;grid-template-columns:100%;grid-template-rows:1fr;-ms-grid-columns:100%;-ms-grid-rows:1fr;}
+.strc1[data-responsive] > .strc1inlineContent {display:flex;}
+.strc1[data-responsive] > * {position:relative;grid-row-start:1;grid-column-start:1;grid-row-end:2;grid-column-end:2;-ms-grid-row-span:1;-ms-grid-column-span:1;margin:0 auto;}</style><style type="text/css" data-styleid="mc1">.mc1:not([data-mobile-responsive]) .mc1inlineContent,.mc1:not([data-mobile-responsive]) .mc1container {position:absolute;top:0;right:0;bottom:0;left:0;}</style><style type="text/css" data-styleid="AutoWidthAnchorSkin">.AutoWidthAnchorSkin {pointer-events:none !important;}</style><style type="text/css" data-styleid="style-k6labjio">.style-k6labjiobg {border:0px solid rgba(153, 153, 151, 1);background-color:rgba(255, 255, 255, 1);border-radius:0;  position:absolute;top:0;right:0;bottom:0;left:0;}
+.style-k6labjio[data-is-absolute-layout="true"] > .style-k6labjioinlineContent {position:absolute;top:0;right:0;bottom:0;left:0;}

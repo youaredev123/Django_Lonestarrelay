@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "common/meta_tag.html" %}
+    <!-- META DATA -->
+    {% include "common/meta_js.html" %}
+    {% include "oldsite/meta.html" %}
+
+    
+</head>
+<body class="prewarmup">
+    <div id="SITE_CONTAINER">
+        
+        {% include "common/body_style.html" %}
+        <div class="noop" style="position:relative">
+            <!-- background start -->
+            {% include "common/background.html" %}
+
+            <div id="SITE_ROOT" class="SITE_ROOT" style="width:100%;padding-bottom:0;top:0" aria-hidden="false">
+               
+                <div id="masterPage" class="mesh-layout" data-mesh-layout="grid">
+
+                    {% include "common/header_home.html" %}
+
+                    <div id="SITE_HEADER-placeholder" style="height:145px;display:block"></div>                   
+               
+                    {% include "main/pagecontainer.html" %}
+                         
+                </div>
+                <!-- footer start  -->
+                {% include "common/footer.html" %}
+            </div> 
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      var ssrInfo = {"timeSpentInSSR":1289,"platformOnPage":true,"workerStarted":true,"platformAppsOnPage":["675bbcef-18d8-41f5-800e-131ec9e08762","14cc59bc-f0b7-15b8-e1c7-89ce41d0e0c9"],"userCode":true,"useBoltush":false,"sessionId":"70589c53-3c58-4a51-8be7-c7310883d3ad","cacheExclusionReason":"","cacheableUserCode":"false","useBoltushUserCode":true};
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+#comp-jsw9iyovinlineContent {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+#comp-jsw9iyovinlineContent-gridContainer {
+    position: static;
+    height: auto;
+    width: 100%;
+    min-height: 455px;
+}
+
+#comp-jsw9iyovcenteredContent {
+    position: relative;
+}
+
+#comp-jsw9iyovinlineContent-gridWrapper {
+    pointer-events: none;
+}
+
+#comp-jsw9iyovinlineContent-gridContainer > * {
+    pointer-events: auto;
+}
+
+#comp-jsw9iyovinlineContent-gridContainer > [id$="-rotated-wrapper"] {
+    pointer-events: none;
+}
+
+#comp-jsw9iyovinlineContent-gridContainer > [id$="-rotated-wrapper"] > * {
+    pointer-events: auto;
+}

@@ -1,0 +1,373 @@
+qadata = array(
+	array("cat"=> "General", "qa"=> array(
+		array("q"=> "How many legs are there?", "a"=> "<p>Relay legs?  36<br />People legs?  ~4,400</p>"),
+		array("q"=> "How many members are there on a team?", "a"=> "<p>Up to 12. If you plan to run with fewer than 8, please <strong><a 
+			href=\"mailto:jay@texasindependencerelay.com\">contact us</a></strong>.</p>"),
+		array("q"=> "I've heard that most teams take 2 vans. How does that work?", "a"=> "<p>Every team is allowed up to 2 vehicles, and most teams choose to go with 2 vans. 
+			Many prefer large 12 or 15-passenger vans, but we have done relays using minivans, and they have worked just fine.  A team could go all in one large 15-passenger van, 
+			but this will result in the team having few opportunities to stray off the course as they will always need to get the next runner to the next exchange.  Having 
+			2 vans allows one van to cut away for awhile (this van is called the \"resting van\") while the other van with the next several runners (this one is called the 
+			\"active\" van) takes care of the relaying for awhile until they switch off. <br/><br/><br />
+			For example, a team of 12 could take both vans to almost all the exchanges, but then when it gets towards evening, one van could have the runners for legs 16-21, 
+			while the other van of 6 goes to Wallis to catch a few winks.  Then, shortly after the leg 21 runner begins their run to Wallis (Exchange 21), the current active 
+				van will call the resting van to let them know that the exchange in Wallis will be happening in about 30 minutes.  Then, the two vans will switch roles... the 
+			one that had been resting will soon become the Active van, handling legs 22-27, and the one that took care of legs 16-21 will have a few hours to rest before meeting 
+			back up with the team (most likely at Exchange 26 or 27).</p>"),
+		array("q"=> "What are sample rotations a team could follow?", "a"=> "<p>A \"rotation\" is the order or runners, or \"line-up\" that a team uses to run the TIR.  There 
+			are any number of rotations that could be used, but for this question we'll be providing 4 popular samples... These are named: 1) The Straight Rotation, 2) The 
+			Ability-Based Rotation, 3) The Meet-&-Greet Rotation, and 4) The Stinky Van Rotation.<br/><br/><br />
+			<strong>The Straight Rotation</strong> is simply where runners are numbered 1 - 12 (for a team of 12) and run in this order throughout.  The legs would be distributed 
+			as follows:<br />
+			Runner #1:  Legs 1, 13, 25, and 37<br />
+			Runner #2:  Legs 2, 14, 26, and 38<br />
+			Runner #3:  Legs 3, 15, 27, and 39<br />
+			Runner #4:  Legs 4, 16, 28, and 40<br />
+			Runner #5:  Legs 5, 17, and 29<br />
+			Runner #6:  Legs 6, 18, and 30<br />
+			Runner #7:  Legs 7, 19, and 31<br />
+			Runner #8:  Legs 8, 20, and 32<br />
+			Runner #9:  Legs 9, 21, and 33<br />
+			Runner #10: Legs 10, 22, and 34<br />
+			Runner #11:  Legs 11, 23, and 35<br />
+			Runner #12:  Legs 12, 24, and 36<br/><br/></p>
+			<p>Typically, teams running a straight rotation will keep runners #1-6 in one van (we'll call it Van A) and runners #7-12 in the other (Van B).  So, when the race 
+			begins and runner #1 is off on leg 1, Van A is the \"Active\" van and Van B is the \"Resting\" van.  For the first 5 exchanges Van A will ensure that the next runner 
+			gets to the exchange ready to go before the current runner finishes.  But after Exchange 5 (when runner #6 is on the course), Van A will be calling Van B to make sure 
+			that they will be at Exchange 6, with runner #7 ready to take the hand-off from Runner #6.  At Exchange 6, the two groups and vans are swapping roles with Van B 
+			becoming the \"Active\" van and Van A becoming the \"Resting\" van.  They will carry on in this fashion throughout.  Van A will be \"Active\" for Legs 1-6, 13-18, 
+			25-30, and 37-40, and resting for Legs 7-12, 19-24, and 31-36.  Van B, conversely, will be the Active van for Legs 7-12, 19-24, and 31-36, and resting for Legs 1-6, 
+			13-18, 25-30, and 37-40.  Both vans will need to be at Exchanges 6, 12, 18, 24, 30, and 36. <br/><br/></p>
+			<p><strong><a href=\"/files/TIR_Pace_Predictor_Van_Rotation_Straight.xls\" 
+			onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/TIR_Pace_Predictor_Van_Rotation_Straight.xls']);\">Linked here is the predictor spreadsheet (with 
+			Van Rotation at the bottom). It shows the allocation of the legs and the total mileage for each runner for a straight rotation.</a></strong><br/><br/><br />
+			<strong><br />The Ability-Based Rotation</strong> is one in which the team allocates legs according to it's strengths.  In this example, Betty and Barney are both 
+			veteran runners who enjoy running longer, while Fred and Wilma are relatively newer to running and would prefer shorter legs.  So, the team will run close to straight 
+			rotation, but will just make a couple of tweaks to accommodate these team members.  There is a little bit of switching around in the vans, but it is not that difficult. 
+			Both Betty and Barny get over 24 miles each, and Fred and Wilma get 11 and 14 miles in total.<br/><br/></p>
+			<p><strong><a href=\"/files/TIR_Pace_Predictor_Van_Rotation_Ability-Based.xls\" 
+			onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/TIR_Pace_Predictor_Van_Rotation_Ability-Based.xls']);\">Linked here is the predictor spreadsheet (with 
+			Van Rotation at the bottom) using the Ability Based Rotation described above. It shows the allocation of the legs and the total mileage for each runner for this 
+			rotation.</a></strong><br/><br/><br/></p>
+			<p>Finally, <strong>the Meet-&-Greet Rotation</strong> is likely the easiest rotation, and it's the one we would likely use if we were running the relay!  The 
+			Meet-&-Greet is the most social, and for most of the relay it almost doesn't matter who is in which!  Since the TIR allows both vans at the exchanges, the Meet-&-Greet 
+			has both vans going so that the team stays together a lot more.  Also, \"cross-pollination\" between vans is easy, so spending time with all of your teammates is simple. 
+			From time to time, one vanload may want to break away to get something to eat.  Some of you may want to hang out in Shiner, Flatonia, Schulenburg, or Weimar for a little longer. 
+			Again, this can be done without any problems... just make sure the other van has the next few runners and they know that they are \"on\" as the Active van, and you're 
+			all set!  At Exchange 15 (the finish of Leg 15), separate your team into 2 groups... Leg 16 - 21 runners, and the rest of you.  The 15th leg runner will hand off to 
+			your Leg 16 runner, and the Leg 16-21 runners will commence taking care of the running for 3-5.5 hours.  (The distance between Exchange 15 and Exchange 21 is 32.29 
+			miles, so it will take 3 hours for a team running 5:34 pace and 5.5 hours for a team running 10:12 min/mile pace.)  The rest of your team will head to Wallis to flop 
+			down and maybe get a shower at their High School.  They do \"suggest\" a $5/person donation that they use as a fundraiser for their Spring Teacher Appreciation Banquet. 
+			Shortly after the Active van (Leg 16 - 21 runners) make the hand-off at the 20th exchange, the active van should call ahead to let the resting half know that the Leg 21 
+			runner will be arriving in Wallis soon!  The 22-27 Leg runners will then prepare to carry on the team's progress, and after the exchange at 21, the Leg 16 - 21 runners 
+			will have their chance to rest a little bit at the High School.  A good choice of where to meet up again would be at Exchange 26, the Luke's Locker in Cinco Ranch!  
+			This is 25.47 miles from Exchange 23 (and it takes about 35-40min to drive there), so the Leg 16-21 runners will not have as much time to stay at the high school. After 
+			bringing the team back together again, you will carry on with both vans as you were before.<br/><br/> </p>
+			<p><strong><a href=\"/files/TIR_Pace_Predictor_Van_Rotation_Meet-n-Greet.xls\" 
+			onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/TIR_Pace_Predictor_Van_Rotation_Meet-n-Greet.xls']);\">Linked here is the predictor spreadsheet (with 
+			Van Rotation at the bottom) using the Meet & Greet Rotation described above.</a></strong><br/><br/></p>
+			<p>Just for grins, <strong>The Stinky Van Rotation</strong>, is a variation of the Meet-&-Greet that some teams enjoy.  With the Stinky Van, the team immediately sends 
+			(or banishes?) every runner who finishes a leg to the stinky van.  This rotation ends up providing runners with a few hours of clean air in the clean van before they 
+			run, so that's a plus! <br/><br/> </p>
+			<p>Again, there are many more rotations you could use!  But no matter which scheme you go with, the most important rule to go by is to always... ALWAYS... make sure 
+			you get your next runner to the next exchange before the current runner gets there!  As long as you just do that, you'll have done the relay successfully!</p>"),
+		array("q"=> "Does the relay run overnight?", "a"=> "<p>Yeppers... for reals!</p>"),
+		array("q"=> "Will I get to sleep?", "a"=> "<p>Maybe.  </p>"),
+		array("q"=> "Are there Rules? Where can I find them?", "a"=> "<p>Yes, there are rules designed with everyone's safety in mind, for teams to compete fairly, and to keep 
+			the race moving smoothly.  They are linked below, and upon registering, you are required to check the box to indicate that you are aware of the rules and agree with 
+			the release of liability.</p>
+			<p><strong><a href=\"/files/TIR_Rules.pdf\" onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/TIR_Rules.pdf']);\">The RULES! </a></strong></p>"),
+		array("q"=> "Do we need to provide volunteers?", "a"=> "<p>NO! Although every other relay requires teams within 100 miles of the course to provide 2 volunteers, we 
+			are happy to save you from this significant hassle!!  That said, if you or someone you know would like to help, by all means, please let us know. </p>"),
+		array("q"=> "Can teams smaller than 8 participate?", "a"=> "<p>Yes, teams smaller than 8 may participate, but please contact us if this is your plan.</p>"),
+		array("q"=> "What pace do I need to run to participate?  What is the average team pace?", "a"=> "<p>Teams need to be able to move along the course at about a 10:45-11:00 per mile 
+			pace or faster.  Keep in mind, though, that the 10:45 pace required does not mean that every runner has to be able to run that.  If a team has a runner that runs 
+			8:30 pace, then that offsets a 12:45 pace runner on the same team.  If you want to participate in the TIR, but do not think your team can run this pace, we do allow 
+			you to sign up as a \"Untimed\" team.  Untimed teams are allowed to periodically forego traditional hand-offs, starting some runners early, in order 
+			to move along the course at a faster rate.  For example, if you start your next runner 15minutes early on 4 different occasions (please remember to not leave your 
+			runner that's coming in!), your team will \"save\" an hour (which works out to 17 secs per mile).  Of course, these teams are separated out in the final results 
+			as we will not know their actual time.  In the 2011 TIR, a team with a few walkers were able to complete the relay in this fashion.<br/><br/><br />
+			The average pace for all the teams is 8:30min/mile, which results in an average finishing time of just under 29 hours.  In our experience, we know that teams almost 
+			always run faster than they think they will.... that's just how it is... we don't know why!</p>"),
+		array("q"=> "What time does the relay start and end?", "a"=> "<p>We work with each team to establish a predicted pace. Almost every team sandbags, meaning they submit 
+			a time that is slower than what they will run, but we know that is not your team (smile)!<br/><br/><br />
+			These predicted times help us slot every team's start time.  The slowest teams - those looking to run between 10:00 and 11:00 min/mile - start earliest on Saturday 
+			morning.  The first team will start at 6:00AM. Then, the majority of teams will receive start times in the 7:00 to 11:00AM time frame.  Finally, the really speedy 
+			folks start in the afternoon, with the very fastest starting after 2PM.<br/><br/><br />
+			Those very fastest teams will reach the monument first... and actually quite a bit ahead of the pack.  Most teams reach the San Jacinto monument between 1 and 4PM 
+			on Sunday, but several teams continue to finish all the way until about 6:00PM.</p>")
+	)),
+	array("cat"=> "Captain", "qa"=> array(
+		array("q"=> "What are the responsibilities of team captains?", "a"=> "TIR Team Captains are leaders!  Their first responsibility is to commit to the event so that others will 
+			follow their lead... otherwise, friends could talk forever	about sometime doing the TIR.  After that, Team Captains make decisions as well as pass on important info to 
+			their team.  They are enthusiastic, and they encourage the team!"),
+		array("q"=> "How do I register?", "a"=> "<p>First, decide whether your team is entering conventionally (paying for the whole team at once) or by having each team member pay individually
+			(which can be A LOT more convenient for the Team Captain). Once you know that, click on the <strong><a href=\"/register\">registration link</a></strong> to easily sign 
+			up your team. After selecting to register as a team captain, and you'll be presented with a entry form which asks for some team information... Don't be concerned if you do 
+			not know the team's name, song, pace, etc.  All of this information can be provided later 
+			(by March 5).  The only initial information required is your own information (name, email, address, DOB, password, shirt and sock sizes, and 10K pace).  You'll select 
+			whether payment will be made for the entire team or individually, you'll read the rules and liability release (and click that you have done so), and then you'll click 
+			submit!<br/><br/></p>
+			<p>Further down the page will allow you to buy a few extra items.  You can purchase 5 X 3 Texas State flags or Come and Take It flags, or you may want to buy an extra shirt or 
+			socks for your faithful roadies (team support people)!  Make your selections and then click submit!<br/><br/></p>
+			<p>The next page is the \"Invoice\" page which will show the total of your purchase.  After you click submit this time, you will be sent to Paypal where you will complete 
+			your registration by remitting payment.  All major credit cards are accepted, and you do not need a Paypal account to make payment.  The whole process is easy and should 
+			not take any longer than 5 minutes.</p>"),
+		array("q"=> "Do I need a complete team to register?", "a"=> "<p>No.  In fact, many teammates do not commit until after the team captain does!  We do want teams to be complete 
+			in early March, but if last minute changes need 
+			to be made... so be it! (Just please understand that we will do our best to accommodate for shirt sizes, but we can not totally guarantee the correct shirt sizes for these 
+				late changes.) </p>"),
+		array("q"=> "What kind of team do we make? (team categories)", "a"=> "<p>We're sure that you make a TOTALLY AWESOME team!!!<br/><br/></p>
+			<p>Oh, you're asking about the team categories!  The TIR has the categories of Mens, Womens, and Mixed teams in the Open, Masters, Veterans, and Corporate divisions.  To 
+			be in the Masters division or Veterans division, 
+			everyone on the team must be over 40 or 50 years of age, respectively, on the day of the race.  Corporate teams must have registered as a corporate team (higher fee) and 
+			have over half of the team members be from the organization.  <br/><br/></p>
+			<p>Mixed teams require at least 1 male and 3 females.  Women's teams are comprised 100% of females, so if a team is made of all women with the exception of one guy, then 
+			this is would make a mixed team.  Men's teams can 
+			have up to 2 women on the team, and still be categorized as a men's team.  Be clear that this is merely a TIR team categorization and not a statement made about these 
+			women!  We have witnessed women on \"men's teams\" who indeed
+			were undoubtedly females!<br/><br/></p>"),
+		array("q"=> "How do I find teammates?", "a"=> "<p>Teammates are all around you -  All you have to do is ask!  If you run with a small group, belong or know of a running club, 
+			frequent a running store, workout at a gym, have 
+			work colleagues, or connect with others in just about any kind of social club, we know you can find a team.  Facebook is also an effective tool to use to find others who 
+			would love to join you for the TIR adventure!</p>"),
+		array("q"=> "What kinds of decisions should I make (or help my team make)?", "a"=> "<p>Here are a few:<br/><br/><br />
+			<strong>Team:</strong><br />
+			What will your team name be?<br />
+			What are you doing to demonstrate your awesome and fun Texan Spirit?<br />
+			Who's running which legs?<br/><br/><br />
+			<strong>Sleeping Arrangements:</strong><br />
+			Staying in Gonzales on Friday night?<br />
+			Staying at the Wallis HS on Saturday night? (Highly recommended - The $5 per person suggested donation is a local fundraiser.  Trying to work out a hotel in Saturday 
+				during the race can be challenging.)<br />
+			Staying in Houston Sunday night?<br/><br/><br />
+			<strong>Food:</strong><br />
+			Everybody bringing their own?<br />
+			Is the team purchasing food to share?<br />
+			Do you plan to eat at restaurants along the course?<br/><br/><br />
+			<strong>Transportation:</strong><br />
+			Renting vans or using your own vehicles?<br />
+			Will you have roadies or team moms? (Typically, these support people act as drivers, navigators, and moral boosters.)<br/><br/><br />
+			<strong>Other:</strong><br />
+			Are you going to the totally rockin' (and free) party on Friday, April 1, in Gonzales?<br />
+			Who's responsible for decorating the van(s)?</p>"),
+		array("q"=> "Can you give me a general timeline?", "a"=> "<p>Here is a very high-level schedule to work from:<br/><br />
+			<strong>1)</strong> Register your team.  You have until Feb 24.<br />
+			<strong>2)</strong> Provide all the team and information (as completely as possible) by March 1.<br />
+			<strong>3)</strong> Receive Start Time Email (March 15).  If you do not receive this email, then it may be getting filtered out of your in-box.  If so, contact 
+			us, so we can make sure that you get this informative email.<br />
+			<strong>4)</strong> Go to the TIP - The Texas Independence Party on Friday, March 24, in Gonzales!  You can also pick up your team packet early at the Memorial Museum (414 
+			Smith Street), where the start line is located.<br />
+			<strong>5)</strong> Start your race on Saturday, March 25!<br />
+			<strong>6)</strong> Finish all together on Sunday, March 26!<br />
+			<strong>7)</strong> Bask in perpetual and eternal glory... until the 2018 TIR (but be sure not to forget to register)!</p>"),
+		array("q"=> "What kind of equipment should my team bring?", "a"=> "<p><strong>TEAM:</strong><br />
+			- At least 2 flashlights or headlamps.  <strong>(Required at check-in)</strong>  Every runner starting a leg after 7PM must run with a flashlight or headlamp until sunrise 
+			on Sunday.<br />
+			- At least 2 reflective vests or belts. <strong>(Required at check-in)</strong>  As with the lights, every runner starting a leg after 7PM must run with a flashlight or 
+			headlamp until sunrise on Sunday. (Other lights, such as large belt buckle lights are fine in lieu of a flashlight or headlamp.)<br />
+			- LED blinking lights (Highly recommended.)<br />
+			- First-aid kit<br />
+			- Vehicles (not to exceed 24 feet in length)<br />
+			- IDs for team members.  (IDs for master or veteran teams could be checked at check-in.)<br />
+			- Stop watches, clipboard, pens<br />
+			- Cooler with ice<br />
+			- Snacks, drinks, etc.<br />
+			- Maps (course maps, Houston, and Texas road maps)<br />
+			- Cell phones<br />
+			- Baby wipes, spray bottles, or some other creative washing method<br />
+			- team toilet paper<br />
+			- Picnic blanket, tarp, and maybe even club tent for finish line area.<br/><br/><br />
+			<strong>INDIVIDUAL:</strong><br />
+			- Extras of the required items an individual may want to bring (reflective vest, blinkies, flashlight, etc.)<br />
+			- Phone<br />
+			- Camera<br />
+			- Cap or visor<br />
+			- Clothes (for changing after runs, and also for all kinds of surprising weather... hot, cold, windy)<br />
+			- Change of shoes<br />
+			- Plastic bags for damp clothing<br />
+			- Dog deterrent<br />
+			- Sleeping bag, pillow, toiletries, sunscreen, sunglasses<br />
+			- Water bottle<br />
+			- Sandals or flip-flops for between runs<br />
+			- Money for meals, etc.</p>"),
+		array("q"=> "What if a teammate bails at the last moment?!", "a"=> "<p>First, a little bit of prevention goes a long way towards keeping teammates committed.  Ensuring that 
+			your teammates have a little skin in the game simply 
+			works!  Some team captains collect all of the entry fees upfront, indicating that these are non-refundable.  Also, keep your team members engaged by reminding them of the 
+			TIR frequently.  Finally, explicitly communicate 
+			your expectation that your team members not flake out, but IF for some reason they think they may back out it is absolutely imperative that they let you know as soon as 
+			possible.  It is one thing to find a sub a few weeks 
+			out from the event - very doable.  It is a little more difficult to find a replacement runner a day or two from the race.</p>
+			<p>In advance, have a couple of potential substitute teammates lined up, just in case one of your teammates can not run.  Also, keep in mind, that you can run the TIR with 
+			fewer teammates.  If you have a team of 12 (so 4 
+			were running 4 legs and 8 were running 3 legs), but one bails, then your team of 11 could run it with 7 running 4 legs and 4 running 3).  For this reason, many teams go for 
+			having teams of 12 - so that if 1 or 2 can't run, they are still okay.</p>
+			<p>In the last couple of weeks, activity on the Texas Independence Relay facebook page will be increased (with teams looking for replacements).  If your team has already 
+			paid for a whole team's entry fee, or your team has 
+			paid individually, reaching 12 members, we do not charge any fee for this substitution.  However, all teammates must register in order to acknowledge the rules and 
+			liability release before running in the TIR.</p>"),
+		array("q"=> "How do I divide the legs?", "a"=> "<p>Unlike most overnight relays, the TIR allows flexibility in team size as well as for the allocation of the legs!  The largest 
+			determining factor in how much every one on the 
+			team is running is the team size.  Runners on teams of 8 will run about 25 miles each, while runners on teams of 12 will run ~17 miles on average over the course of the 
+			weekend.<br/><br/><br />
+			If you have a newer runner who doesn''t run much, you can give this runner 3 of the shorter legs so that they are only running about 12 miles in total with breaks in 
+			between!  Or, you can give your mileage junky the longer 
+			legs.  You can have runners do back-to-back legs, if that works best for your team.  Your team should split the number of legs as evenly as possible, but exceptions are 
+			allowed (illness / injury).<br/><br/><br />
+			A tool to help you divide the legs and establish a predicted pace is the TIR's Predictor.  To download, click on the link below... you will need to enable macroes when it 
+			comes up.<br/><br/><br />
+			<strong><a href=\"/files/TIR_Pace_Predictor.xls\" onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/TIR_Pace_Predictor.xls']);\">TIR Predictor</a></strong>
+			<br/><br/><br />
+			The two below files provide a quick view of the leg lengths, their difficulty rankings, and short summaries.  One is a pdf and the other is an excel file.<br/><br/><br />
+			<strong><a href=\"/files/TIR_Leg_Summary_and_Rankings.pdf\" onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/TIR_Leg_Summary_and_Rankings.pdf']);\">Leg 
+			Rankings (pdf) </a></strong><br />
+			<strong><a href=\"/files/TIR_Leg_Summary_and_Rankings.xls\" onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/TIR_Leg_Summary_and_Rankings.xls']);\">
+			Leg Rankings (.xls)</a><br />
+			</strong></p>"),
+		array("q"=> "Do I need to keep track of times?", "a"=> "<p>It is strongly recommended that your team keep a detailed record of times.  The TIR will keep record your official 
+			finishing times, and it is good to be able to confirm 
+			with the teams' timesheets as well!  Also, if you would like to know all of your individual splits, it is up to your team to keep that.  Finally, If a team suspects another 
+			team of cheating, it can be good to be able to 
+			review the timesheet to see if it makes sense.<br/><br/>Below is a link to a handy spreadsheet that you can easily use to keep your times and send to us afterward!<br/><br />
+			<strong><a href=\"/files/TIRTeamTimingSheet2013.xls\" onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/TIRTeamTimingSheet2013.xls']);\">2013 TIR Teammates 
+			Timesheet</a></strong></p>"),
+		array("q"=> "TIR Captains' Tips of the Trade!", "a"=> "<p>We invite veteran TIR captains to let us know by way of <strong><a 
+			href=\"http://www.facebook.com/pages/The-Texas-Independence-Relay/27517307133\" 
+			onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http://www.facebook.com']);\">Facebook</a></strong> or email some helpful hints towards being an effective 
+			and awesome Team Captain that we can share here!<br/><br/><br />
+			<strong>1) Ruth Fields, Captain of the Raging Aging, (who will be running their 5th TIR this year) has this to share:</strong></p>
+			<blockquote><p>Every year, we print out a detailed schedule with one copy for each van.  (My husband, a retired Army officer, calls it an “operations order.”)  The schedule 
+			lists every exchange and includes who is in which 
+			van, who is running and in what order.  It’s idiot proof, or should I say, friendly to those who are sleep deprived and not thinking properly.  The schedule also tells 
+			approximately how much time each vanload can spend at the junior high gym in Wallis to allow for travel time.  It works very well!</p></blockquote>
+			<p><br/><br />
+			<strong>2) Craig Potts, A Multi-year participant and Team Captain, has informed us that:</strong></p>
+			<blockquote><p>It's a good idea to print out the leg directions, have them laminated, and then cut them up into the individual legs so that your teammates can carry them on 
+			their leg without them getting totally destroyed beyond recognition.</p></blockquote>")
+	)),
+	array("cat"=> "Course", "qa"=> array(
+		array("q"=> "What are legs?", "a"=> "<p>Legs are defined distances in a race that individual teammates are slated to run.  The TIR has 40 legs, ranging from 2.97 miles to 6.79 
+			miles in length.  They average right at 5 miles, and a majority of the legs are between 4 and 6 miles.</p>"),
+		array("q"=> "Prologue and Epilogue?", "a"=> "<p>The TIR Prologue and Epilogue runs accentuate the team aspects of the TIR.  They are short celebratory runs that teams complete 
+			together.  The Prologue runs from the Memorial Museum in Gonzales, around the city's historic courthouse in the center of town and back toward the museum!  The Epilogue is 
+			the final 150 meter approach to the San Jacinto Monument!<br/><br/><br />
+			Your team start time begins at the beginning of the Prologue, so some competitive teams send their Leg 1 runner ahead on the Prologue (going directly into Leg 1) while the 
+			rest take it easy on the Prologue.  Your team's time ends, at the finish of the race, but the Epilogue is very short.<br/><br/><br />
+			While it is not absolutely mandatory that all team members be present at the Prologue and Epilogue (if you or your child is getting married at the same time, you may want 
+			to choose to go to the wedding ceremony instead), it is highly recommended.  You won't want to miss them!</p>"),
+		array("q"=> "Is the TIR course hilly?", "a"=> "<p>The TIR has some rolling hills - especially in the beginning as you leave Bastrop.  However, from Flatonia to Columbus, the 
+			hills begin to flatten, and then from Columbus through Houston, the course is flat.  That's not to say that there are no hills... even the last leg has a nice incline to go 
+			over the 225 overpass!</p>"),
+		array("q"=> "Is it dark at night?", "a"=> "<p>Usually.</p>"),
+		array("q"=> "Where can I find the course description?", "a"=> "<p>Consult the <strong><a href=\"/map\" >Interactive Course Map</a></strong> for all the course info you could 
+			want!  You can zoom in and out on the course map, review leg elevation profiles, and click on the legs to read more about them!</p>"),
+		array("q"=> "Is the course marked?  How?", "a"=> "<p>Yes, the course is marked.  Primarily, you will be on the lookout for painted (temporary paint) arrows and orange cones 
+			where there are turns.  The TIR arrows consist of a red dot, a blue dot, and then a white arrow.  Also, the cones have an easy-to-see reflective arrow sticker on them, 
+			pointing you in the way you should go.  That said, it is imperative for every runner to know their legs so that they could run them with no markings!  Use the markings 
+			to confirm that you're on the route rather than completely relying upon on them.</p>"),
+		array("q"=> "How do we know where to exchange?", "a"=> "<p>The course maps provided on the website as well as in your event booklets are detailed, and they have the precise 
+			coordinates of where each exchange is located.  When you are coming upon an exchange, you will find it easy to recognize.  There is a painted Texas flag on the pavement, 
+			a pop-up tent with a Come and Take It flag, and are large Texas swooper flag.  There will be people at the exchanges, and at night most of the exchanges have large 
+			construction lights. <br/><br/><br />
+			You won't need to worry  about noticing the exchanges, but you will want to make extra sure that you are going to the right one!  The first exchange is AFTER leg 1, 
+			Exchange 2 is at the end of leg 2, and so on!</p>"),
+		array("q"=> "Are there police officers? EMS?", "a"=> "<p>Yes, there are well over 100 officers that help out with the TIR (many assisting throughout Houston at traffic 
+			lights).  There is also EMS that moves along with the event throughout the duration of the TIR.  This year, we're excited that the Texas State Guard is using the TIR as 
+			an exercise for disaster preparedness!  We don't know if it is a compliment that the TIR is being likened to a disaster... we prefer to call the TIR an act of God!</p>"),
+		array("q"=> "Are food and water available on the course?", "a"=> "<p>Yes and no. There may be exchange points where a kind sponsor may provide food, and there are certainly 
+			many restaurants along the route. We have even heard stories of exceptionally benevolent teams! BUT, if you are counting on the TIR to feed you, then you may be in for 
+			quite an arduous endeavor!  In all seriousness, it is up to the teams to bring or acquire their own food and hydration.</p>"),
+		array("q"=> "Are there restrooms on the course?", "a"=> "<p>Yes, there are portable restrooms at almost every exchange!  The only notable exception is at Exchange 30 in 
+			George Bush Park. The parks people will not allow us to put any at this exchange, noting that there are several remotely nearby (at other places in the park).</p>")
+	)),
+	array("cat"=> "Safety", "qa"=> array(
+		array("q"=> "Where do I sleep?", "a"=> "<p>While there are hotels in Sealy, Brookshire, and Katy that are plausible, those that have tried this have found that they 
+			really don't have much time at all to make use of their rooms.  The most popular option is to stay a couple of hours at Brazos High School in Wallis, about 2 
+			miles east of Exchange 21 on Hwy36.  The folks in Wallis ask for a suggested donation of $5/person for the use of the facilities (including showers!), which they 
+			use as a fundraiser. Besides these two options, some teams find parking lots and sleep in their vans.<br/><br/><br />
+			<strong>Do not attempt to sleep in any place in which there is ANY WAY POSSIBLE that a van could reach.</strong></p>"),
+		array("q"=> "Are there lights?", "a"=> "<p>Yes, at most of the night time exchanges, there are large traffic construction floodlights that light up the area well.</p>"),
+		array("q"=> "Will I be running alone at night?", "a"=> "<p>Late Saturday night, the teams converge closer together.  So, while there is a chance that some of the 
+			faster teams could still be alone in the back, the vast majority of the teams will be amongst other teams.  So, it is unlikely that your night time runners will 
+			be all alone, not able to see any one else.  The first year, this was by far the most asked question, but it is not nearly asked as often now, and we more often 
+			hear about how the nighttime legs are many runners' favorites!<br/><br/><br />
+			That being the case, if your team does find itself up ahead of the race, or in a gap in which there are no other teams, your team can employ a technique called 
+			\"shadowing\" your runner.  Shadowing your runner does NOT mean driving slowly right behind your runner.  Driving behind your runner is not permissible.  Also, 
+			in order to do so, either the runner would be running on the wrong side of the road, or the vehicle would be driving on the wrong side.  To shadow your runner, 
+			the driver of the active van would pull ahead of the runner about 1/4 mile, still able to see the runner's blinkies and flashlight (the runner is also able to 
+			see the van).  The van will pull completely off the road, and put on the hazard lights.  Depending on the conditions, the driver may want to keep two wheels 
+			on the pavement (getting stuck is sort of a bummer).  Then the van will watch as the runner goes by.  (As an aside, if teammates get out to cheer on the runner, 
+			it is VERY important that they, too wear reflective gear and lights, and they must use good judgement... not running across the road in front of other vehicles, 
+			or anything like that.  Other drivers are aware of the runners, but they often do not expect spectators, too.)  After the team's runner gets about a 1/4 mile ahead, 
+			the van will pull out, pass the runner, and repeat the process.  It only takes a few repetitions of this before your team reaches the next exchange.</p>"),
+		array("q"=> "Do I need reflective gear?  When do I need to wear it?", "a"=> "<p>Yes, not only will your team be required to show that you have reflective gear and 
+			lights to run with at night (flashlights and/or headlamps are required and blinkies are strongly recommended), but you'll simply want them to be very visible 
+			at night.  You should wear these items when starting a leg after 7PM on Saturday (the sun will be down at 8PM) until the sun comes up Sunday morning.</p>"),
+		array("q"=> "Can I jam to my tunes while I am running?", "a"=> "<p>No. Well, maybe...  Runners may not have earbuds in their ears or headphones covering their ears, but 
+			there are some phones with a loud enough speaker that can be used.  We've also seen other creative ways to hear tunes, BUT it is very important that this does not impede
+			your hearing and general awareness. </p><p> Teams often jam to music in the vans, so you could totally rock your tunes while riding.</p>"),
+		array("q"=> "How do you enforce the rules?", "a"=> "<p>Quickly... Severely... <br/><br/></p>
+			<p>Seriously, though, the rules are there for your (and everyone's) safety.  We have a \"Safety Patrol\" staff that continuously monitors the course, and one 
+			thing we are particularly stringent about... if they stop and ask you to do something, we need you to do it. Thanks!!  Also, a number is provided before the event for teams to help keep each other safe.</p>")
+	)),
+	array("cat"=> "Other", "qa"=> array(
+		array("q"=> "What kinds of awards are there?", "a"=> "<p>The TIR gives LOTS of awards!  First we give superlative finisher medals!  Then, we have nicely made plaques 
+			that look like Texas Historical markers for placing in the top 3 in your category, exhibiting great Texas Spirit, and for the best team name! 
+			Finally, we give a highly coveted corporate cannon award to the highest placing corporate team.<br/><br/><br />
+			The competitive awards are for Mens, Womens, and Mixed in the Open, Masters, Veteran, Corporate Open, Corporate Masters, and Corporate Veteran divisions.  Mixed 
+			teams require at least 3 females. Everyone on a Masters team must be over 40, and everyone on a Veteran team must be 50 or older.<br/><br/><br />
+			</p>"),
+		array("q"=> "When are awards handed out?", "a"=> "<p>The awards are 
+			delivered after the event.</p>"),
+		array("q"=> "In addition to the glory of completing the TIR, what do I get?", "a"=> "<p>Everything else pales in comparison, but you also get!</p>
+			<p>1) Event Tech Shirt<br />
+			2) Event Tech Socks<br />
+			3) Finisher's Medal<br />
+			4) Pre-Race Party!<br />
+			5) Team Baton<br />
+			6) Finisher's Pizza and drinks (sorry, no drink drinks... it's a state park)<br />
+			7) Possible Awards</p>"),
+		array("q"=> "Does the race benefit any charities?", "a"=> "<p>Yes!  This year the TIR is partnering with Team RWB (Red, White, and Blue)!  Team Red, White & Blue 
+			wants to transform the way America supports its wounded veterans when they return from active duty. Our intention is to create a community of veterans, their 
+			families, and American citizens who can enjoy authentic social interaction and shared experiences through activities and events all across America.  They will 
+			have several teams in the TIR, and they will be supporting you at the exchange points all along the way!</p>
+			<p><a href=\"https://npo.networkforgood.org/Donate/Donate.aspx?npoSubscriptionId=1003400&code=Button01\" 
+			onclick=\"javascript:_gaq.push(['_trackEvent','outbound-article','http://npo.networkforgood.org']);\">Click here to donate to the cause!</a></p>
+			<p>OR, email Georgina Biehl at georgina.biehl@teamrwb.org to get plugged in as a volunteer and help Team RWB at the TIR!</p>"),
+		array("q"=> "When does registration close?", "a"=> "<p>February 24, 2017... at 11:59:59pm.</p>"),
+		array("q"=> "How do I register?", "a"=> "<p><a href=\"/register\" >Try this!</a></p>"),
+		array("q"=> "How do I volunteer?", "a"=> "<p>TIR Volunteers (Volun-TIRs as we refer to them) are an elite class of people.  Wise, Beautiful (inside and out), 
+			Strong, Relentless, Loving, Tenacious, Intelligent, Good-Humored, Laid-back, Highly Productive, Humble... these are just the first descriptors that come to 
+			mind for Volun-TIRs.  It obviously isn't for everyone.  However, If you possess these qualities, and you are not running the relay, the TIR is calling for 
+			your assistance!  Use the \"Contact Us\" form (the link is on the left menu) to let us know where you're coming from, how long you're available, and that 
+			you're coming to help!</p>"),
+		array("q"=> "What will the weather be like?", "a"=> "<p>It's Springtime in Texas, so you know the weather is always the same! Seriously, you should be prepared 
+			for both hot and cold, wet and dry, windy and still, with hurricanes, extreme drought, dust storms, and freezing rain.  You get the picture.  HOWEVER... we have it on a good word that this year will be perfect! <br/><br/></p>
+			<p>Average High: 76 degrees<br />Average Low: 57 degrees</p>"),
+		array("q"=> "How should I train for the TIR?", "a"=> "<p>Training specifically for the TIR is easy and fun!  We suggest the following 7-week plan: <br/><br/><br />
+			<strong>1) </strong>First, arrange to be the van driver for an across-the-country road trip with a van-load of  10 - 15 year old area youths.<br />
+			<strong>2)</strong> Then, stop periodically (ideally 3 or 4 times per day) to run a 5 miler. Don't sleep.<br />
+			<strong>3)</strong> It takes some time to work into this regimen, so for the first week, only do this one day.  However, add another day each week, so that by 
+			the 7th week, you are doing this for all 7 days!<br/><br/><br />
+			Immediately after finishing this, you'll be ready for the TIR.  Congratulations!!!<br/><br/><br />
+			Or, an alternative plan would be to train as though you would for a good Half-Marathon!</p>"),
+		array("q"=> "How can I contact the Race Directors?", "a"=> "<p>The TIR race directors greatly enjoy hearing from you and want to know what you have to say. 
+			Write or call Jay any time for any reason!<br/><br/></p>
+			<p>Email - Jay@TexasIndependenceRelay.com<br />
+			Call - 512-716-5041<br/><br/></p>
+			<p>If you have difficulties during the event, you can consult this website, the e-mail that was sent 10 days prior to the event, or you can run information up the chain by informing 
+			the race official at the exchanges or the safety patrol.<br/><br/></p>"),
+		array("q"=> "How do I sponsor the TIR?!", "a"=> "<p>Why, we're glad you asked!!!  Email us at 
+			Admin@TexasIndependenceRelay.com to get moving on a great opportunity!<br/><br/><br />
+			<strong><a href=\"/files/2012_TIR_Sponsor_Packet.pdf\" onclick=\"javascript:_gaq.push(['_trackEvent','download','/files/2012_TIR_Sponsor_Packet.pdf']);\">Click 
+			Here to download the TIR's Sponsor Packet</a></strong></p>"),
+		array("q"=> "Any final words of advice?", "a"=> "<p>You're going to have a GREAT time... TIR runners ROCK!! </p>
+			<p>Advice... let's see...<br/><br />
+			Establish a couple of team \"rules\":<br />
+			1)  People try to run well at relays even when it is all for fun, so there is no need to be critique-ful of another runner's running.<br />
+			2) There's absolutely no whining allowed at the TIR. <br/><br />
+			Know your route, and take directions with you. <br/><br />
+			Get the next runner to the next exchange before the current runner arrives there.<br/><br />
+			Always . Be . Safe .  ALWAYS<br/><br/><br />
+			<strong>Have fun!!!!</strong></p>")
+	))
+)

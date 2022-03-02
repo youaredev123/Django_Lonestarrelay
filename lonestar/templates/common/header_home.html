@@ -1,0 +1,34 @@
+{% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="{% static 'main/header.js' %}"></script>
+
+
+    
+<header data-is-absolute-layout="false" data-is-mobile="false" data-state="fixedPosition transition-allowed" data-header-top="0" style="position:fixed;margin-top:0;top:0;z-index:48;left:0;margin-left:0;width:100%;bottom:;right:" class="style-jl5tydzn" id="SITE_HEADER">
+    <!-- <div style="left:0;width:100%" id="SITE_HEADERscreenWidthBackground" class="style-jl5tydznscreenWidthBackground"></div> -->
+    {% include "common/headertop.html" %}
+    <nav class="nav headernav">
+        <div class="container">
+            <div class="logo">
+                <a href="#">
+                    <img width="97px" transform="" id="comp-jqg0r3ibimgimage" style="height: 75px;" src="{% static 'img/irelay_mark_white_icon.png' %}" > </img>
+                </a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/tirinfo">TIR Info</a></li>
+                    <li><a href="/tirresource">TIR Resources</a></li>
+                    <li><a href="/results">Results</a></li>
+                    <li><a href="/merchandise">Merchandise</a></li> 
+                    <li><a href="/register/index"><span id="comp-jciuh0xolabel" class="style-jsjrg7t5label">Register</span></a></li> 
+                </ul>
+            </div>
+            <span class="navTrigger" >
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+</header>

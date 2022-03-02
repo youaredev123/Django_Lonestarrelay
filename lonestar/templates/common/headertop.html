@@ -1,0 +1,84 @@
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 col-sm-6">
+                <div class="header-top-first clearfix">{% csrf_token %}
+                    <ul class="social-links clearfix hidden-xs">
+                        <li class="facebook"><a target="_blank" href="https://www.facebook.com/TexasIndependenceRelay"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a target="_blank" href="https://twitter.com/texasindrelay"><i class="fa fa-twitter"></i></a></li>
+                        <li class="instagram"><a target="_blank" href="https://instagram.com/texasindrelay/"><i class="fa fa-instagram"></i></a></li>
+                        <li class="youtube"><a target="_blank" href="https://www.youtube.com/channel/UCIZd0RYT1FFB59vZH7tEyoA"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                    <div class="social-links hidden-lg hidden-md hidden-sm">
+                        <div class="btn-group dropdown">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
+                            <ul class="dropdown-menu dropdown-animation">
+                                <li class="facebook"><a target="_blank" href="https://www.facebook.com/TexasIndependenceRelay"><i class="fa fa-facebook"></i></a></li>
+                                <li class="twitter"><a target="_blank" href="https://twitter.com/texasindrelay"><i class="fa fa-twitter"></i></a></li>
+                                <li class="instagram"><a target="_blank" href="https://instagram.com/texasindrelay/"><i class="fa fa-instagram"></i></a></li>
+                                <li class="youtube"><a target="_blank" href="https://www.youtube.com/channel/UCIZd0RYT1FFB59vZH7tEyoA"><i class="fa fa-youtube-play"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-10 col-sm-6">
+                <div id="header-top-second"  class="clearfix">
+                    <div class="header-top-dropdown">
+                        <div class="btn-group dropdown">{% csrf_token %}
+                            
+                            {% if request.user.is_authenticated %}
+                            <button type="button" class="btn"><a href="/team">Team</a></button>
+                          
+                            {% endif %}
+                            {% if request.user.is_authenticated %}
+                            <div class="btn-group dropdown">
+                                <button id="barname" type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+
+                                    {{request.user.username}}
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                    <li>
+                                    <a href="/changepw/index">Change Password</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% if not request.user.is_authenticated %}
+                        <div id="logindropdown" class="btn-group dropdown">{% csrf_token %}
+                            <button id="barlogin" type="button" class="btn dropdown-toggle" data-target="#"><i class="fa fa-user"></i> Login</button>
+                            <ul class="dropdown-menu dropdown-menu-right dropdown-animation">
+                                <li>
+                                    <form id="loginForm" class="login-form" action="#">
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">Email</label>
+                                            <input name="loginemail" type="text" class="form-control" placeholder="">
+                                            <i class="fa fa-user form-control-feedback"></i>
+                                        </div>
+                                        <div class="form-group has-feedback">
+                                            <label class="control-label">Password</label>
+                                            <input name="loginpw" type="password" class="form-control" placeholder="">
+                                            <i class="fa fa-lock form-control-feedback"></i>
+                                        </div>
+                                        <input type="hidden" name="loginreturn" value="">
+                                        <button type="submit" id="btn_login" data-url="{% url 'log_In' %}"  class="btn btn-group btn-dark btn-sm inline">Log In</button>
+                                        <div id="loginstatus" class="inline"></div>
+                                        <ul>
+                                            <li>Forgot password? Type your email above and <a id="forgotpw"  data-url="{% url 'forget_Pwd' %}" >click here</a>.</li>
+                                        </ul>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                        {% else %}
+                        <div class="btn-group dropdown">
+                            <button id="barlogout" type="button" class="btn dropdown-toggle" data-url="{% url 'log_Out' %}" data-toggle="dropdown" >Logout</button>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

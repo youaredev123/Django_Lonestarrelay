@@ -1,0 +1,40 @@
+#soapAfterPagesContainerinlineContent {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+#soapAfterPagesContainerinlineContent-gridContainer {
+    position: static;
+    height: auto;
+    width: 100%;
+    min-height: auto;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+}
+
+#CONTROLLER_COMP_CUSTOM_ID {
+    position: absolute;
+    top: -102px;
+    left: 20px;
+}
+
+#soapAfterPagesContainercenteredContent {
+    position: relative;
+}
+
+#soapAfterPagesContainerinlineContent-gridWrapper {
+    pointer-events: none;
+}
+
+#soapAfterPagesContainerinlineContent-gridContainer > * {
+    pointer-events: auto;
+}
+
+#soapAfterPagesContainerinlineContent-gridContainer > [id$="-rotated-wrapper"] {
+    pointer-events: none;
+}
+
+#soapAfterPagesContainerinlineContent-gridContainer > [id$="-rotated-wrapper"] > * {
+    pointer-events: auto;
+}

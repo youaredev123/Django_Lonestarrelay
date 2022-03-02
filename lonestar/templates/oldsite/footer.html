@@ -1,0 +1,308 @@
+
+{% load static %}
+
+<img src="{% static 'images/Icons_On_Footer.png' %}">
+    <footer id="footer">
+        <div class="footer">
+   <!-- this part is error -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="footer-content">
+                            <div class="logo-footer"> 
+                                <img id="logo-footer" src="{%static 'images/whitelogo5.png' %}" alt=""></div>
+                                <div class="row">
+                                    <div class="col-sm-11">
+                                        {{request.user.username}}
+                                        <p>Experience your own epic victory at the Texas Independence Relay! Your ~200
+                                            mile journey traces the route of Sam Houston and the Texian army, beginning in
+                                            historic Gonzales (home of the Come & Take It skirmish) to the site of the
+                                            storied final battle for Texas' Independence at the San Jacinto Monument!</p>
+                                        <ul class="social-links circle">
+                                            <li class="facebook">
+                                                <a target="_blank" href="https://www.facebook.com/TexasIndependenceRelay">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                            </li>
+                                            <li class="twitter">
+                                                <a target="_blank" href="https://twitter.com/texasindrelay">
+                                                    <i class="fa fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li class="instagram">
+                                                <a target="_blank" href="https://instagram.com/texasindrelay/">
+                                                    <i class="fa fa-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li class="youtube">
+                                                <a
+                                                    target="_blank"
+                                                    href="https://www.youtube.com/channel/UCIZd0RYT1FFB59vZH7tEyoA">
+                                                    <i class="fa fa-youtube-play"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <h2 style="color:#ffffff" ;=";">Contact Us!</h2>
+                                        Please contact us at any time. We look forward to hearing from you!!<br>
+                                            <br>
+
+                                                <ul class="list-icons">
+                                                    <li>
+                                                        <i class="fa fa-phone pr-10"></i>
+                                                        512-716-5041</li>
+                                                    <li>
+                                                        <i class="fa fa-envelope-o pr-10"></i>
+                                                        <a href="mailto:jay@texasindependencerelay.com">admin@texasindependencerelay.com</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-bottom hidden-lg hidden-xs"></div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="footer-content">
+                                        <h2 style="color:#ffffff" ;=";">Quick Links</h2>
+                                        <nav>
+                                            <ul class="nav nav-pills nav-stacked">
+                                                <li>
+                                                    <a href="/">Home</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/register/index">Register</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% static '/files/TIR_Rules.pdf' %}">TIR Rules</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% static '/files/2019_TIR_Waiver-Minors.pdf' %}">Waiver (Minor)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tirgear_closed">TIR Gear</a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="https://www.google.com/maps/d/viewer?mid=z3ehuWxfLEH8.kvoY4mK2jDvw"
+                                                        target="_blank">Interactive Map</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% static 'files/2019_TIR_Written_Directions.pdf' %}">Written Directions</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% static '/files/TIR_Leg_Summary_and_Rankings.pdf' %}">Leg Distances & Rankings</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/downloads">Elevation Profiles</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% static '/files/2019_TIR_Exchange_Coordinates.pdf' %}">Exchange Coordinates</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/team">Team Page (must be logged in)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/faq">FAQ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% static '/files/whattobring.pdf' %}">What To Bring Checklist</a>
+                                                </li>
+                                                <li>
+                                                    <a
+                                                        href="javascript:alert('Thanks for volunteering - AWESOME!!  Please give us a call at 512-716-5041 or email us at jay@texasindependencerelay.com. Thanks!');">Volunteer!</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tictoctracking">TIC-TOC Tracking</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/tictocresults/index">TIC-TOC Results</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% static '/files/TIR_Course_Records.pdf' %}">Course Records</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="footer-content">
+                                        <h2 style="color:#ffffff" ;=";">Important Dates</h2>
+                                        <nav>
+                                            <ul class="nav nav-pills nav-stacked">
+                                                <li>November 30 - Last day for Early Registration</li>
+                                                <li>February 29 - TIR Registration Close (11:59:59PM)</li>
+                                                <li>March 2 - Texas Independence Day!</li>
+                                                <li>March 4 - Team Name and Song Finalization Due Date</li>
+                                                <li>March 18 - BIG Email (with Start Times) Sent Out</li>
+                                                <li>March 27 - The TIP! (Texas Independence Party)</li>
+                                                <li>March 28 - TIR Start (6AM - 2:30PM)</li>
+                                                <li>March 29 - TIR Finish!
+                                                </li>
+                                                <li>April 2 - 2021 TIR Registration Opens
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                        <BR>
+                                            <BR>
+                                                <!-- Begin MailChimp Signup Form -->
+                                                <h2 style="color:#ffffff" ;=";">Get TIR Emails!</h2>
+                                                    <style type="text/css">
+                                                        #mc_embed_signup {
+                                                            background: #262626;
+                                                            clear: left;
+                                                            font: 16px Helvetica,Arial,sans-serif;
+                                                            width: 300px;
+                                                        }
+                                                        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+												We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                                                    </style>
+                                                    <div id="mc_embed_signup">
+                                                        <form
+                                                            action="//TexasIndependenceRelay.us1.list-manage.com/subscribe/post?u=8d45eda6e0abd571027f276d4&amp;id=5b70a13387"
+                                                            method="post"
+                                                            id="mc-embedded-subscribe-form"
+                                                            name="mc-embedded-subscribe-form"
+                                                            class="validate"
+                                                            target="_blank"
+                                                            novalidate="novalidate">
+                                                            <div id="mc_embed_signup_scroll">
+
+                                                                <div class="mc-field-group">
+                                                                    Email Address
+                                                                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required ></div>
+                                                                    <div id="mce-responses" class="clear">
+                                                                        <div class="response" id="mce-error-response" style="display:none"></div>
+                                                                        <div class="response" id="mce-success-response" style="display:none"></div>
+                                                                    </div>
+                                                                    <!-- real people should not fill this in and expect good things - do not remove
+                                                                    this or risk form bot signups-->
+                                                                    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                                                        <input
+                                                                            type="text"
+                                                                            name="b_8d45eda6e0abd571027f276d4_5b70a13387"
+                                                                            tabindex="-1"
+                                                                            value=""></div>
+                                                                        <div class="clear">
+                                                                            <input
+                                                                                type="submit"
+                                                                                value="Subscribe"
+                                                                                name="subscribe"
+                                                                                id="mc-embedded-subscribe"
+                                                                                class="button"></div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <script
+                                                                    type='text/javascript'
+                                                                    src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+                                                                <script type='text/javascript'>
+                                                                    // (function ($) {
+                                                                    //     window.fnames = new Array();
+                                                                    //     window.ftypes = new Array();
+                                                                    //     fnames[0] = 'EMAIL';
+                                                                    //     ftypes[0] = 'email';
+                                                                    // }(jQuery));
+                                                                    // var $mcj = jQuery.noConflict(true);
+                                                                </script>
+                                                                <!--End mc_embed_signup-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="space-bottom hidden-lg hidden-xs"></div>
+                                                </div>
+                                            </div>
+                                            <div class="subfooter">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-12">
+                                                            <p>
+                                                                <a href="/register">Copyright © 2016 Texas Independence Relay</a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12">
+                                                            <nav class="navbar navbar-default" role="navigation">
+                                                                <!-- Toggle get grouped for better mobile display -->
+                                                                <div class="navbar-header">
+                                                                    <button
+                                                                        type="button"
+                                                                        class="navbar-toggle"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#navbar-collapse-2">
+                                                                        <span class="sr-only">Toggle navigation</span>
+                                                                        <span class="icon-bar"></span>
+                                                                        <span class="icon-bar"></span>
+                                                                        <span class="icon-bar"></span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                                                                    <ul class="nav navbar-nav">
+                                                                        <li class="active">
+                                                                            <a href="/">Home</a>
+                                                                        </li>
+                                                                        <li class="active">
+                                                                            <a href="/tirinfo">Race Info</a>
+                                                                        </li>
+                                                                        <li class="active">
+                                                                            <a href="/history">History</a>
+                                                                        </li>
+                                                                        <li class="active">
+                                                                            <a href="/results">Results</a>
+                                                                        </li>
+                                                                        <li class="active">
+                                                                            <a href="/openteams">Open Teams</a>
+                                                                        </li>
+                                                                        <li class="active">
+                                                                            <a href="/privacy_policy">Privacy Policy</a>
+                                                                        </li>
+                                                                        <li class="active">
+                                                                            <a href="/register/index">REGISTER NOW FOR YOUR OWN GOOD BEFORE YOU WUSS OUT!!!!</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </nav>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </footer>
+                                    </div>
+                                    <script type="text/javascript" src="{% static 'plugins/jquery.min.js' %}"></script>
+                                    <script
+                                        type="text/javascript"
+                                        src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+                                    <!-- Modernizr javascript -->
+                                    <script type="text/javascript" src="{% static 'plugins/modernizr.js' %}"></script>
+
+                                    <!-- jQuery REVOLUTION Slider -->
+                                    <script
+                                        type="text/javascript"
+                                        src="{% static 'plugins/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+                                    <script
+                                        type="text/javascript"
+                                        src="{% static 'plugins/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+
+                                    <!-- Isotope javascript -->
+                                    <script type="text/javascript" src="{% static 'plugins/isotope/isotope.pkgd.min.js' %}"></script>
+
+                                    <!-- Magnific Popup javascript -->
+                                    <script
+                                        type="text/javascript"
+                                        src="{% static 'plugins/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+
+                                    <!-- Appear javascript -->
+                                    <script type="text/javascript" src="{% static 'plugins/jquery.appear.js'%}"></script>
+
+                                    <!-- Parallax javascript -->
+                                    <script src="{% static 'plugins/jquery.parallax-1.1.3.js' %}"></script>
+
+                                    <!-- Contact form -->
+                                    <script src="{% static 'plugins/jquery.validate.js' %}"></script>
+
+                                    <!-- Initialization of Plugins -->
+                                    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+                                    <!-- Custom Scripts -->
+                                    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+                                </body>
+                            </html>

@@ -1,0 +1,77 @@
+{% load static %}
+<div style="left:0" id="PAGES_CONTAINERscreenWidthBackground" class="pc1screenWidthBackground"></div>
+<div style="position:relative" id="PAGES_CONTAINERcenteredContent" class="pc1centeredContent">
+    <div style="display:none" id="PAGES_CONTAINERbg" class="pc1bg"></div>
+    <div style="position:relative" id="PAGES_CONTAINERinlineContent" class="pc1inlineContent">
+        <div style="width:100%">
+            <div data-ismobile="false" data-is-mesh-layout="true" style="height:100%;left:0;position:relative;top:0px;bottom:0px;right:0px" class="style-k79voian" id="llaa0">
+                <div style="margin-left:calc((100% - 980px) / 2);width:980px" id="llaa0bg" class="style-k79voianbg"></div>
+                <div class="style-k79voianinlineContent" id="llaa0inlineContent">
+                    
+                    <link rel="stylesheet" href="{% static 'css/llaa0-mesh-styles.css' %}">
+
+                    <div id="llaa0inlineContent-gridWrapper" data-mesh-internal="true">
+                        <div id="llaa0inlineContent-gridContainer" data-mesh-internal="true">
+                            <div tabindex="-1" role="region" aria-label="Anchor 1" style="left:0;margin-left:0;width:100%;min-width:initial;top:0px;bottom:0px;right:0px;height:21px;position: absolute;" class="AutoWidthAnchorSkin" id="comp-jhtapon8"> </div>
+                            <!-- video section 1 -->
+                            {% include "main/video_section1.html" %}
+
+
+                            <div tabindex="-1" role="region" aria-label="Anchor 2" style="position: relative;
+                            height: -webkit-fill-available;padding: 15px;" class="AutoWidthAnchorSkin" id="comp-jsiluf30">
+                            
+                            
+                                <div id="" class="col-md-12" style="text-align:center;font-weight:bold;color:#c00000;font-size:20px;">The Cannon BOOMS in
+                               
+                            
+                                    <kmc style="text-align:center;font-size:20px;font-weight:bold;color:white;"><sapn id="countdownclock"></span>!!</kmc>
+                                </div>
+                               
+                                    
+                                <script type="text/javascript"  src="{% static 'motiongallery.js' %}" > </script>
+                                <script type="text/javascript"  src="{% static 'main/countdown.js' %}"  ></script>
+                            
+                                <script type="text/javascript">
+                                    var clock = document.getElementById("countdownclock"),
+                                        targetDate = new Date(2020, 05, 06, 06, 00, 00);
+                                    clock.innerHTML = countdown(targetDate).toString();
+                                    setInterval(function () {
+                                        clock.innerHTML = countdown(targetDate).toString();
+                                    }, 1000);
+                                </script>
+                                  
+                                
+                            </div>
+                            
+                            <!-- images_section2 -->
+                            {% include "main/images_section2.html" %}
+
+                            <!-- banner_section3 -->
+                            {% include "main/banner_section3.html" %}
+
+                            <div tabindex="-1" role="region" aria-label="Anchor 3" style="left:0;margin-left:0;width:100%;min-width:initial;top:;bottom:;right:;height:21px;position:" class="AutoWidthAnchorSkin" id="comp-jsilw803"> </div>
+                            
+                            <!-- banner_section4 -->
+                            {% include "main/banner_section4.html" %}
+                            
+                            <!-- banner_section5 -->
+                            {% include "main/banner_section5.html" %}
+                            
+                            <div tabindex="-1" role="region" aria-label="Anchor 4" style="left:0;margin-left:0;width:100%;min-width:initial;top:;bottom:;right:;height:21px;position:" class="AutoWidthAnchorSkin" id="comp-jsilzh9x"> </div>
+                            <!-- banner_section6 -->
+                            {% include "main/banner_section6.html" %}
+                            
+                            <!-- banner_section7 -->
+                            {% include "main/banner_section7.html" %}
+                            
+                            <!-- banner_section8 -->
+                            {% include "main/banner_section8.html" %}
+                            
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

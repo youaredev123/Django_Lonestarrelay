@@ -1,0 +1,152 @@
+#llaa0inlineContent {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+#llaa0inlineContent-gridWrapper {
+    pointer-events: none;
+}
+
+#llaa0inlineContent-gridContainer {
+    position: static;
+    display: grid;
+    height: auto;
+    width: 100%;
+    height: auto;
+    grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content min-content 1fr;
+    grid-template-columns: 100%;
+    box-sizing: border-box;
+}
+
+#comp-jhtapon8 {
+    position: relative;
+    margin: 0px 0 10px 0;
+    left: 0;
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: stretch;
+    align-self: start;
+}
+
+#comp-jhratfn6 {
+    position: relative;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
+    left: 0px;
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#comp-jswb4vgt {
+    position: relative;
+    margin: 0px 0px 31px calc((100% - 980px) * 0.5);
+    left: 0px;
+    grid-area: 2 / 1 / 5 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#comp-jsiluf30 {
+    position: relative;
+    margin: 9px 0 -5px 0;
+    left: 0;
+    grid-area: 2 / 1 / 3 / 2;
+    justify-self: stretch;
+    align-self: start;
+}
+
+#comp-jsijla7v {
+    position: relative;
+    grid-area: 3 / 1 / 4 / 2;
+    justify-self: start;
+    align-self: start;
+    background-color: black;
+}
+
+#comp-jsntuq2f {
+    position: relative;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
+    left: 0px;
+    grid-area: 5 / 1 / 6 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#comp-jsilw803 {
+    position: relative;
+    margin: 0px 0 10px 0;
+    left: 0;
+    grid-area: 6 / 1 / 7 / 2;
+    justify-self: stretch;
+    align-self: start;
+}
+
+#comp-jswb3qd4 {
+    position: relative;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
+    left: 0px;
+    grid-area: 6 / 1 / 7 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#comp-jsw9iyno {
+    position: relative;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
+    left: 0px;
+    grid-area: 7 / 1 / 8 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#comp-jsilzh9x {
+    position: relative;
+    margin: 0px 0 10px 0;
+    left: 0;
+    grid-area: 8 / 1 / 9 / 2;
+    justify-self: stretch;
+    align-self: start;
+}
+
+#comp-jswkwu3x {
+    position: relative;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
+    left: 0px;
+    grid-area: 8 / 1 / 9 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#comp-jsijyh2g {
+    position: relative;
+    margin: 0px 0px 0 calc((100% - 980px) * 0.5);
+    left: 0px;
+    grid-area: 9 / 1 / 10 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#comp-jswkwj93 {
+    position: relative;
+    /* margin: 0px 0px 0 calc((100% - 980px) * 0.5); */
+    left: 0px;
+    grid-area: 10 / 1 / 11 / 2;
+    justify-self: start;
+    align-self: start;
+}
+
+#llaa0centeredContent {
+    position: relative;
+}
+
+#llaa0inlineContent-gridContainer > * {
+    pointer-events: auto;
+}
+
+#llaa0inlineContent-gridContainer > [id$="-rotated-wrapper"] {
+    pointer-events: none;
+}
+
+#llaa0inlineContent-gridContainer > [id$="-rotated-wrapper"] > * {
+    pointer-events: auto;
+}

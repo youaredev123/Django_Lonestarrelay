@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>TIC-TOC Legs and ETAs</title>
+    
+
+<!--
+Comment out this CSS file as the stopwatch will not be needed until teams are added in 2016.
+<link rel="stylesheet" href="http://texasindependencerelay.com/tic-toc/soon.min.css" type="text/css">
+
+-->
+
+<script>
+var tnum,tst,tlx,tlt,tnm,tph,tem,trnr,tcum;
+tnum=getURLParameter('tnum');
+tst=getURLParameter('tst');
+tlx=Number(getURLParameter('tlx'));
+tlt=getURLParameter('tlt');
+tnm=getURLParameter('tnm');
+tph=getURLParameter('tph');
+tem=getURLParameter('tem');
+trnr=getURLParameter('trnr');
+
+
+if (trnr==undefined) {trnr="";}
+
+if (typeof trnr == "undefined") { trnr="";}
+
+if (tnm==undefined) {tnm="";}
+
+if (typeof tnm == "undefined") { tnm="";}
+
+
+tcum=[0,5.41,10.56,15.91,21.29,27.68,32.36,36.33,42.5,48.9,52.77,56.89,61.58,66.35,73.03,76.73,83.55,89.1,92.97,99.54,104.59,108.72,114.15,119.42,124.17,128.9,134.06,140.31,147.1,153.7,158.4,164.08,169.13,172.82,177.51,181.23,184.97,187.99,190.96,194.85,199.82];
+
+
+var lat =[29.50367,29.49789,29.47557,29.50243,29.55909,29.58760,29.63683,29.68679,29.68121,29.67987,29.69492,29.70269,29.69167,29.69590,29.68859,29.64185,29.57095,29.58856,29.58998,29.61013,29.62723,29.63053,29.60416,29.67940,29.69015,29.71735,29.74385,29.73489,29.76901,29.74810,29.75020,29.77631,29.75625,29.71864,29.71038,29.69309,29.68524,29.68311,29.68867,29.70005,29.74876];	var lon = [-97.44434,-97.38264,-97.30777,-97.25897,-97.21475,-97.17655,-97.13131,-97.10759,-97.00885,-96.90589,-96.84698,-96.77939,-96.70381,-96.62511,-96.53728,-96.51489,-96.45565,-96.37005,-96.31378,-96.20721,-96.12738,-96.06282,-95.97828,-95.97716,-95.89981,-95.84275,-95.77477,-95.68665,-95.64246,-95.57221,-95.49746,-95.43386,-95.37069,-95.39056,-95.33973,-95.30462,-95.25523,-95.20924,-95.16735,-95.11784,-95.08076];
+tdesc=["Start - Gonzales!","East Gonzales","Sam Houston's Oak","Scout Camp","CoRd 397 / 532","Old Moulton","Sedco on Weidemann","Downtown Flatonia","Kemlon Buildings","Downtown Schulenburg"," I-10 Underpass"," Downtown Weimar"," Borden Country Store"," Hwy 90"," Snappy's in Columbus"," Columbus Airport"," Altair"," West of Eagle Lake"," Eagle Lake"," Giant Grain Elevator"," 2 Driveways"," Downtown Wallis"," Orchard (1489 / 36)"," Downtown Simonton (1489 / 1093)"," Downtown Fulshear"," Shafer Elementary"," Luke's Locker - Cinco Ranch"," George Bush Park"," Terry Hershey Trail (Hwy 6)"," Wilcrest / Briar Forest"," San Felipe / Winrock"," Memorial Park"," Downtown Houston - Smith Fountain"," Hermann Park"," MacGregor Park"," Barnett Stadium"," Cesar Chavez HS"," Pasadena (Allendale / Shaver)"," Lonnie B. Keller MS"," Deer Park Jr High"," Finish - San Jacinto!"];
+
+function str_pad_left(string,pad,length){ return (new Array(length+1).join(pad)+string).slice(-length); } 
+
+
+var STR_PAD_LEFT = 1;
+var STR_PAD_RIGHT = 2;
+var STR_PAD_BOTH = 3;
+function pad(str, len, pad, dir) {
+    if (typeof(len) == "undefined") { var len = 0; }
+    if (typeof(pad) == "undefined") { var pad = ' '; }
+    if (typeof(dir) == "undefined") { var dir = STR_PAD_RIGHT; }
+    if (len + 1 >= str.length) {
+        switch (dir){
+            case STR_PAD_LEFT:
+                str = Array(len + 1 - str.length).join(pad) + str;
+            break;
+            case STR_PAD_BOTH:
+                var right = Math.ceil((padlen = len - str.length) / 2);
+                var left = padlen - right;
+                str = Array(left+1).join(pad) + str + Array(right+1).join(pad);
+            break;
+            default:
+                str = str + Array(len + 1 - str.length).join(pad);
+            break;
+        } // switch
+    }
+    return str;
+}
+
+function deg_to_dms (deg) {
+   var d = Math.floor (deg);
+   var minfloat = (deg-d)*60;
+   var m = Math.floor(minfloat);
+   var secfloat = (minfloat-m)*60;
+   var s = Math.round(secfloat);
+   // After rounding, the seconds might become 60. These two
+   // if-tests are not necessary if no rounding is done.
+   if (s==60) {
+     m++;
+     s=0;
+   }
+   if (m==60) {
+     d++;
+     m=0;
+   }
+   return ("" + d + ":" + m + ":" + s);
+}
+
+function hmsToMinutesOnly(str) {
+    var p = str.split(':'),
+        s = 0, m = 1;
+
+    while (p.length > 0) {
+        s += m * parseInt(p.pop(), 10);
+        m *= 60;
+    }
+
+    m=(s/60);
+    return m;
+}
+
+
+function timeformat(date) {
+  var h = date.getHours();
+  var m = date.getMinutes();
+  var x = h >= 12 ? 'pm' : 'am';
+  h = h % 12;
+  h = h ? h : 12;
+  m = m < 10 ? '0'+m: m;
+  var mytime= h + ':' + m + ' ' + x;
+  return mytime;
+}
+
+function show_image(src, width, height, alt) {
+    var img = document.createElement("img");
+    img.src = src;
+    img.width = width;
+    img.height = height;
+    img.alt = alt;
+
+    // This next line will just add it to the <body> tag
+    document.getElementById("demo").innerHTML.appendChild(img);
+}
+
+function currentleg() {
+var i=Math.floor(tem+1);
+var j=i.toString();
+location.href = "http://texasindependencerelay.com/interactive-course-map-leg-"+j+"/";
+
+}
+
+function nextexchange() {
+var i=Math.floor(tem+1);
+var j=i.toString();
+if (i==40){
+location.href="http://texasindependencerelay.com/interactive-course-map-finish/";
+}
+else
+{
+    location.href = "http://texasindependencerelay.com/interactive-course-map-exchange-7"+j+"/";
+}
+}
+
+
+function myFunction() {
+var mpace=(new Date(tlt)-new Date(tst))/1000/60/Number(tcum[tlx]);
+	var finishminutes=tcum[40]*mpace;
+
+if (tph>"") { document.getElementById("myImg").src = tph; }
+
+var finalTime = Math.floor(mpace,0)+':'+str_pad_left(Math.floor((mpace-Math.floor(mpace,0))*60,0),'0',2);
+
+if ((tlx<1) || (tlx>39))
+ { 
+	if (tlx<1) {
+	var text = "<br><b>Sorry, Tic-Toc only projects ETAs <i>after</i> the first exchange.</b>"
+	}
+	else {
+	var text = "<br><b>Congratulations to the "+tnm+" who FINISHED the 200 mile TIR with an average pace of "+finalTime+"!<br>To see all results click 'Info' from <i>Tic-Toc's</i> menu.</b>"
+	}
+
+ }
+else
+ {	
+    var text = "<b>The "+tnm+" (#"+tnum+") current runner, ";
+    if (trnr.length>0) { text+= trnr+", "; }
+    text += "is estimated to be "+Math.round((tem-Math.floor(tem))*100)/10+" - "+(0.5+Math.round((tem-Math.floor(tem))*100)/10)+" miles past TIR-"+Math.floor(tem)+".<br><br>Remember, sunset begins at ~7:30 PM. Be Seen!! Wear reflective gear and use lights and blinkies!<br><br>ETAs shown below are projected from the team's average calculated pace of "+finalTime+" <i>(through TIR-"+tlx+"):</i></b><br><br>";
+    var i = Math.floor(tem)+1;
+    var st=new Date(tst);
+    var mst=st.getTime();
+    while (i <= 40) {
+	var v1=new Date(Number(tcum[i])*mpace*60*1000+mst);
+	var v2 = timeformat(v1);
+	text += "<b>TIR-"+i+", "+v2+"</b><i>, "+tdesc[i]+"</i>";
+	if (i!=40) { text += ";<br>"; }
+        i++;
+    }
+
+/*
+
+Comment out the following until I implement teams
+text+="<br><br><center><i>Current runner's countdown until they arrive at "+"TIR-"+(Math.floor(tem)+1)+" (based on team's average pace of "+finalTime+"):<br></i></center>";
+
+*/
+
+ }
+ document.getElementById("demo").innerHTML = text;
+
+}
+
+
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+}
+
+function foundornot() {
+if(tnum) 
+	{
+	document.write("Scroll down to see <br><b><i>Team #"+tnum+", the "+tnm+"'s!</b>");
+	if(tnum<26)
+		{ 
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%201-25.html";
+		}
+	else
+		{
+		if(tnum<71)
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%2026-70.html";
+		}
+		else
+		{
+		if(tnum<106)
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%2071-105.html";
+		}
+		else
+		{
+		if(tnum<121)
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20106-120.html";
+		}
+		else
+		{
+		if(tnum<161)
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20121-160.html";
+		}
+		else
+		{
+		if(tnum<176)
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20161-175.html";
+		}
+		else
+		{
+		if(tnum<191)
+		{
+		window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20176-190.html";
+		}
+		else
+		{
+		if(tnum<216)
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20191-215.html";
+		}
+		else
+		{
+		if(tnum<231)
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20216-230.html";
+		}
+		else
+		{
+		if(tnum<=9999)
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20231-9999.html";
+		}
+else
+		{
+window.document.location.href = "http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20Top%2012%20Teams.html";
+		}
+		}
+		}
+		}
+		}
+		}
+		}
+		}
+		}
+		}
+	}		
+else	
+	{
+document.write("<br><b>Select either from a team number range, top 12 overall, or, click back on your browser</b>");
+document.write("<br>1-25".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%201-25.html"));
+document.write("<br>26-50".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%2026-50.html"));
+document.write("<br>51-75".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%2051-75.html"));
+document.write("<br>76-100".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%2076-100.html"));
+document.write("<br>101-150".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20101-150.html"));
+document.write("<br>151-200".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20151-200.html"));
+document.write("<br>201-250".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20201-250.html"));
+document.write("<br>251-275".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20251-275.html"));
+document.write("<br>276-300".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20276-300.html"));
+document.write("<br>301-9999".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20team%20numbers%20301-9999.html"));
+document.write("<br>Top 12 Teams' Paces".link("http://texasindependencerelay.com/tic-toc/TIR%20paces%2C%20Top%2012%20Teams.html"));
+	}
+
+}
+
+
+</script>
+</head>
+
+<body>
+
+
+
+<!-- Comment out the following until I implement teams in Tic-Toc! 
+
+<script src="js/soon.min.js"></script>
+
+
+-->
+
+
+<center>
+<br><img src="http://texasindependencerelay.com/tic-toc/tir_logo_small2.jpg" style="width:600px;height:128px">
+<br><br><br><i>Click the 'back' button on your browser to return to the Texas Independence Relay tracking map.</i>
+<br><img id="myImg" height="200" width="300" IMG STYLE="position:absolute; LEFT:0px; TOP:0px"  img src="http://texasindependencerelay.com/tic-toc/tir2.jpg">
+
+
+
+
+</center>
+<p id="demo"> </p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button2" onclick="foundornot()"><i><b>Prior</i> legs list</b></button>
+
+<!-- Comment out the following until I implement teams in Tic-Toc! 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button3" onclick="currentleg()"><i><b>Current</i> leg map</b></button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button4" onclick="nextexchange()"><i><b>Next</i> exchange map</b></button>
+
+-->
+
+<body onload="myFunction()">
+<br>
+<center>
+
+<!-- Comment out the following until I implement teams in Tic-Toc! 
+
+<style type="text/css">
+#my-soon-counter {background-color:#ffffff;}
+#my-soon-counter .soon-reflection {background-color:#ffffff;background-image:linear-gradient(#ffffff 25%,rgba(255,255,255,0));}
+#my-soon-counter {color:#929292;}
+</style>
+<div class="soon" id="my-soon-counter"
+     data-due="2016-01-01T12:00:00"
+     data-layout="group label-lowercase label-small"
+     data-format="m,s"
+     data-face="flip color-dark corners-sharp">
+</div>
+
+-->
+<script>
+
+/*
+Comment out the following until I implement teams!
+if (tlx>0)
+ { 
+    var st=new Date(tst);
+    var mst=st.getTime();
+    var i= Math.floor(tem)+1;
+
+    var mpace=(new Date(tlt)-new Date(tst))/1000/60/Number(tcum[tlx]);
+
+    var d=new Date(Number(tcum[i])*mpace*60*1000+mst-1000*60*60*6);
+
+    var n = d.toISOString();
+    document.getElementById('my-soon-counter').setAttribute('data-due', n);
+    console.log(tlt,"tlt");
+    console.log(tlx,"tlx");
+    console.log(tem,"tem");
+    console.log(tst,"tst");
+    console.log(mpace,"mpace");
+    console.log(i,"i");
+    console.log(n,"n");
+}
+
+*/
+</script>
+
+</center>
+</body>
+</html> 
+
+
+
+
+
+
+	
+
+

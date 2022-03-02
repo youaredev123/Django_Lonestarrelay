@@ -1,0 +1,6 @@
+.ca1_zoomedin {cursor:url(https://static.parastorage.com/services/skins/2.1229.80/images/wysiwyg/core/themes/base/cursor_zoom_out.png), url(https://static.parastorage.com/services/skins/2.1229.80/images/wysiwyg/core/themes/base/cursor_zoom_out.cur), auto;overflow:hidden;display:block;}
+.ca1_zoomedout {cursor:url(https://static.parastorage.com/services/skins/2.1229.80/images/wysiwyg/core/themes/base/cursor_zoom_in.png), url(https://static.parastorage.com/services/skins/2.1229.80/images/wysiwyg/core/themes/base/cursor_zoom_in.cur), auto;}
+.ca1link {display:block;overflow:hidden;}
+.ca1img {overflow:hidden;}
+.ca1[data-is-responsive=true] .ca1link,.ca1[data-is-responsive=true] .ca1img,.ca1[data-is-responsive=true] wix-image {position:absolute;top:0;right:0;bottom:0;left:0;}
+.ca1imgimage {position:static;box-shadow:#000 0 0 0;user-select:none;}

@@ -1,0 +1,423 @@
+
+/* ---------------------- */
+/* #PAGES_CONTAINER {
+    top: 117px;
+} */
+
+#SITE_HEADER-placeholder {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    background-color: black;
+}
+#mc_embed_signup {
+    background: #262626;
+    clear: left;
+    font: 16px Helvetica,Arial,sans-serif;
+    width: 300px;
+}
+
+
+#mc_embed_signup div.mce_inline_error {
+    background-color: #1d1d1d !important;
+}
+
+
+a:hover, a:focus{
+    text-decoration: none !important;
+}
+
+#comp-jsijla7vinlineContent > div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+/* html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    font-size: 62.5%;
+    font-size: 10px;
+} */
+/*-- Inspiration taken from abdo steif -->
+/* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
+
+/* Navbar section */
+
+.headernav {
+    width: 100%;
+    height: 115px;
+    position: fixed;
+    line-height: 65px;
+    text-align: center;
+}
+
+.headernav div.logo {
+    float: left;
+    width: auto;
+    height: auto;
+    padding-left: 3rem;
+}
+
+.headernav div.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.headernav div.logo a:hover {
+    color: #00E676;
+}
+
+.headernav div.main_list {
+    height: 65px;
+    float: right;
+}
+
+.headernav div.main_list ul {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.headernav div.main_list ul li {
+    width: auto;
+    height: 65px;
+    padding: 0;
+    padding-right: 3rem;
+}
+/* .headernav div.main_list ul li:hover,  .headernav div.main_list ul li:focus{
+    box-shadow: 0px -2px 14px 0px #716e6b;
+} */
+.headernav div.main_list ul li a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 65px;
+    font-size: 20px;
+}
+
+.headernav div.main_list ul li a:hover {
+    color: #00E676;
+}
+
+
+/* Home section */
+
+.navTrigger {
+    display: none;
+}
+
+.headernav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    background-color: black;
+}
+.font_0, .font_0 > span{
+    font-size: 80px;
+}
+@media screen and (max-width:1000px) {
+    .navTrigger {
+        display: block;
+    }
+    .headernav div.logo {
+        margin-left: 15px;
+    }
+    .headernav div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+    .headernav div.show_list {
+        height: auto;
+        display: none;
+    }
+    .headernav div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #111;
+        /*same background color of navbar*/
+        background-position: center top;
+    }
+    .headernav div.main_list ul li {
+        width: 100%;
+        text-align: right;
+    }
+    .headernav div.main_list ul li a {
+        text-align: center;
+        width: 100%;
+        
+        padding: 20px;
+    }
+    .headernav div.main_list ul li a:hover, .nav div.main_list ul li a:focus{
+        text-shadow: 0px -3px 5px #747b82;
+    }
+    
+    .headernav div.media_button {
+        display: block;
+    }
+    .font_0, .font_0 > span{
+        font-size: 10vw;
+    }
+}
+
+
+/* Animation */
+/* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
+
+.navTrigger {
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    margin: auto;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+}
+
+.navTrigger i {
+    background-color: #fff;
+    border-radius: 2px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+    -webkit-animation: outT 0.8s backwards;
+    animation: outT 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+    margin: 5px 0;
+    -webkit-animation: outM 0.8s backwards;
+    animation: outM 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+    -webkit-animation: outBtm 0.8s backwards;
+    animation: outBtm 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+    -webkit-animation: inT 0.8s forwards;
+    animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+    -webkit-animation: inM 0.8s forwards;
+    animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+    -webkit-animation: inBtm 0.8s forwards;
+    animation: inBtm 0.8s forwards;
+}
+
+@-webkit-keyframes inM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes inM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes outM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes outM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes inT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes inT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes outT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes inBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes inBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes outBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+.affix {
+    padding: 0;
+    background-color: #111;
+}
+
+.logo_small{
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+
+
+
+.myH2 {
+    text-align:center;
+    font-size: 4rem;
+}
+.myP {
+    text-align: justify;
+    padding-left:15%;
+    padding-right:15%;
+    font-size: 20px;
+}
+@media all and (max-width:700px){
+    .myP {
+        padding:2%;
+    }
+}
+
+/* new  insert part */
+
+@media (max-width: 400px) {
+    .nav-left {
+        display: none;
+    }
+    .navbar-nav {
+        display: block;
+    }
+    .DictSearch>Button {
+        width: 35px;
+    }
+    .DictSearch>Button.btn_sound {
+        right: 35px;
+    }
+    .DictSearch>Button.btn_sound>span {
+        right: 4px;
+    }
+    .DictSearch>input {
+        margin: 0 70px 0 20px;
+
+    }
+    .font_8, .font_8 span{
+        font-size: 20px;
+    }
+}

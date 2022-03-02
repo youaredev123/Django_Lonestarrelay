@@ -1,0 +1,219 @@
+{% extends 'team/index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="section clearfix">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-sm-12">
+			<!-- {{userinfo}} -->
+				{% if userinfo.is_editmode_and_iscaptain_or_admin %}
+					Team Name: 
+					<input id="teamName" type="text" value="{{cur_team_info.0.Name}}"/>
+				{% else %}
+					<h1>{{cur_team_info.0.Name}}</h1>
+				{% endif %}
+			
+			</div>
+			<div class="col-lg-6 col-sm-12 text-right">
+				<div>
+					Team # {{cur_team_info.0.Bib}}
+				</div>
+
+				{% if userinfo.editmode %} 
+					<a href="javascript:cancelChanges();" class="btn btn-info btn-sm" style="margin-right:7px;">
+					Cancel Changes
+					</a>
+				
+					<a href="javascript:saveChanges('{{cur_team_info.0.Bib}}','{{cur_team_info.0.id}}');" data-url="{% url 'update_team' %}"  name='update_team' class="btn btn-success btn-sm">Save Changes</a>
+				{% endif %}
+				
+				{% if userinfo.iscaptain or  userinfo.admin  %} 
+					<a href="/team?teambib={{cur_team_info.0.Bib }}&edit=1" class="btn btn-primary btn-sm">Edit</a>
+				{% endif %}
+		
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="separator-2"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-sm-4">Team Song: </div>
+			<div class="col-md-6 col-sm-8">
+				{% if userinfo.is_editmode_and_iscaptain_or_admin %} 
+				
+				<input id="teamSong" type="text" value="{{cur_team_info.0.Song}}" size="80"/>
+				{% else %}
+					{{cur_team_info.0.Song}}
+				{% endif %}
+			</div>
+		</div>
+		<div class="row padtop5">
+			<div class="col-md-2 col-sm-4">Type: </div>
+				<div class="col-md-6 col-sm-8">
+					
+			
+					{% if userinfo.is_editmode_and_iscaptain_or_admin %}
+						<select id="teamType" class="form-control" val="{{cur_team_info.0.Type }}">
+						
+							{{optionlist.type | safe}}
+						</select>
+					{% else %}
+						{{cur_team_info.0.Type | safe}}
+
+					{% endif %}
+			</div>
+		</div>
+		<div class="row padtop5">
+			<div class="col-md-2 col-sm-4">Classification: </div>
+			<div class="col-md-6 col-sm-8">
+				{% if userinfo.is_editmode_and_iscaptain_or_admin %} 
+
+					<select id="teamClass" class="form-control" val="{{cur_team_info.0.Classification}}">
+						{{optionlist.class|safe}}
+					</select>
+				{% else %}
+
+					{{ cur_team_info.0.Classification }}
+				{% endif %}
+			</div>
+		</div>
+		{% if userinfo.ismyteam or userinfo.admin %}
+		<div class="row margintop">
+			<div class="col-sm-12">To add team members have them go to 
+				<a href="/register/{{cur_team_info.0.JoinCode}}" style="color: blue;" >
+					register
+					</a> 
+				and fill in their information.
+			</div>
+		</div>
+		{% endif %}
+		{% if userinfo.teaminfo_or_edit_iscaption_admin  %}
+
+		<div class="row">
+			<div class="col-sm-12">
+				<input id="teamUntimed" type="checkbox"
+				{% if cur_team_info.0.IsUntimed == 1 %}  checked {% endif %}
+				{% if not userinfo.editmode %} disabled {% endif %}
+				> Team is not timed.</div>
+		</div>
+		{% endif %}
+
+		<div class="row grid-space-20 margintop"><h3>Team Roster</h3></div>
+
+		{% for a_runner in runnersinfo %}
+	
+				<div class="row team-member option-3" runnerid="{{ a_runner.id }}">
+					{% if userinfo.is_editmode_and_iscaptain_or_admin %}
+						
+						<div class="col-sm-2 col-md-1 col-lg-1">
+							<button type="button" class="inline pull-right" 
+							onclick="
+								removeRunner('{{a_runner.id}}')
+							">
+								<span style="line-height:15px;vertical-align:text-top;" aria-hidden="true">x</span>
+							</button>
+						</div>
+					
+					{% endif %}
+					{% if userinfo.is_editmode_and_iscaptain_or_admin %}
+						
+						<div class="col-sm-12 col-md-3 col-lg-2">
+						
+					{% elif userinfo.ismyteam %}	
+						<div class="col-sm-12 col-md-4 col-lg-3">
+					{% else %}
+						<div class="col-sm-12 col-md-4 col-lg-2">
+					{% endif %}
+
+							<div class="inline title">
+								{{ a_runner.FirstName }}  {{ a_runner.LastName }}
+							</div>
+						</div>
+						
+				
+					{% if userinfo.ismyteam or userinfo.admin %}
+					
+						<div class="col-sm-12 col-md-2 col-lg-2">
+							{% if a_runner.editrunner %}
+							 Pace - 
+								<select id="pace{{a_runner.id}}" class="form-control" val="{{a_runner.Pace}}">
+									{{optionlist.pace | safe}}
+								</select>
+							{% else %}
+								{% if cur_team_info.0.CaptainID == a_runner.id %}
+								 	Captain - {{a_runner.dis_secs}}
+								{% else %}
+									Runner - {{a_runner.dis_secs}}
+								{% endif %}
+								
+							{% endif %}
+						</div>
+						<div class="col-sm-12 col-md-3 col-lg-2">
+							{% if a_runner.editrunner %}
+								
+								Shirt -
+								<select id="shirt{{a_runner.id}}" class="form-control" val="{{a_runner.ShirtSize}}">
+								{{optionlist.shirt | safe}}
+								</select>
+							{% else %}
+								 Shirt - {{a_runner.ShirtSize}}
+							{% endif %}
+						</div>
+
+						<div class="col-sm-12 col-md-3 col-lg-2">
+							{% if a_runner.editrunner %}
+								Socks - 
+								<select id="sock{{a_runner.id}}" class="form-control" val="{{a_runner.SockSize}}">
+								{{ optionlist.sock | safe }}
+								</select>
+							{% else %}
+								Socks - 
+								{{a_runner.SockSize}}
+							{% endif %}
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-2">
+							<i class="fa fa-phone pr-10"></i>
+							{% if a_runner.editrunner %}
+							 
+								<input id="phone{{a_runner.id}}" value="{{a_runner.Phone}}" class="form-control" type="tel" maxlength="15">
+							{% else %}
+								{{a_runner.Phone}}
+							{% endif %} 
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-2">
+							<i class="fa fa-envelope pr-10"></i>
+								{% if a_runner.editrunner %}
+									<input id="email{{ a_runner.id }}" value="{{ a_runner.Email }}" class="form-control" type="email" maxlength="60">
+								{% else %}
+									<a href="mailto:{{ a_runner.Email }}">Email</a> 
+								{% endif %}
+						</div>
+
+						{% for a_tir_item in a_runner.tirgearitems %}
+							<div class="col-sm-12">
+								
+								TIR Gear: 
+								{{a_tir_item.Num}} X {{a_tir_item.ItemDesc}}
+								
+								{% if a_tir_item.Size %}
+
+										( size: {{a_tir_item.Size}} )
+
+								{% endif %}
+
+							</div>
+						{% endfor %}
+						
+					{% endif %}
+				
+				</div>
+				{% endfor %}
+			<br>
+		<div>Need extra TIR shirts, socks, or medals?! These are a great way to give your "Roadies" some team love!  Also, check out the TIR keychains as well as the TIR Decal! <a href="/tirgear">Order TIR Gear Today!</a></div>
+		<div class="space"></div>
+	</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div id="mapshell" class="section clearfix" leg='2' xch='2' >
+<div class="container">
+    <h1 id="maptitle" class="entry-title">Interactive Course Map</h1>
+    <div class="entry-content">
+        <p class="lead" id="mapdetail"> about 200 Glorious Miles!</p>
+        <p id="legdetls">
+            <div id="mileage"></div>
+            <div id="category"></div>
+            <div id="diffrank"></div>
+        </p>
+        <p><span style="color: #ff000e;">Use the controls in the upper left hand corner to zoom in and/or pan around (or you may click 
+        and drag map to move around and double click on map to zoom in one level). Click on legs to see the elevation profile, leg 
+        description, turn-by-turn directions, and more! Finally, use the leg and exchange links beneath the map to navigate to desired 
+        locations quickly.</span><br />
+            <div id="coursemap"style="width:1040px;height:600px;"></div><br />
+            <small>View <a style="color: #0000ff; text-align: left;" 
+                href="https://www.google.com/maps/ms?msa=0&msid=208385123618179864865.0004abc20606c5a9f5000&ie=UTF8&t=h&ll=29.604506,-96.262207&spn=1.432794,2.859192&z=9&output=embed" 
+                onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.google.com']);">Texas Independence Relay</a> 
+                in a larger map</small>
+        </p>
+        <div style="color: #4e75b1;"><span style="text-decoration: underline;"><strong>Links to Legs:</strong></span></div>
+        <p><div id="leglinkshell" style="color: #ffffff;"></div></p>
+        <div style="color: #4e75b1;"><span style="text-decoration: underline;"><strong> Links to Exchanges:</strong></span></div>
+        <p><div id="xchlinkshell" style="color: #ffffff;"></div></p>
+        <div style="clear:both;"></div>
+        <p id="profileshell"></p>
+    </div>
+</div>
+</div>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+{% endblock content %}

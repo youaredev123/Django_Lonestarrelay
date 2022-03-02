@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "common/meta_tag.html" %}
+    <!-- META DATA -->
+    {% include "common/meta_js.html" %}
+</head>
+<body class="prewarmup">
+    
+    <!--body start html embeds start-->    
+    
+    <!--body start html embeds end-->    
+
+    <div id="SITE_CONTAINER"><style type="text/css" data-styleid="uploadedFonts"></style>
+        <div>
+            <link rel="stylesheet" href="{% static 'css/theme_fonts.css' %}" type="text/css" data-styleid="theme_fonts">
+
+            <link rel="stylesheet" href="{% static 'css/theme_colors.css' %}" type="text/css" data-styleid="theme_colors"> 
+        </div>
+        {% include "common/body_style.html" %}
+        <div id="CSS_CONTAINER"></div>
+       
+        <div class="noop" style="position:relative">
+            <!-- background start -->
+            {% include "common/background.html" %}
+            <div id="SITE_ROOT" class="SITE_ROOT" style="width:100%;padding-bottom:0;top:0" aria-hidden="false">
+                <div id="masterPage" class="mesh-layout" data-mesh-layout="grid">
+
+                    {% include "common/header.html" %}
+            
+                    <div id="SITE_HEADER-placeholder" style="height:145px;display:block"></div>
+                    
+                    <main tabindex="-1" data-is-mobile="false" data-is-mesh="true" data-site-width="980"  class="pc1" data-state="" id="PAGES_CONTAINER">
+
+                        <!-- page contaner part start -->
+                        {% include "main/pagecontainer.html" %}
+                        <!-- page contaner part end -->
+                    </main>
+                    <div id="soapAfterPagesContainer" class="page-without-sosp">
+                        
+                        <link rel="stylesheet" href="{% static 'css/soapAfterPagesContainer-mesh-styles.css' %}">
+                        
+                        <div id="soapAfterPagesContainerinlineContent-gridContainer" data-mesh-internal="true">
+                            <div class="style-k7yyjci7" id="CONTROLLER_COMP_CUSTOM_ID"></div>
+                        </div>
+                    </div>
+                   <!-- pre footer part -->
+                                     
+                </div>
+                <!-- footer start  -->
+                {% include "common/footer.html" %}
+            </div> 
+           
+            <!-- site aspectcontainer start  -->
+            {% include "common/aspectcontainer.html" %}
+        </div>
+    <!-- font_ruler start  -->
+    {% include "common/font_ruler.html" %}
+    </div>
+     <!-- No Footer -->
+    
+    <!--body end html embeds start-->
+    
+    <!--body end html embeds end-->
+  
+    <script type="text/javascript">
+      var ssrInfo = {"timeSpentInSSR":1289,"platformOnPage":true,"workerStarted":true,"platformAppsOnPage":["675bbcef-18d8-41f5-800e-131ec9e08762","14cc59bc-f0b7-15b8-e1c7-89ce41d0e0c9"],"userCode":true,"useBoltush":false,"sessionId":"70589c53-3c58-4a51-8be7-c7310883d3ad","cacheExclusionReason":"","cacheableUserCode":"false","useBoltushUserCode":true};
+    </script>
+
+</body>
+</html>
+

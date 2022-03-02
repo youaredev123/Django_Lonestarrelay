@@ -1,0 +1,30 @@
+{% load static %}
+        
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <head>
+        {% include "oldsite/meta.html" %}
+
+        {% include "oldsite/link.html" %}
+        {% include "oldsite/script.html" %}
+    </head>
+
+
+
+
+            {% include "oldsite/header.html" %}
+
+
+
+
+
+            {% block content %}
+                <p>Placeholder text in base template. Replace with page content.</p>
+            {% endblock content %}
+
+            {% include "oldsite/footer.html" %}
+            <script type="text/javascript" src="{% static 'js/team.js' %}"></script>

@@ -1,0 +1,15 @@
+.tpaw0 {overflow:hidden;}
+.tpaw0 iframe {position:absolute;width:100%;height:100%;overflow:hidden;}
+.tpaw0 iframe:-webkit-full-screen {min-height:auto !important;}
+.tpaw0preloaderOverlay {position:absolute;top:0;left:0;color:#373737;width:100%;height:100%;}
+.tpaw0preloaderOverlaycontent {width:100%;height:100%;}
+.tpaw0unavailableMessageOverlay {position:absolute;top:0;left:0;color:#373737;width:100%;height:100%;}
+.tpaw0unavailableMessageOverlaycontent {width:100%;height:100%;background:rgba(255, 255, 255, 0.9);font-size:0;margin-top:5px;}
+.tpaw0unavailableMessageOverlaytextContainer {color:#373737;font-family:"Helvetica Neue", "HelveticaNeueW01-55Roma", "HelveticaNeueW02-55Roma", "HelveticaNeueW10-55Roma", Helvetica, Arial, sans-serif;font-size:14px;display:inline-block;vertical-align:middle;width:100%;margin-top:10px;text-align:center;}
+.tpaw0unavailableMessageOverlayreloadButton {display:inline-block;}
+.tpaw0unavailableMessageOverlay a {color:#0099FF;text-decoration:underline;cursor:pointer;}
+.tpaw0unavailableMessageOverlayiconContainer {display:none;}
+.tpaw0unavailableMessageOverlaydismissButton {display:none;}
+.tpaw0unavailableMessageOverlaytextTitle {font-family:"Helvetica Neue", "HelveticaNeueW01-55Roma", "HelveticaNeueW02-55Roma", "HelveticaNeueW10-55Roma", Helvetica, Arial, sans-serif;display:none;}
+.tpaw0unavailableMessageOverlay[data-state~="hideIframe"] .tpaw0unavailableMessageOverlay_buttons {opacity:1;}
+.tpaw0unavailableMessageOverlay[data-state~="hideOverlay"] {display:none;}

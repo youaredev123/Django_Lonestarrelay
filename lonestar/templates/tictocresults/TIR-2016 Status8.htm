@@ -1,0 +1,903 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<script>
+//enter refresh time in "minutes:seconds" Minutes should range from 0 to infinity. Seconds should range from 0 to 59
+var limit="2:00";
+
+if (document.images){
+var parselimit=limit.split(":");
+parselimit=parselimit[0]*60+parselimit[1]*1;
+}
+function beginrefresh(){
+if (!document.images)
+return;
+if (parselimit==1)
+window.location.reload();
+else{ 
+parselimit-=1;
+curmin=Math.floor(parselimit/60);
+cursec=parselimit%60;
+if (curmin!=0)
+curtime=curmin+" minutes and "+cursec+" seconds left until page refresh!";
+else
+curtime=cursec+" seconds left until page refresh!";
+window.status=curtime;
+setTimeout("beginrefresh()",1000);
+}
+}
+
+
+window.onload=beginrefresh;
+
+
+</script>	<title>TIR-2016 Status, v. 8</title>
+		<base target="_top"></base>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta name="geo.position" content="29.6305; -96.0628" />
+		<meta name="ICBM" content="29.6305, -96.0628" />
+	</head>
+	<body style="margin:0px;">
+		<script type="text/javascript">
+	var userip=""; var ttvn=""; var lat =[29.50367,29.49789,29.47557,29.50243,29.55909,29.58760,29.63683,29.68679,29.68121,29.67987,29.69492,29.70269,29.69167,29.69590,29.68859,29.64185,29.57095,29.58856,29.58998,29.61013,29.62723,29.63053,29.60416,29.67940,29.69015,29.71735,29.74385,29.73489,29.76901,29.74810,29.75020,29.77631,29.75625,29.71864,29.71038,29.69309,29.68524,29.68311,29.68867,29.70005,29.74876];
+var lon = [-97.44434,-97.38264,-97.30777,-97.25897,-97.21475,-97.17655,-97.13131,-97.10759,-97.00885,-96.90589,-96.84698,-96.77939,-96.70381,-96.62511,-96.53728,-96.51489,-96.45565,-96.37005,-96.31378,-96.20721,-96.12738,-96.06282,-95.97828,-95.97716,-95.89981,-95.84275,-95.77477,-95.68665,-95.64246,-95.57221,-95.49746,-95.43386,-95.37069,-95.39056,-95.33973,-95.30462,-95.25523,-95.20924,-95.16735,-95.11784,-95.08076]; function timedRefresh(timeoutPeriod) {
+	setTimeout("location.reload(true);",timeoutPeriod);
+}				var google_api_key = ''; // Your project's Google Maps API key goes here (https://code.google.com/apis/console)
+			document.writeln('<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&amp;libraries=geometry&amp;sensor=false&amp;'+((self.google_api_key&&document.location.toString().indexOf('file://')!=0)?'key='+google_api_key:'')+'"><'+'/script>');
+
+</script><script type="text/javascript" src="http://l2.io/ip.js?var=userip"></script>
+		
+		<!--
+			If you want to transplant this map into another Web page, by far the best method is to
+			simply include it in a IFRAME tag (see http://www.gpsvisualizer.com/faq.html#google_html).
+			But, if you must paste the code into another page, be sure to include all of these parts:
+			   1. The "div" tags that contain the map and its widgets, below
+			   2. Three sections of JavaScript code:
+			      a. The Google code (maps.google.com or googleapis.com) code, above
+			      b. "gv_options" and the code that calls a .js file on maps.gpsvisualizer.com
+			      c. The "GV_Map" function, which contains all the geographic info for the map
+		-->
+		<div style="margin-left:0px; margin-right:0px; margin-top:0px; margin-bottom:0px;">
+			<div id="gmap_div" style="width:700px; height:350px; margin:0px; margin-right:12px; background-color:#F0F0F0; float:left; overflow:hidden;">
+				<p align="center" style="font:10px Arial;">This map was created using <a target="_blank" href="http://www.gpsvisualizer.com/">GPS Visualizer</a>'s do-it-yourself geographic utilities.<br /><br />Please wait while the map data loads...</p>
+			</div>
+<div id="gv_infobox" class="gv_infobox" style="font:16px Arial; border:solid #666666 1px; background:#ffffff; padding:4px; overflow:no; display:none; ">
+				
+
+<table style="width:100%">
+<tr>
+    <td>&nbsp;<a href="http://texasindependencerelay.com/tic-toc/TIR_Results.html">Info</a>&nbsp;&nbsp;</td>
+    <td><a href="javascript:clearCookie();"+""" target=""_blank"">Focus</a>&nbsp;</td>
+    <td><a href="javascript:getP();"+""" target=""_blank"">Admin</a>&nbsp;</td>	
+
+
+  </tr>
+  <tr>
+    <td>&nbsp;<a href="mailto:jay@texasindependencerelay.com?subject=Tic-Toc team photo and video link" target="_top">eMail</a></td>
+    <td><a href="javascript:getLoc2();"+""" target=""_blank"">Show</a></td>
+<td><a href="javascript:getLocation();"+""" target=""_blank"">Exch</a></td>
+
+
+  </tr>
+</table>	</div>
+
+
+			<div id="gv_tracklist" class="gv_tracklist" style="font:11px Arial; line-height:11px; background:#ffffff; overflow:auto; display:none;"><!-- --></div>
+
+			<div id="gv_marker_list" class="gv_marker_list" style="background:#ffffff; overflow:auto; display:none;"><!-- --></div>
+
+			<div id="gv_clear_margins" style="height:0px; clear:both;"><!-- clear the "float" --></div>
+		</div>
+
+		
+		<!-- begin GPS Visualizer setup script (must come after maps.google.com code) -->
+		<script type="text/javascript">
+			/* Global variables used by the GPS Visualizer functions (20150225142709): */
+			gv_options = {};
+			
+			// basic map parameters:
+			gv_options.center = [29.6305,-96.0628];  // [latitude,longitude] - be sure to keep the square brackets
+			gv_options.zoom = 9;  // higher number means closer view; can also be 'auto' for automatic zoom/center based on map elements
+			gv_options.map_type = 'GV_HYBRID';  // popular map_type choices are 'GV_STREET', 'GV_SATELLITE', 'GV_HYBRID', 'GV_TERRAIN', 'GV_TOPO_US', 'GV_TOPO_WORLD', 'GV_OSM'
+			gv_options.map_opacity = 1.00;  // number from 0 to 1
+			gv_options.full_screen = true;  // true|false: should the map fill the entire page (or frame)?
+			gv_options.width = 700;  // width of the map, in pixels
+			gv_options.height = 350;  // height of the map, in pixels
+			
+			gv_options.map_div = 'gmap_div';  // the name of the HTML "div" tag containing the map itself; usually 'gmap_div'
+			gv_options.doubleclick_zoom = true;  // true|false: zoom in when mouse is double-clicked?
+			gv_options.doubleclick_center = true;  // true|false: re-center the map on the point that was double-clicked?
+			gv_options.mousewheel_zoom = true; // true|false; or 'reverse' for down=in and up=out
+			gv_options.autozoom_adjustment = 0;
+			gv_options.centering_options = { 'open_info_window':true, 'partial_match':true, 'center_key':'center', 'default_zoom':null } // URL-based centering (e.g., ?center=name_of_marker&zoom=14)
+			gv_options.tilt = true; // true|false: allow Google to show 45-degree tilted aerial imagery?
+			gv_options.street_view = true; // true|false: allow Google Street View on the map
+			gv_options.animated_zoom = true; // true|false: may or may not work properly
+				
+			// widgets on the map:
+			gv_options.zoom_control = 'large'; // 'large'|'small'|'none'
+			gv_options.recenter_button = true; // true|false: is there a 'double-click to recenter' option in the zoom control?
+			gv_options.scale_control = true; // true|false
+			gv_options.center_coordinates = true;  // true|false: show a "center coordinates" box and crosshair?
+			gv_options.mouse_coordinates = false;  // true|false: show a "mouse coordinates" box?
+			gv_options.crosshair_hidden = true;  // true|false: hide the crosshair initially?
+			gv_options.map_opacity_control = true;  // true|false
+			gv_options.map_type_control = {};  // widget to change the background map
+			  gv_options.map_type_control.style = 'menu';  // 'menu'|'none'
+			  gv_options.map_type_control.filter = false;  // true|false: when map loads, are irrelevant maps ignored?
+			  gv_options.map_type_control.excluded = [];  // comma-separated list of quoted map IDs that will never show in the list ('included' also works)
+			gv_options.disable_google_pois = false;  // true|false: if you disable clickable POIs, you also lose the labels on parks, airports, etc.
+			gv_options.measurement_tools = { visible:false, distance_color:'', area_color:'', position:[] };
+			gv_options.infobox_options = {}; // options for a floating info box (id="gv_infobox"), which can contain anything
+			  gv_options.infobox_options.enabled = true;  // true|false: enable or disable the info box altogether
+			  gv_options.infobox_options.position = ['LEFT_TOP',76,6];  // [Google anchor name, relative x, relative y]
+			  gv_options.infobox_options.draggable = true;  // true|false: can it be moved around the screen?
+			  gv_options.infobox_options.collapsible = true;  // true|false: can it be collapsed by double-clicking its top bar?
+
+			// track-related options:
+			gv_options.track_tooltips = false; // true|false: should the name of a track appear on the map when you mouse over the track itself?
+			gv_options.tracklist_options = {}; // options for a floating list of the tracks visible on the map
+			  gv_options.tracklist_options.enabled = false;  // true|false: enable or disable the tracklist altogether
+			  gv_options.tracklist_options.position = ['RIGHT_TOP',4,32];  // [Google anchor name, relative x, relative y]
+			  gv_options.tracklist_options.min_width = 0; // minimum width of the tracklist, in pixels
+			  gv_options.tracklist_options.max_width = 180; // maximum width of the tracklist, in pixels
+			  gv_options.tracklist_options.min_height = 0; // minimum height of the tracklist, in pixels; if the list is longer, scrollbars will appear
+			  gv_options.tracklist_options.max_height = 135; // maximum height of the tracklist, in pixels; if the list is longer, scrollbars will appear
+			  gv_options.tracklist_options.desc = false;  // true|false: should tracks' descriptions be shown in the list
+			  gv_options.tracklist_options.toggle = true;  // true|false: should clicking on a track's name turn it on or off?
+			  gv_options.tracklist_options.checkboxes = false;  // true|false: should there be a separate icon/checkbox for toggling visibility?
+			  gv_options.tracklist_options.zoom_links = true;  // true|false: should each item include a small icon that will zoom to that track?
+			  gv_options.tracklist_options.tooltips = true;  // true|false: should the name of the track appear on the map when you mouse over the name in the list?
+			  gv_options.tracklist_options.highlighting = true;  // true|false: should the track be highlighted when you mouse over the name in the list?
+			  gv_options.tracklist_options.draggable = true;  // true|false: can it be moved around the screen?
+			  gv_options.tracklist_options.collapsible = true;  // true|false: can it be collapsed by double-clicking its top bar?
+			  gv_options.tracklist_options.header = 'Tracks:'; // HTML code; be sure to put backslashes in front of any single quotes, and don't include any line breaks
+			  gv_options.tracklist_options.footer = ''; // HTML code
+
+			// marker-related options:
+			gv_options.default_marker = { color:'red',icon:'googlemini',scale:1 }; // icon can be a URL, but be sure to also include size:[w,h] and optionally anchor:[x,y]
+			gv_options.marker_tooltips = true; // do the names of the markers show up when you mouse-over them?
+			gv_options.marker_shadows = true; // true|false: do the standard markers have "shadows" behind them?
+			gv_options.marker_link_target = '_blank'; // the name of the window or frame into which markers' URLs will load
+			gv_options.info_window_width = 0;  // in pixels, the width of the markers' pop-up info "bubbles" (can be overridden by 'window_width' in individual markers)
+			gv_options.thumbnail_width = 0;  // in pixels, the width of the markers' thumbnails (can be overridden by 'thumbnail_width' in individual markers)
+			gv_options.photo_size = [0,0];  // in pixels, the size of the photos in info windows (can be overridden by 'photo_width' or 'photo_size' in individual markers)
+			gv_options.hide_labels = false;  // true|false: hide labels when map first loads?
+			gv_options.labels_behind_markers = false; // true|false: are the labels behind other markers (true) or in front of them (false)?
+			gv_options.label_offset = [0,0];  // [x,y]: shift all markers' labels (positive numbers are right and down)
+			gv_options.label_centered = true;  // true|false: center labels with respect to their markers?  (label_left is also a valid option.)
+			gv_options.driving_directions = false;  // put a small "driving directions" form in each marker's pop-up window? (override with dd:true or dd:false in a marker's options)
+			gv_options.garmin_icon_set = 'gpsmap'; // 'gpsmap' are the small 16x16 icons; change it to '24x24' for larger icons
+			gv_options.marker_list_options = {};  // options for a dynamically-created list of markers
+			  gv_options.marker_list_options.enabled = true;  // true|false: enable or disable the marker list altogether
+			  gv_options.marker_list_options.floating = true;  // is the list a floating box inside the map itself?
+			  gv_options.marker_list_options.position = ['RIGHT_BOTTOM',6,38];  // floating list only: position within map
+			  gv_options.marker_list_options.min_width = 160; // minimum width, in pixels, of the floating list
+			  gv_options.marker_list_options.max_width = 170;  // maximum width
+			  gv_options.marker_list_options.min_height = 0;  // minimum height, in pixels, of the floating list
+			  gv_options.marker_list_options.max_height = 220;  // maximum height
+			  gv_options.marker_list_options.draggable = true;  // true|false, floating list only: can it be moved around the screen?
+			  gv_options.marker_list_options.collapsible = true;  // true|false, floating list only: can it be collapsed by double-clicking its top bar?
+			  gv_options.marker_list_options.include_tickmarks = false;  // true|false: are distance/time tickmarks included in the list?
+			  gv_options.marker_list_options.include_trackpoints = false;  // true|false: are "trackpoint" markers included in the list?
+			  gv_options.marker_list_options.dividers = true;  // true|false: will a thin line be drawn between each item in the list?
+			  gv_options.marker_list_options.desc = false;  // true|false: will the markers' descriptions be shown below their names in the list?
+			  gv_options.marker_list_options.icons = true;  // true|false: should the markers' icons appear to the left of their names in the list?
+			  gv_options.marker_list_options.thumbnails = false;  // true|false: should markers' thumbnails be shown in the list?
+			  gv_options.marker_list_options.folders_collapsed = false;  // true|false: do folders in the list start out in a collapsed state?
+			  gv_options.marker_list_options.folders_hidden = false;  // true|false: do folders in the list start out in a hidden state?
+			  gv_options.marker_list_options.collapsed_folders = []; // an array of folder names
+			  gv_options.marker_list_options.hidden_folders = []; // an array of folder names
+			  gv_options.marker_list_options.count_folder_items = true;  // true|false: list the number of items in each folder?
+			  gv_options.marker_list_options.wrap_names = true;  // true|false: should marker's names be allowed to wrap onto more than one line?
+			  gv_options.marker_list_options.unnamed = '[unnamed]';  // what 'name' should be assigned to  unnamed markers in the list?
+			  gv_options.marker_list_options.colors = false;  // true|false: should the names/descs of the points in the list be colorized the same as their markers?
+			  gv_options.marker_list_options.default_color = '';  // default HTML color code for the names/descs in the list
+			  gv_options.marker_list_options.limit = 0;  // how many markers to show in the list; 0 for no limit
+			  gv_options.marker_list_options.center = false;  // true|false: does the map center upon a marker when you click its name in the list?
+			  gv_options.marker_list_options.zoom = false;  // true|false: does the map zoom to a certain level when you click on a marker's name in the list?
+			  gv_options.marker_list_options.zoom_level = 14;  // if 'zoom' is true, what level should the map zoom to?
+			  gv_options.marker_list_options.info_window = true;  // true|false: do info windows pop up when the markers' names are clicked in the list?
+			  gv_options.marker_list_options.url_links = false;  // true|false: do the names in the list become instant links to the markers' URLs?
+			  gv_options.marker_list_options.toggle = false;  // true|false: does a marker disappear if you click on its name in the list?
+			  gv_options.marker_list_options.help_tooltips = false;  // true|false: do "tooltips" appear on marker names that tell you what happens when you click?
+			  gv_options.marker_list_options.id = 'gv_marker_list';  // id of a DIV tag that holds the list
+			  gv_options.marker_list_options.header = '<img src="http://texasindependencerelay.com/tic-toc/tictoc.jpg" align="center"><br><b>TIR-2016 Teams:</b><br><i>-Circle for team\'s info;<br>-Link for ETAs & prior legs;<br>-Two minute auto-refresh.</i>'; // HTML code; be sure to put backslashes in front of any single quotes, and don't include any line breaks
+			  gv_options.marker_list_options.footer = ''; // HTML code
+			gv_options.marker_filter_options = {};  // options for removing waypoints that are out of the current view
+			  gv_options.marker_filter_options.enabled = false;  // true|false: should out-of-range markers be removed?
+			  gv_options.marker_filter_options.movement_threshold = 8;  // in pixels, how far the map has to move to trigger filtering
+			  gv_options.marker_filter_options.limit = 0;  // maximum number of markers to display on the map; 0 for no limit
+			  gv_options.marker_filter_options.update_list = true;  // true|false: should the marker list be updated with only the filtered markers?
+			  gv_options.marker_filter_options.sort_list_by_distance = false;  // true|false: should the marker list be sorted by distance from the center of the map?
+			  gv_options.marker_filter_options.min_zoom = 0;  // below this zoom level, don't show any markers at all
+			  gv_options.marker_filter_options.zoom_message = '';  // message to put in the marker list if the map is below the min_zoom threshold
+			gv_options.synthesize_fields = {}; // for example: {label:'{name}'} would cause all markers' names to become visible labels
+				
+			
+			// Load GPS Visualizer's Google Maps functions (this must be loaded AFTER gv_options are set):
+			document.writeln('<script src="https://gpsvisualizer.github.io/google_maps/functions3.js" type="text/javascript"><'+'/script>');
+			
+		</script>
+		<script type="text/javascript">
+function setCookie(cname,cvalue) {
+    document.cookie = cname+"="+cvalue+"; ";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+
+function clearCookie() {
+// comment out the following line if you want the user's prior selection to remain valid until the Cookie timeout 	
+	document.cookie = "exchangename2=; expires=Thu, 01 Jan 1970 00:00:00 UTC"; 
+//	checkCookie();
+       var exchange = prompt("Enter a Texas Independence Relay exchange to zoom in on (0 = start; 40 = finish):","");
+       if (exchange != "" && exchange != null) {
+           	setCookie("exchangename2", exchange);
+		gv_options.center[0] = lat[exchange];
+		gv_options.center[1] = lon[exchange];
+		location.reload(true); 
+       }
+
+}
+
+
+function checkCookie() {
+    var exchange=getCookie("exchangename2");
+    if (exchange == "")
+	{
+	var togg=getCookie("toggname2");
+	if (togg=="")
+	{
+		document.cookie = "toggname2=1"; 
+		exchange=20;
+		gv_options.zoom = 9;
+	}
+	else
+	{
+		if (togg=="1")
+		{
+		//document.cookie = "toggname2=2"; 
+		document.cookie = "toggname2=; expires=Thu, 01 Jan 1970 00:00:00 UTC"; 
+		exchange=Math.floor((new Date()-new Date("March 23, 2016 07:00 AM"))/1000/60/10/(200/39));
+		if (exchange<0) { exchange=0; } else { if (exchange >40) { exchange=40; }}
+		gv_options.zoom = 11;
+		}
+	}
+	}
+    else
+	{
+	gv_options.zoom = 12;
+	}
+
+gv_options.center[0] = lat[exchange];
+gv_options.center[1] = lon[exchange];
+
+}
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function getLoc2() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPos2, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function weather() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(weather2, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function weather2(position) {     
+var t0=position.coords.latitude;
+var n0=position.coords.longitude;
+t=t0.toString();
+n=n0.toString();
+document.location = "http://forecast.weather.gov/MapClick.php?lat="+t+"&lon="+n;
+}
+
+
+function getP()
+{
+ttvn=getCookie("ttvn2");
+ttvn=prompt("Welcome! Enter your TIR administrators' password. Contact Jay if you're not sure,or, hit cancel.",ttvn);
+if(ttvn.toUpperCase()!="TIR2016A" || ttvn==null || ttvn=="")
+{
+window.alert("Returning to map...");
+}
+else
+{
+window.alert("Authenticated! Next, please enter the next runners' exchange information.");
+setCookie("ttvn2", ttvn);
+getLocation();
+}
+}
+
+
+function tfc2(dt) 
+{
+window.alert("Beta forecast: "+dt);
+}
+
+function msgme(ms)
+{
+window.alert(ms);
+}
+
+function showPosition(position) {
+    	var latlon = position.coords.latitude + "," + position.coords.longitude;
+	var teamnbr=0;
+	var low_exch=0; 
+	var low_dist=9999;
+
+
+for (i = 0; i < 41; i++) {
+	trial_dist=3959*((2*Math.asin(Math.sqrt(((Math.sin((Math.PI/180*position.coords.latitude-Math.PI/180*lat[i])/2))*(Math.sin((Math.PI/180*position.coords.latitude-Math.PI/180*lat[i])/2)))+Math.cos(Math.PI/180*position.coords.latitude)*Math.cos(Math.PI/180*lat[i])* (Math.sin((Math.PI/180*(position.coords.longitude)-Math.PI/180*(lon[i]))/2)*Math.sin((Math.PI/180*(position.coords.longitude)-Math.PI/180*(lon[i]))/2))))));
+	if (trial_dist<low_dist) {	low_dist=trial_dist; low_exch=i;	}
+}
+
+
+if ((low_exch != 27 && low_dist > 4) || (low_exch == 27 && low_dist > 4))
+{
+window.alert("Sorry, you may not proceed as the closest exchange, TIR-"+low_exch+", must be at most 4 miles away). You are now "+low_dist.toPrecision(3)+" miles from it!");
+}
+else
+{
+var teamnbr=getCookie("teamnbr2");
+
+teamnbr=prompt("#1/3-Enter team number at exchange TIR-"+low_exch+" ("+low_dist.toPrecision(3)+ " miles away):",teamnbr);
+
+if (teamnbr==null||teamnbr=="")
+{
+window.alert("Returning to map without a submission...");
+}
+else
+{
+setCookie("teamnbr2", teamnbr);
+var fname="";
+fname=prompt("#2/3-Enter the new runner's first name (optional):",fname);
+var cr=confirm("#3/3-Confirm when team #"+teamnbr+"'s exchange has occurred at TIR-"+low_exch+":");
+if (cr==false)
+{
+window.alert("Returning to map without a submission...");
+}
+else
+{
+
+
+if ( userip === undefined ){  var userip=""; }
+if (ttvn=="")
+{
+
+
+document.location = "https://docs.google.com/forms/d/1aXMyAI0wSPpjJp5HsRAxvQGqtrTIz0pPU9xwNp9h9e4/formResponse?ifq&entry.2097186704="+low_exch+"&entry.1494294730="+teamnbr+"&entry.1435344197="+fname+"&entry.782756942="+userip+"&submit=Submit";
+}
+else
+{
+document.location = "https://docs.google.com/forms/d/1RjtIyHoRDHKtTTwCaQ7AHmKlu9v9A6HTHM37CqWL8mw/formResponse?ifq&entry.764296780="+low_exch+"&entry.906078405="+teamnbr+"&entry.1318649979="+fname+"&entry.557329055="+userip+"&submit=Submit";
+}
+}
+}
+}
+}
+
+function showPos2(position) {
+    	var latitude = position.coords.latitude;
+	var longitude = position.coords.longitude;
+	var teamnbr=0;
+
+teamnbr=getCookie("teamnbr2");
+
+teamnbr=prompt("Submit your team number to broadcast your location as a red star:",teamnbr);
+
+if (teamnbr==null||teamnbr=="")
+{
+window.alert("Returning to map without a submission...");
+}
+else
+{
+
+
+setCookie("teamnbr2", teamnbr);
+
+var nm3=""
+nm3=prompt("Enter your first name:",nm3);
+if (nm3==null||nm3=="")
+{
+window.alert("Returning to map without a submission...");
+}
+else
+{
+
+if ( userip === undefined ) {  var userip=""; }
+document.location = "https://docs.google.com/forms/d/1XnbXctEZm6WB0ZuoQOV73mCv3h4xj5QLutza01Mdq_k/formResponse?ifq&entry.1667572850="+latitude+"&entry.2027780891="+longitude+"&entry.1827867692="+teamnbr+"&entry.1757822349="+nm3+"&entry.1430623378="+userip+"&submit=Submit";
+}
+}
+}
+
+
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+
+
+
+checkCookie();
+		
+		</script>
+		<style type="text/css">
+			/* Put any custom style definitions here (e.g., .gv_marker_info_window, .gv_marker_info_window_name, .gv_marker_list_item, .gv_tooltip, .gv_label, etc.) */
+			#gmap_div .gv_marker_info_window {
+				font-size:11px !important;
+			}
+			#gmap_div .gv_label {
+				background:#333333; border:1px solid black; padding:1px;
+				color:white; font:9px Verdana,sans-serif !important; font-weight:normal !important;
+				opacity:0.80; filter:alpha(opacity=80);
+			}
+			
+		</style>
+		
+		<!-- end GPSV setup script and styles; begin map-drawing script (they must be separate) -->
+		<script type="text/javascript">
+			function GV_Map() {
+			  
+				GV_Setup_Map();
+				
+				// Track #1
+				t = 1; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'TIR Prologue - 1.15m'; trk[t].info.desc = 'Length: 1.846 km (1.147 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.503676,-97.444346],[29.504096,-97.444606],[29.504103,-97.444633],[29.503982,-97.445003],[29.503734,-97.445789],[29.503454,-97.446612],[29.503123,-97.447629],[29.502581,-97.449251],[29.502278,-97.450152],[29.501815,-97.451499],[29.501393,-97.452727],[29.501365,-97.45273],[29.500562,-97.452349],[29.500496,-97.452296],[29.500478,-97.452226],[29.500496,-97.452135],[29.500821,-97.45111],[29.50125,-97.449898],[29.501673,-97.448664],[29.502039,-97.447559],[29.502441,-97.44644],[29.502903,-97.445086],[29.503211,-97.444217] ] }); // track 1 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #2
+				t = 2; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 1 - 4.26m'; trk[t].info.desc = 'Length: 6.859 km (4.262 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.503225,-97.444193],[29.50428,-97.44105],[29.505354,-97.437911],[29.506559,-97.434349],[29.507609,-97.431372],[29.508235,-97.429838],[29.508762,-97.428325],[29.509743,-97.42538],[29.510415,-97.423379],[29.510606,-97.422875],[29.510779,-97.422483],[29.510901,-97.422355],[29.511297,-97.421995],[29.511325,-97.421909],[29.511311,-97.421673],[29.511307,-97.421335],[29.51133,-97.421072],[29.511437,-97.420187],[29.511587,-97.419147],[29.511685,-97.41832],[29.511727,-97.417843],[29.511718,-97.417248],[29.511629,-97.416368],[29.511428,-97.416261],[29.511171,-97.416132],[29.510102,-97.415569],[29.509612,-97.415252],[29.509122,-97.414828],[29.508543,-97.414174],[29.507978,-97.41353],[29.507619,-97.41316],[29.507352,-97.412935],[29.507091,-97.412758],[29.506778,-97.412489],[29.506596,-97.41228],[29.506489,-97.412151],[29.506246,-97.411803],[29.505835,-97.410875],[29.50555,-97.41022],[29.50528,-97.409845],[29.505027,-97.409308],[29.504869,-97.408788],[29.50478,-97.408407],[29.504668,-97.408155],[29.504509,-97.40794],[29.504271,-97.407758],[29.503725,-97.40749],[29.503533,-97.407345],[29.503342,-97.407179],[29.503207,-97.406953],[29.503034,-97.406658],[29.502852,-97.406213],[29.502562,-97.405285],[29.50239,-97.40477],[29.502268,-97.404378],[29.502105,-97.403896],[29.501993,-97.403322],[29.501848,-97.401997],[29.501699,-97.400548],[29.501601,-97.399615],[29.501484,-97.39874],[29.501292,-97.397185],[29.501227,-97.396825],[29.501082,-97.396316],[29.500564,-97.394867],[29.500223,-97.393939],[29.499985,-97.393274],[29.499728,-97.39277],[29.498738,-97.390769],[29.498085,-97.389433],[29.497693,-97.388628],[29.49745,-97.388092],[29.497086,-97.387298],[29.496516,-97.386129],[29.496301,-97.385683],[29.496152,-97.385378],[29.496091,-97.385211],[29.496072,-97.385088],[29.4961,-97.384991],[29.496189,-97.3849],[29.496997,-97.384358],[29.497104,-97.384235],[29.497305,-97.38394],[29.497581,-97.383318],[29.497893,-97.38262] ] }); // track 2 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #3
+				t = 3; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 2 - 5.15m'; trk[t].info.desc = 'Length: 8.283 km (5.147 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.497897,-97.382609],[29.498,-97.382485],[29.498122,-97.382393],[29.49539,-97.37577],[29.48807,-97.35504],[29.48156,-97.33687],[29.47456,-97.31711],[29.47158,-97.30887],[29.47162,-97.30878],[29.47178,-97.30881],[29.47264,-97.30973],[29.47278,-97.30977],[29.4755,-97.30774] ] }); // track 3 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #4
+				t = 4; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 3 - 5.35m'; trk[t].info.desc = 'Length: 8.606 km (5.347 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.4755,-97.30773],[29.47661,-97.30693],[29.47673,-97.30681],[29.47682,-97.30659],[29.47781,-97.30105],[29.47803,-97.30013],[29.47981,-97.28969],[29.48012,-97.28813],[29.48037,-97.2872],[29.48039,-97.2869],[29.48023,-97.28636],[29.47932,-97.28482],[29.47933,-97.28472],[29.47955,-97.28462],[29.48104,-97.28427],[29.48732,-97.28293],[29.48749,-97.28293],[29.48799,-97.28307],[29.49361,-97.28536],[29.49905,-97.28739],[29.49943,-97.28748],[29.49977,-97.28736],[29.50331,-97.28395],[29.503487,-97.283799],[29.503571,-97.28375],[29.50364,-97.28374],[29.503748,-97.283729],[29.50383,-97.28375],[29.50758,-97.28522],[29.5079,-97.2853],[29.50799,-97.2852],[29.50818,-97.28449],[29.5082,-97.28421],[29.50816,-97.28409],[29.50659,-97.28103],[29.5055,-97.27825],[29.50553,-97.27674],[29.50575,-97.27195],[29.50404,-97.26554],[29.5041,-97.26531],[29.5048,-97.26436],[29.50492,-97.26407],[29.50495,-97.26387],[29.50487,-97.26308],[29.50459,-97.26139],[29.50449,-97.26113],[29.50436,-97.26098],[29.50291,-97.25963],[29.50245,-97.25912],[29.50243,-97.25902] ] }); // track 4 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #5
+				t = 5; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 4 - 5.38m'; trk[t].info.desc = 'Length: 8.657 km (5.379 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.502432,-97.259003],[29.502469,-97.258901],[29.502997,-97.25838],[29.503314,-97.258166],[29.504388,-97.257442],[29.504495,-97.257334],[29.504584,-97.257211],[29.504948,-97.25631],[29.505704,-97.254368],[29.506316,-97.252742],[29.506545,-97.252034],[29.506657,-97.251782],[29.50676,-97.251616],[29.506909,-97.251471],[29.507175,-97.251192],[29.507441,-97.250999],[29.508809,-97.250135],[29.509649,-97.249626],[29.510004,-97.24939],[29.510196,-97.249229],[29.510401,-97.249036],[29.511265,-97.248236],[29.51204,-97.247517],[29.51252,-97.247061],[29.512978,-97.246638],[29.513524,-97.24616],[29.513954,-97.245812],[29.514201,-97.245645],[29.514495,-97.245484],[29.515065,-97.245254],[29.515861,-97.244952],[29.516671,-97.244647],[29.517749,-97.244267],[29.518174,-97.244106],[29.518426,-97.243972],[29.518659,-97.243762],[29.518874,-97.243494],[29.519089,-97.243092],[29.519289,-97.24233],[29.519448,-97.241912],[29.519667,-97.24144],[29.520232,-97.240259],[29.520419,-97.239884],[29.520573,-97.239508],[29.520792,-97.239015],[29.520933,-97.238827],[29.521166,-97.238639],[29.521684,-97.238323],[29.522095,-97.238173],[29.522996,-97.237926],[29.523309,-97.237792],[29.524153,-97.237604],[29.524639,-97.237497],[29.525138,-97.237341],[29.525577,-97.237169],[29.526067,-97.236976],[29.52666,-97.236719],[29.527215,-97.23652],[29.527435,-97.236429],[29.527575,-97.236317],[29.527654,-97.236139],[29.527696,-97.235876],[29.527734,-97.233495],[29.527748,-97.23254],[29.527752,-97.231655],[29.527738,-97.231081],[29.527785,-97.230898],[29.527864,-97.230764],[29.528046,-97.230603],[29.528616,-97.230206],[29.528835,-97.230019],[29.529115,-97.229788],[29.529377,-97.229573],[29.529652,-97.229445],[29.530025,-97.229262],[29.530315,-97.229219],[29.530543,-97.229209],[29.530763,-97.229235],[29.531351,-97.229402],[29.531622,-97.229423],[29.53234,-97.229396],[29.532648,-97.22945],[29.532971,-97.229482],[29.534263,-97.229525],[29.534889,-97.229557],[29.535832,-97.229616],[29.53649,-97.229643],[29.536714,-97.229632],[29.536802,-97.229584],[29.5369,-97.229477],[29.537194,-97.22864],[29.537311,-97.228018],[29.537311,-97.227004],[29.537321,-97.226247],[29.537395,-97.226129],[29.537633,-97.226108],[29.539029,-97.226108],[29.539911,-97.226097],[29.54027,-97.226033],[29.540625,-97.226011],[29.54126,-97.226028],[29.541689,-97.226087],[29.54202,-97.226103],[29.542268,-97.22607],[29.542576,-97.225942],[29.543285,-97.22562],[29.543616,-97.225298],[29.544251,-97.2243],[29.54489,-97.223453],[29.545586,-97.222637],[29.546585,-97.221339],[29.547173,-97.220545],[29.547574,-97.220105],[29.547873,-97.219864],[29.548139,-97.219724],[29.548498,-97.219714],[29.548699,-97.219703],[29.549245,-97.219531],[29.549819,-97.219279],[29.550155,-97.219188],[29.550934,-97.219145],[29.552119,-97.219081],[29.553183,-97.219054],[29.554746,-97.21907],[29.555806,-97.219075],[29.555894,-97.219048],[29.555988,-97.218989],[29.556072,-97.218721],[29.556226,-97.218324],[29.556468,-97.217933],[29.557094,-97.217128],[29.558195,-97.215739],[29.558619,-97.215154],[29.558857,-97.214719],[29.558986,-97.214354],[29.559023,-97.214298],[29.559063,-97.214298],[29.559091,-97.21433],[29.559105,-97.214708] ] }); // track 5 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #6
+				t = 6; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 5 - 6.39m'; trk[t].info.desc = 'Length: 10.29 km (6.396 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.559102,-97.214711],[29.559116,-97.215741],[29.559154,-97.215835],[29.559217,-97.215907],[29.559303,-97.215929],[29.559445,-97.215934],[29.561475,-97.215953],[29.563066,-97.21598],[29.564825,-97.216001],[29.567471,-97.216039],[29.568675,-97.216055],[29.568973,-97.216063],[29.569104,-97.216092],[29.569216,-97.216132],[29.570102,-97.216631],[29.570725,-97.216934],[29.570854,-97.217028],[29.570959,-97.217157],[29.571085,-97.217377],[29.571148,-97.217567],[29.571166,-97.217836],[29.571185,-97.218791],[29.571166,-97.219311],[29.571106,-97.220732],[29.571071,-97.2225],[29.571005,-97.224058],[29.570977,-97.225016],[29.570959,-97.226362],[29.570975,-97.226944],[29.571005,-97.227049],[29.571066,-97.227138],[29.571145,-97.22718],[29.571332,-97.227188],[29.573417,-97.227226],[29.5745,-97.227282],[29.576095,-97.227336],[29.578011,-97.227435],[29.57892,-97.227475],[29.579161,-97.2275],[29.579291,-97.227535],[29.579569,-97.227636],[29.580255,-97.227878],[29.580754,-97.227872],[29.581621,-97.227883],[29.582482,-97.227918],[29.583205,-97.227937],[29.58404,-97.227964],[29.584647,-97.227956],[29.58484,-97.22798],[29.585162,-97.228058],[29.585487,-97.228119],[29.586042,-97.2281],[29.586371,-97.22813],[29.58686,-97.228237],[29.587266,-97.228275],[29.58756,-97.228304],[29.588362,-97.22831],[29.588946,-97.228286],[29.589622,-97.228237],[29.590221,-97.228216],[29.590452,-97.228192],[29.590602,-97.228141],[29.590625,-97.227757],[29.590665,-97.226134],[29.590662,-97.225239],[29.590667,-97.223817],[29.590681,-97.222674],[29.590755,-97.221846],[29.590779,-97.221457],[29.590816,-97.221309],[29.590888,-97.221154],[29.590951,-97.22095],[29.590975,-97.22077],[29.590979,-97.21923],[29.590965,-97.218348],[29.590956,-97.218225],[29.590912,-97.218141],[29.590839,-97.218074],[29.590765,-97.218053],[29.589937,-97.218061],[29.589223,-97.21805],[29.588195,-97.218064],[29.587327,-97.218098],[29.586849,-97.218109],[29.586674,-97.218101],[29.58648,-97.218082],[29.586235,-97.21805],[29.586053,-97.217911],[29.585806,-97.217656],[29.585645,-97.21735],[29.585449,-97.216865],[29.585342,-97.216521],[29.585293,-97.216205],[29.585295,-97.215255],[29.585305,-97.213963],[29.585312,-97.213118],[29.585307,-97.212192],[29.585314,-97.211227],[29.585326,-97.209813],[29.585323,-97.208091],[29.585349,-97.206852],[29.585372,-97.205937],[29.585377,-97.204722],[29.585379,-97.203387],[29.585377,-97.202571],[29.585368,-97.201115],[29.585382,-97.200219],[29.585396,-97.199272],[29.585417,-97.198135],[29.585398,-97.19729],[29.585473,-97.196823],[29.585566,-97.196236],[29.585659,-97.195439],[29.585666,-97.195235],[29.585626,-97.194871],[29.585461,-97.193779],[29.585428,-97.193521],[29.585433,-97.193076],[29.585421,-97.191381],[29.585403,-97.189903],[29.585377,-97.18887],[29.585393,-97.188278],[29.585414,-97.187816],[29.585407,-97.187022],[29.585412,-97.185845],[29.58544,-97.184962],[29.585454,-97.183471],[29.585461,-97.181894],[29.585475,-97.180974],[29.585498,-97.180295],[29.585549,-97.179917],[29.585619,-97.179593],[29.58571,-97.179322],[29.585871,-97.178944],[29.586303,-97.178174],[29.587007,-97.176924],[29.587348,-97.176267],[29.58742,-97.176272],[29.587609,-97.176543] ] }); // track 6 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #7
+				t = 7; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 6 - 4.68m'; trk[t].info.desc = 'Length: 7.539 km (4.684 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.587621,-97.176545],[29.587775,-97.176744],[29.587926,-97.176666],[29.588048,-97.17654],[29.588404,-97.176175],[29.58896,-97.175749],[29.589281,-97.175518],[29.589531,-97.175295],[29.589811,-97.17499],[29.590158,-97.174512],[29.59049,-97.174003],[29.590758,-97.173412],[29.591031,-97.172753],[29.591145,-97.172468],[29.591231,-97.172187],[29.591294,-97.171867],[29.591348,-97.171476],[29.591397,-97.170628],[29.591399,-97.170196],[29.591427,-97.170065],[29.591497,-97.169963],[29.591621,-97.169928],[29.59289,-97.169883],[29.593398,-97.169826],[29.593706,-97.169773],[29.595161,-97.169435],[29.595859,-97.169239],[29.597034,-97.168869],[29.597547,-97.168686],[29.59801,-97.1685],[29.59966,-97.16786],[29.600504,-97.167557],[29.601353,-97.167246],[29.601607,-97.167152],[29.601876,-97.167085],[29.602286,-97.167048],[29.603179,-97.166986],[29.603776,-97.166946],[29.603984,-97.1669],[29.604052,-97.166862],[29.604105,-97.166817],[29.604161,-97.166696],[29.604177,-97.16657],[29.604182,-97.166165],[29.604201,-97.165932],[29.604224,-97.165875],[29.604254,-97.165846],[29.605612,-97.165835],[29.606274,-97.165833],[29.606537,-97.16583],[29.60674,-97.16579],[29.607587,-97.165371],[29.608468,-97.164907],[29.609828,-97.164271],[29.610572,-97.16395],[29.611031,-97.163719],[29.611276,-97.163547],[29.611507,-97.163354],[29.612482,-97.162308],[29.613107,-97.161616],[29.613599,-97.161058],[29.614321,-97.1602],[29.614725,-97.159604],[29.614993,-97.159052],[29.615093,-97.158848],[29.615184,-97.15873],[29.615308,-97.158609],[29.615548,-97.158462],[29.615907,-97.158167],[29.616714,-97.157032],[29.61753,-97.155828],[29.617922,-97.155224],[29.618281,-97.154605],[29.618498,-97.153972],[29.618976,-97.152454],[29.619153,-97.151968],[29.619304,-97.151619],[29.619447,-97.151381],[29.619603,-97.151341],[29.619878,-97.15129],[29.619995,-97.151239],[29.620097,-97.15118],[29.62134,-97.150185],[29.622037,-97.149643],[29.624,-97.14821],[29.624047,-97.147907],[29.624143,-97.146631],[29.624208,-97.146314],[29.624294,-97.146153],[29.624476,-97.145992],[29.625425,-97.145378],[29.625754,-97.145161],[29.625877,-97.145053],[29.625975,-97.144941],[29.626987,-97.143329],[29.627542,-97.142484],[29.627801,-97.142138],[29.628081,-97.141808],[29.628325,-97.141526],[29.628514,-97.141242],[29.629608,-97.140003],[29.630606,-97.138841],[29.631848,-97.137283],[29.633816,-97.134815],[29.635569,-97.132774],[29.6366856,-97.1314707],[29.6367647,-97.1313796],[29.6368068,-97.1313317] ] }); // track 7 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #8
+				t = 8; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 7 - 3.97m'; trk[t].info.desc = 'Length: 6.386 km (3.968 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6368068,-97.1313317],[29.637583,-97.130395],[29.637658,-97.130342],[29.63846,-97.130194],[29.639096,-97.130052],[29.639602,-97.129907],[29.641871,-97.129137],[29.642822,-97.128797],[29.644468,-97.128215],[29.645719,-97.127759],[29.646076,-97.127598],[29.646381,-97.127445],[29.64671,-97.12724],[29.650549,-97.124577],[29.651106,-97.124258],[29.652197,-97.12369],[29.654001,-97.122786],[29.65548,-97.12201],[29.656964,-97.12127],[29.65846,-97.12056],[29.66443,-97.11803],[29.66571,-97.11741],[29.66669,-97.11681],[29.67298,-97.11216],[29.673346,-97.111936],[29.673717,-97.111743],[29.67412,-97.111579],[29.67452,-97.11147],[29.675141,-97.11137],[29.675653,-97.111343],[29.676166,-97.111349],[29.677196,-97.111368],[29.68041,-97.111435],[29.68195,-97.111483],[29.68667,-97.11152],[29.68678,-97.10761] ] }); // track 8 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #9
+				t = 9; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 8 - 6.17m'; trk[t].info.desc = 'Length: 9.923 km (6.166 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.686783,-97.107588],[29.686774,-97.107014],[29.68678,-97.106907],[29.686864,-97.106918],[29.687507,-97.106918],[29.68782,-97.10692],[29.68789,-97.10428],[29.68792,-97.09727],[29.68787,-97.09641],[29.68776,-97.09563],[29.68748,-97.09425],[29.68712,-97.0931],[29.68688,-97.09254],[29.68088,-97.07994],[29.68041,-97.07861],[29.68014,-97.07722],[29.67998,-97.07586],[29.67995,-97.07519],[29.68011,-97.06481],[29.68018,-97.06349],[29.68035,-97.06236],[29.68049,-97.06176],[29.68279,-97.05365],[29.68303,-97.05233],[29.68316,-97.05088],[29.68202,-97.02587],[29.68127,-97.01138],[29.68121,-97.00887] ] }); // track 9 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #10
+				t = 10; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 9 - 6.40m'; trk[t].info.desc = 'Length: 10.29 km (6.397 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6812,-97.00886],[29.68104,-97.00634],[29.68098,-97.00394],[29.68101,-97.00318],[29.68123,-97.00126],[29.68544,-96.9783],[29.68553,-96.97687],[29.68551,-96.97614],[29.68495,-96.96439],[29.68496,-96.96278],[29.68599,-96.95253],[29.68602,-96.95182],[29.68599,-96.9512],[29.68583,-96.94999],[29.68445,-96.94362],[29.68302,-96.93726],[29.68207,-96.93282],[29.68193,-96.93181],[29.6818577,-96.9308009],[29.6818694,-96.9298026],[29.6806832,-96.9297859],[29.6800995,-96.9297508],[29.6797983,-96.9297225],[29.679636,-96.9296198],[29.6795596,-96.9293915],[29.6795204,-96.9291417],[29.6794441,-96.9281489],[29.6794797,-96.9248065],[29.6795878,-96.913637],[29.6796478,-96.9116815],[29.6797637,-96.9101766],[29.67983,-96.90936],[29.6798507,-96.9060551] ] }); // track 10 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #11
+				t = 11; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 10 - 3.87m'; trk[t].info.desc = 'Length: 6.233 km (3.873 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6798453,-96.9060063],[29.67987,-96.90332],[29.67998,-96.90038],[29.68221,-96.90031],[29.68247,-96.88676],[29.682563,-96.885434],[29.682581,-96.885349],[29.682656,-96.884898],[29.68309,-96.88278],[29.69305,-96.85281],[29.69449,-96.84839],[29.695034,-96.84666] ] }); // track 11 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #12
+				t = 12; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 11 - 4.12m'; trk[t].info.desc = 'Length: 6.623 km (4.116 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.695034,-96.84666],[29.695728,-96.844262],[29.69646,-96.841827],[29.697191,-96.839392],[29.697424,-96.838549],[29.697816,-96.837246],[29.697988,-96.836704],[29.698128,-96.836168],[29.69824,-96.835594],[29.698309,-96.835014],[29.698351,-96.834344],[29.698342,-96.831104],[29.698314,-96.829441],[29.698291,-96.826989],[29.698268,-96.824538],[29.698249,-96.823223],[29.698258,-96.822639],[29.698286,-96.821887],[29.698337,-96.821163],[29.698421,-96.820284],[29.698538,-96.819511],[29.698696,-96.818647],[29.698873,-96.817612],[29.69906,-96.816534],[29.699251,-96.815445],[29.699437,-96.814356],[29.699847,-96.811979],[29.700257,-96.809603],[29.700635,-96.807479],[29.701026,-96.80522],[29.701417,-96.802897],[29.701818,-96.800569],[29.702219,-96.798241],[29.702629,-96.795908],[29.703039,-96.793574],[29.703183,-96.792646],[29.703253,-96.792147],[29.703314,-96.791659],[29.703356,-96.791342],[29.703388,-96.791015],[29.703416,-96.790608],[29.70344,-96.790178],[29.703444,-96.789749],[29.703449,-96.78932],[29.703435,-96.788671],[29.703402,-96.787974],[29.703305,-96.786713],[29.7031,-96.784261],[29.702885,-96.781864],[29.702666,-96.779466],[29.702666,-96.779385] ] }); // track 12 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #13
+				t = 13; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 12 - 4.69m'; trk[t].info.desc = 'Length: 7.542 km (4.687 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.70265,-96.77938],[29.7023,-96.77538],[29.70156,-96.76978],[29.70141,-96.76837],[29.70065,-96.75872],[29.69897,-96.73946],[29.69898,-96.7377],[29.69948,-96.72827],[29.69942,-96.72707],[29.69933,-96.72649],[29.69896,-96.725],[29.69841,-96.72367],[29.69795,-96.7229],[29.69596,-96.7203],[29.695034,-96.718891],[29.69444,-96.71775],[29.69396,-96.71649],[29.6936,-96.71515],[29.69345,-96.71439],[29.69165,-96.70382] ] }); // track 13 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #14
+				t = 14; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 13 - 4.77m'; trk[t].info.desc = 'Length: 7.682 km (4.774 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.69166,-96.703817],[29.690206,-96.695384],[29.689833,-96.692981],[29.68972,-96.69197],[29.68968,-96.69095],[29.68971,-96.68996],[29.69228,-96.64801],[29.69257,-96.64585],[29.6958629,-96.6250611] ] }); // track 14 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #15
+				t = 15; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 18 - 3.87m'; trk[t].info.desc = 'Length: 6.225 km (3.868 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.5885509,-96.3700086],[29.58812,-96.36424],[29.58761,-96.35772],[29.58749,-96.35683],[29.587,-96.35475],[29.58395,-96.34348],[29.5838,-96.34238],[29.5839,-96.3414],[29.58405,-96.34089],[29.5843,-96.34029],[29.58474,-96.33962],[29.58675,-96.33709],[29.58705,-96.33679],[29.5896,-96.33351],[29.59226,-96.33026],[29.59212,-96.32991],[29.58683,-96.32061],[29.58636,-96.31972],[29.5863,-96.31951],[29.58664,-96.31801],[29.58684,-96.31743],[29.5875,-96.31595],[29.58798,-96.3153],[29.58827,-96.31503],[29.59,-96.3138] ] }); // track 15 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #16
+				t = 16; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 19 - 6.57m'; trk[t].info.desc = 'Length: 10.57 km (6.569 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.589907,-96.313856],[29.58998,-96.31377],[29.5898,-96.31327],[29.58915,-96.30994],[29.58906,-96.30915],[29.58901,-96.3083],[29.58903,-96.30751],[29.58906,-96.30703],[29.58925,-96.30591],[29.5971,-96.26879],[29.59846,-96.26257],[29.59899,-96.25989],[29.60182,-96.24653],[29.60251,-96.24345],[29.60369,-96.23762],[29.6100234,-96.2076908] ] }); // track 16 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #17
+				t = 17; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 20 - 5.05m'; trk[t].info.desc = 'Length: 8.111 km (5.04 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6100191,-96.2076513],[29.611129,-96.202394],[29.612174,-96.197684],[29.613181,-96.192888],[29.614198,-96.188092],[29.614478,-96.186676],[29.614618,-96.185904],[29.61472,-96.185045],[29.614897,-96.183897],[29.615205,-96.181741],[29.615681,-96.178458],[29.616166,-96.175014],[29.616698,-96.171205],[29.61736,-96.166677],[29.618022,-96.16215],[29.618675,-96.157612],[29.619318,-96.153073],[29.619468,-96.152],[29.619561,-96.151485],[29.619654,-96.151013],[29.619803,-96.150498],[29.61999,-96.149962],[29.620214,-96.149415],[29.620419,-96.148986],[29.620699,-96.148492],[29.621035,-96.147945],[29.623459,-96.144265],[29.62436,-96.142881],[29.624994,-96.141915],[29.625297,-96.141465],[29.625539,-96.141052],[29.625716,-96.140703],[29.625884,-96.140354],[29.626048,-96.139952],[29.626197,-96.139528],[29.626355,-96.139013],[29.626486,-96.13853],[29.626579,-96.13809],[29.626654,-96.137672],[29.626696,-96.137238],[29.626728,-96.13669],[29.626798,-96.135355],[29.626817,-96.135038],[29.626868,-96.133965],[29.626966,-96.132157],[29.627069,-96.130355],[29.627153,-96.128547],[29.627218,-96.127367] ] }); // track 17 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #18
+				t = 18; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 21 - 4.13m'; trk[t].info.desc = 'Length: 6.651 km (4.133 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.627227,-96.12726],[29.62747,-96.122485],[29.627712,-96.117711],[29.627964,-96.112937],[29.628216,-96.108162],[29.62844,-96.104794],[29.62872,-96.098614],[29.628971,-96.093839],[29.629223,-96.089065],[29.629475,-96.084269],[29.629652,-96.081018],[29.629689,-96.080536],[29.629736,-96.080042],[29.629829,-96.07957],[29.629941,-96.079173],[29.630072,-96.07876],[29.630244,-96.07832],[29.630449,-96.077918],[29.630683,-96.077521],[29.630897,-96.077215],[29.631168,-96.076866],[29.631475,-96.07655],[29.631867,-96.07619],[29.633438,-96.074844],[29.633923,-96.074468],[29.634287,-96.074249],[29.635252,-96.073739],[29.634446,-96.071717],[29.633583,-96.069705],[29.632711,-96.067704],[29.632524,-96.067264],[29.632315,-96.066835],[29.631988,-96.066132],[29.631452,-96.064979],[29.630575,-96.062951],[29.630585,-96.062962],[29.630589,-96.062973],[29.630571,-96.062935] ] }); // track 18 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #19
+				t = 19; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 22 - 5.43m'; trk[t].info.desc = 'Length: 8.733 km (5.426 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.630585,-96.06294],[29.629573,-96.060601],[29.628552,-96.058273],[29.628207,-96.057495],[29.627414,-96.055688],[29.626654,-96.053934],[29.626602,-96.05381],[29.625595,-96.051396],[29.62504,-96.050023],[29.624844,-96.049502],[29.624658,-96.048971],[29.624485,-96.048397],[29.624257,-96.047636],[29.623618,-96.045404],[29.622928,-96.043001],[29.622233,-96.040619],[29.621557,-96.038237],[29.621366,-96.037518],[29.621338,-96.037411],[29.620871,-96.035807],[29.620638,-96.034976],[29.620116,-96.033221],[29.619454,-96.03092],[29.619272,-96.030335],[29.618563,-96.027895],[29.617868,-96.025448],[29.6175,-96.024188],[29.617346,-96.023641],[29.616744,-96.021956],[29.616073,-96.019607],[29.615364,-96.017182],[29.61466,-96.014736],[29.613951,-96.01229],[29.613242,-96.009843],[29.612533,-96.007397],[29.611829,-96.004951],[29.61112,-96.002505],[29.610411,-96.000059],[29.609702,-95.997607],[29.608993,-95.995156],[29.608284,-95.992704],[29.607575,-95.990252],[29.606866,-95.987801],[29.606162,-95.985349],[29.605453,-95.982898],[29.604739,-95.980446],[29.6041,-95.978129] ] }); // track 19 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #20
+				t = 20; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 23 - 5.27m'; trk[t].info.desc = 'Length: 8.481 km (5.27 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6041653,-95.9780864],[29.6041523,-95.9780054],[29.6041473,-95.9779464],[29.6041793,-95.9778714],[29.6043103,-95.9777744],[29.6060083,-95.9767504],[29.6076823,-95.9757744],[29.6083723,-95.9753984],[29.6087463,-95.9752324],[29.6092493,-95.9750654],[29.6097483,-95.9749644],[29.6102573,-95.9749154],[29.6106113,-95.9749214],[29.6124023,-95.9749534],[29.6142023,-95.9749744],[29.6160163,-95.9750174],[29.6178313,-95.9750494],[29.6196403,-95.9750764],[29.6214493,-95.9751084],[29.6231983,-95.9751624],[29.6250683,-95.9751734],[29.6270033,-95.9752054],[29.6286873,-95.9752424],[29.6304963,-95.9752804],[29.6323053,-95.9753184],[29.6341143,-95.9753504],[29.6354853,-95.9753774],[29.6359193,-95.9753984],[29.6363523,-95.9754364],[29.6368473,-95.9755054],[29.6375883,-95.9756074],[29.6386143,-95.9757524],[29.6395833,-95.9759024],[29.6403853,-95.9760154],[29.6410433,-95.9760954],[29.6415423,-95.9761814],[29.6433273,-95.9764174],[29.6438643,-95.9764824],[29.6444183,-95.9765084],[29.6450573,-95.9765194],[29.6468713,-95.9765414],[29.6486843,-95.9765464],[29.6504983,-95.9765624],[29.6523113,-95.9765784],[29.6541253,-95.9765894],[29.6559383,-95.9766004],[29.6577523,-95.9766104],[29.6595653,-95.9766274],[29.6613743,-95.9766434],[29.6631873,-95.9766484],[29.6650053,-95.9766594],[29.6668233,-95.9766694],[29.6686413,-95.9766804],[29.6704583,-95.9766914],[29.6709013,-95.9767024],[29.6713863,-95.9767394],[29.6718753,-95.9767874],[29.6736933,-95.9769704],[29.6743743,-95.9770614],[29.6750963,-95.9771314],[29.6785047,-95.9775699],[29.6786972,-95.9775364],[29.6789798,-95.9773728],[29.6792094,-95.9772601],[29.6794354,-95.9772172] ] }); // track 20 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #21
+				t = 21; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 24 - 4.75m'; trk[t].info.desc = 'Length: 7.643 km (4.749 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6794354,-95.9772172],[29.6794891,-95.9767994],[29.6795059,-95.9766945],[29.68016,-95.96981],[29.68584,-95.91787],[29.68602,-95.91683],[29.68862,-95.90459],[29.68871,-95.90359],[29.68868,-95.90248],[29.6889,-95.90125],[29.68898,-95.900935],[29.689073,-95.900667],[29.68925,-95.900388],[29.689441,-95.900211],[29.689684,-95.900071],[29.689894,-95.900018],[29.690094,-95.900007],[29.690145,-95.899862] ] }); // track 21 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #22
+				t = 22; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 25 - 4.73m'; trk[t].info.desc = 'Length: 7.609 km (4.728 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.69015,-95.89982],[29.69071,-95.89438],[29.692648,-95.871066],[29.692727,-95.870985],[29.692918,-95.870969],[29.695048,-95.87098],[29.695262,-95.870824],[29.695336,-95.870256],[29.695462,-95.869682],[29.695672,-95.869113],[29.695961,-95.868539],[29.696436,-95.867976],[29.696795,-95.867767],[29.697079,-95.867595],[29.697224,-95.867429],[29.698058,-95.867096],[29.698496,-95.866866],[29.698724,-95.866721],[29.698999,-95.866683],[29.699353,-95.866442],[29.699679,-95.866388],[29.69988,-95.866334],[29.700145,-95.866061],[29.700425,-95.865857],[29.700681,-95.865777],[29.700802,-95.865739],[29.701026,-95.865465],[29.70132,-95.865149],[29.701576,-95.864918],[29.701809,-95.86458],[29.702387,-95.863872],[29.702718,-95.8634],[29.702988,-95.86289],[29.703277,-95.862204],[29.703463,-95.861238],[29.703561,-95.859833],[29.703556,-95.857885],[29.70357,-95.857081],[29.703654,-95.856501],[29.703817,-95.855874],[29.704073,-95.855193],[29.704493,-95.854479],[29.70522,-95.853739],[29.706016,-95.853165],[29.706436,-95.852998],[29.706897,-95.852854],[29.706711,-95.85169],[29.706543,-95.850166],[29.706492,-95.846958],[29.706506,-95.845408],[29.706464,-95.844587],[29.706361,-95.843927],[29.707195,-95.84374],[29.708938,-95.843922],[29.710033,-95.844099],[29.71069,-95.844115],[29.711179,-95.84404],[29.711761,-95.843868],[29.713131,-95.84323],[29.714287,-95.84272],[29.714752,-95.842645],[29.715218,-95.842806],[29.715694,-95.843015],[29.716104,-95.843117],[29.716588,-95.843064],[29.717375,-95.842838] ] }); // track 22 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #23
+				t = 23; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 26 - 5.16m'; trk[t].info.desc = 'Length: 8.317 km (5.168 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.71738,-95.842817],[29.717184,-95.84228],[29.717017,-95.841985],[29.716868,-95.841599],[29.716588,-95.841202],[29.716187,-95.840499],[29.715922,-95.840081],[29.715777,-95.839915],[29.715558,-95.839394],[29.715414,-95.839148],[29.715302,-95.838697],[29.715162,-95.838364],[29.715121,-95.83801],[29.715004,-95.837651],[29.714943,-95.836996],[29.714911,-95.836675],[29.714999,-95.836052],[29.71519,-95.834545],[29.715293,-95.833531],[29.715386,-95.83249],[29.715358,-95.832024],[29.715409,-95.831391],[29.715447,-95.830843],[29.715666,-95.829862],[29.715749,-95.829336],[29.716034,-95.828515],[29.716295,-95.827491],[29.71642,-95.826595],[29.716425,-95.825956],[29.716402,-95.82542],[29.716285,-95.824712],[29.716248,-95.824438],[29.71602,-95.823757],[29.715763,-95.823398],[29.715531,-95.823199],[29.714999,-95.822293],[29.714846,-95.821847],[29.714678,-95.8213],[29.714524,-95.820989],[29.71438,-95.820576],[29.714207,-95.819728],[29.714114,-95.819374],[29.714049,-95.818677],[29.714026,-95.818039],[29.714096,-95.817137],[29.71437,-95.815807],[29.71431,-95.815694],[29.714338,-95.815566],[29.71438,-95.815421],[29.714305,-95.815276],[29.714417,-95.815115],[29.714515,-95.814986],[29.71472,-95.814267],[29.714906,-95.813806],[29.71499,-95.813586],[29.715083,-95.813414],[29.715181,-95.813162],[29.715279,-95.813044],[29.715358,-95.812862],[29.715647,-95.812497],[29.715754,-95.812256],[29.715922,-95.812132],[29.71602,-95.811961],[29.716155,-95.811848],[29.716201,-95.811714],[29.716439,-95.811564],[29.716854,-95.810984],[29.717161,-95.810587],[29.717473,-95.810115],[29.718098,-95.809407],[29.718181,-95.809311],[29.718414,-95.809026],[29.718699,-95.808629],[29.719067,-95.808291],[29.719281,-95.808018],[29.719523,-95.807771],[29.71963,-95.807599],[29.720045,-95.807192],[29.720161,-95.807042],[29.720478,-95.806671],[29.720618,-95.806516],[29.720739,-95.806285],[29.721224,-95.805926],[29.721499,-95.805615],[29.721699,-95.80525],[29.722607,-95.804349],[29.722836,-95.804],[29.723218,-95.803619],[29.723469,-95.803329],[29.724005,-95.802766],[29.724121,-95.802552],[29.724373,-95.802342],[29.724652,-95.801972],[29.725048,-95.801581],[29.725239,-95.801318],[29.725472,-95.801151],[29.725738,-95.80084],[29.726469,-95.80003],[29.726851,-95.79959],[29.72721,-95.799236],[29.727387,-95.798947],[29.727699,-95.798517],[29.727955,-95.798019],[29.728146,-95.79753],[29.728295,-95.797176],[29.728407,-95.796742],[29.728444,-95.796538],[29.728486,-95.796345],[29.728579,-95.795744],[29.728612,-95.795149],[29.728621,-95.794811],[29.728579,-95.794317],[29.728538,-95.794103],[29.728491,-95.793706],[29.728402,-95.793459],[29.728351,-95.793094],[29.728267,-95.792761],[29.728146,-95.792021],[29.728137,-95.791533],[29.728109,-95.791104],[29.728249,-95.790224],[29.728356,-95.789677],[29.728435,-95.789264],[29.728552,-95.788888],[29.728663,-95.788604],[29.728864,-95.788239],[29.728994,-95.787944],[29.729162,-95.787687],[29.729565,-95.787086],[29.729702,-95.786893],[29.729949,-95.78663],[29.73011,-95.78645],[29.730354,-95.786284],[29.730438,-95.786169],[29.730659,-95.786008],[29.730878,-95.785876],[29.731193,-95.785664],[29.731221,-95.785621],[29.731321,-95.785581],[29.731344,-95.785538],[29.731435,-95.785501],[29.73174,-95.785351],[29.732103,-95.78523],[29.732621,-95.785047],[29.732644,-95.784991],[29.732732,-95.78498],[29.733357,-95.784715],[29.733538,-95.784653],[29.733685,-95.784573],[29.734093,-95.78442],[29.734237,-95.784358],[29.734554,-95.784213],[29.734982,-95.784001],[29.735089,-95.783891],[29.735215,-95.783838],[29.735313,-95.783811],[29.73542,-95.783749],[29.735571,-95.783583],[29.735686,-95.783545],[29.735767,-95.783484],[29.735993,-95.783342],[29.736051,-95.783293],[29.736585,-95.782899],[29.736831,-95.782759],[29.737111,-95.782523],[29.737269,-95.78244],[29.737605,-95.782196],[29.737812,-95.782043],[29.738247,-95.781797],[29.738615,-95.781528],[29.738995,-95.781255],[29.739219,-95.781091],[29.739512,-95.78086],[29.739715,-95.78078],[29.739831,-95.780683],[29.739896,-95.780614],[29.740127,-95.780506],[29.740385,-95.780321],[29.740819,-95.780026],[29.741086,-95.779814],[29.741296,-95.779694],[29.741569,-95.779509],[29.741888,-95.779203],[29.742223,-95.778809],[29.742297,-95.778752],[29.742325,-95.778693],[29.742419,-95.778621],[29.742472,-95.778489],[29.742617,-95.778331],[29.742689,-95.77821],[29.742943,-95.777932],[29.743003,-95.777851],[29.743215,-95.777435],[29.743462,-95.776843],[29.743616,-95.776392],[29.743706,-95.776033],[29.743741,-95.775759],[29.7438,-95.77537],[29.743814,-95.775072],[29.743846,-95.774783] ] }); // track 23 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #24
+				t = 24; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 27 - 6.25m'; trk[t].info.desc = 'Length: 10.07 km (6.255 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.743848,-95.774733],[29.743858,-95.773815],[29.74389,-95.773724],[29.743876,-95.771825],[29.743937,-95.77042],[29.743942,-95.767716],[29.743895,-95.767276],[29.743946,-95.766922],[29.74397,-95.765189],[29.743923,-95.76468],[29.743862,-95.764411],[29.743839,-95.764095],[29.743676,-95.763553],[29.743215,-95.762357],[29.743033,-95.762073],[29.74287,-95.761912],[29.742158,-95.760866],[29.741673,-95.759868],[29.741576,-95.759551],[29.741426,-95.759278],[29.741184,-95.75806],[29.741166,-95.757604],[29.74097,-95.756638],[29.740947,-95.75622],[29.740723,-95.754219],[29.740504,-95.753323],[29.740416,-95.75239],[29.740406,-95.751966],[29.74029,-95.751344],[29.740229,-95.750695],[29.740001,-95.750721],[29.739419,-95.750904],[29.738897,-95.751113],[29.738832,-95.751016],[29.738063,-95.749412],[29.738031,-95.749166],[29.73804,-95.74894],[29.738091,-95.748763],[29.738171,-95.748602],[29.73839,-95.748286],[29.738352,-95.748179],[29.738175,-95.747975],[29.737276,-95.747385],[29.737067,-95.747202],[29.736731,-95.7468],[29.736354,-95.746205],[29.736014,-95.745791],[29.736121,-95.745582],[29.736424,-95.74518],[29.736475,-95.744998],[29.736745,-95.744617],[29.73763,-95.743592],[29.737849,-95.743292],[29.738098,-95.743002],[29.738387,-95.742521],[29.738411,-95.74242],[29.738483,-95.742312],[29.738748,-95.741765],[29.738841,-95.741475],[29.738925,-95.741331],[29.739184,-95.740266],[29.739279,-95.740134],[29.739391,-95.739391],[29.739442,-95.738648],[29.739452,-95.737927],[29.739433,-95.737645],[29.739312,-95.737101],[29.7393,-95.736757],[29.739251,-95.736629],[29.739265,-95.736532],[29.739228,-95.73639],[29.739247,-95.736317],[29.7392,-95.736224],[29.739179,-95.736039],[29.739077,-95.735698],[29.739123,-95.735588],[29.739095,-95.735406],[29.739014,-95.735304],[29.738907,-95.734955],[29.738827,-95.734518],[29.738778,-95.734413],[29.738741,-95.734196],[29.738685,-95.734048],[29.738641,-95.733477],[29.738592,-95.733297],[29.738529,-95.733161],[29.738452,-95.732884],[29.738413,-95.732884],[29.738359,-95.732493],[29.73831,-95.732407],[29.738217,-95.731876],[29.738152,-95.731634],[29.737942,-95.731275],[29.737656,-95.730516],[29.737572,-95.730368],[29.736971,-95.72892],[29.736962,-95.728797],[29.736855,-95.728536],[29.736852,-95.728375],[29.736708,-95.728048],[29.736401,-95.727501],[29.735721,-95.726712],[29.735537,-95.726557],[29.73552,-95.726487],[29.73573,-95.726251],[29.737428,-95.723451],[29.737423,-95.723336],[29.737351,-95.72318],[29.737085,-95.722941],[29.736489,-95.722469],[29.736454,-95.722365],[29.736643,-95.72215],[29.737514,-95.722088],[29.737616,-95.722107],[29.738054,-95.722316],[29.73845,-95.722389],[29.738569,-95.72245],[29.73882,-95.722788],[29.738951,-95.72289],[29.7393,-95.723],[29.739389,-95.72307],[29.739524,-95.723247],[29.739726,-95.723293],[29.740509,-95.723054],[29.740651,-95.722939],[29.740548,-95.721893],[29.740476,-95.721619],[29.740416,-95.721477],[29.74036,-95.721407],[29.740174,-95.720696],[29.740071,-95.720466],[29.739992,-95.720071],[29.739936,-95.719484],[29.739857,-95.719167],[29.739759,-95.719004],[29.739715,-95.718859],[29.739684,-95.718355],[29.739482,-95.717985],[29.739405,-95.717738],[29.739382,-95.717456],[29.739396,-95.71729],[29.739256,-95.716649],[29.739193,-95.716544],[29.738993,-95.715616],[29.738844,-95.715085],[29.738711,-95.714736],[29.73862,-95.714238],[29.738534,-95.713902],[29.738357,-95.712985],[29.73825,-95.712741],[29.73824,-95.712446],[29.738201,-95.712301],[29.738098,-95.712092],[29.737968,-95.711445],[29.737954,-95.711244],[29.737875,-95.710802],[29.737863,-95.710574],[29.737779,-95.710402],[29.737691,-95.710099],[29.737605,-95.709589],[29.737637,-95.709372],[29.737602,-95.709241],[29.737502,-95.709042],[29.737381,-95.708479],[29.73736,-95.708173],[29.737297,-95.707934],[29.737185,-95.707714],[29.737113,-95.707462],[29.737083,-95.706982],[29.737169,-95.706749],[29.737248,-95.706231],[29.737162,-95.705826],[29.737064,-95.705646],[29.735858,-95.704147],[29.735776,-95.703946],[29.735639,-95.703707],[29.735266,-95.703329],[29.735206,-95.703184],[29.735155,-95.702943],[29.735019,-95.701768],[29.734798,-95.700596],[29.734752,-95.69996],[29.734773,-95.699212],[29.734698,-95.698345],[29.734703,-95.698064],[29.734791,-95.69712],[29.734812,-95.696554],[29.734747,-95.695848],[29.734738,-95.695494],[29.734812,-95.694727],[29.734822,-95.694164],[29.734761,-95.693389],[29.734768,-95.692903],[29.734852,-95.691857],[29.73481,-95.690605],[29.734826,-95.690315],[29.734959,-95.689194],[29.735001,-95.687386],[29.734919,-95.687204],[29.734898,-95.686648] ] }); // track 24 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #25
+				t = 25; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 28 - 6.79m'; trk[t].info.desc = 'Length: 10.93 km (6.794 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.734896,-95.686702],[29.734971,-95.686283],[29.735036,-95.686026],[29.735138,-95.685822],[29.735306,-95.685607],[29.735455,-95.685468],[29.735734,-95.685328],[29.736163,-95.685275],[29.739731,-95.685307],[29.74329,-95.685307],[29.746848,-95.685318],[29.750406,-95.685339],[29.753396,-95.685371],[29.753815,-95.685328],[29.754216,-95.685232],[29.754626,-95.685092],[29.755101,-95.684942],[29.755501,-95.68491],[29.755837,-95.684963],[29.756181,-95.685092],[29.756554,-95.685221],[29.756954,-95.685307],[29.757467,-95.685371],[29.757988,-95.685371],[29.761602,-95.685403],[29.765113,-95.685457],[29.768624,-95.685457],[29.772135,-95.685478],[29.773674,-95.685492],[29.775646,-95.6855],[29.77911,-95.685543],[29.782185,-95.685556],[29.782325,-95.685562],[29.782411,-95.68546],[29.782416,-95.685318],[29.782444,-95.683472],[29.78236,-95.683193],[29.782453,-95.682968],[29.782472,-95.68271],[29.782434,-95.682528],[29.782425,-95.682142],[29.782388,-95.681348],[29.782509,-95.68094],[29.782481,-95.680747],[29.782397,-95.680339],[29.782388,-95.680017],[29.782481,-95.679288],[29.78249,-95.677614],[29.782416,-95.676455],[29.782397,-95.675329],[29.782472,-95.673784],[29.782509,-95.673194],[29.7825,-95.671788],[29.782434,-95.670244],[29.782397,-95.669289],[29.782444,-95.668763],[29.782472,-95.666327],[29.782351,-95.665619],[29.782337,-95.665458],[29.782397,-95.663066],[29.782458,-95.660942],[29.782504,-95.660266],[29.782472,-95.659617],[29.782444,-95.658726],[29.782411,-95.65775],[29.782383,-95.657101],[29.782402,-95.656441],[29.782444,-95.655663],[29.782467,-95.654499],[29.782439,-95.653523],[29.782393,-95.65246],[29.782402,-95.652176],[29.782448,-95.651334],[29.782448,-95.650545],[29.782388,-95.649891],[29.782253,-95.648915],[29.782081,-95.648383],[29.781857,-95.647917],[29.781578,-95.647493],[29.781373,-95.647236],[29.781131,-95.647058],[29.780879,-95.646892],[29.780577,-95.646699],[29.78033,-95.64657],[29.780055,-95.646479],[29.779762,-95.64642],[29.77932,-95.646366],[29.778887,-95.64634],[29.777625,-95.646329],[29.776363,-95.646318],[29.775101,-95.646307],[29.774496,-95.646291],[29.773858,-95.646265],[29.773197,-95.646238],[29.77248,-95.646184],[29.772158,-95.646179],[29.771167,-95.646189],[29.770813,-95.646179],[29.770599,-95.646045],[29.770352,-95.645798],[29.770091,-95.64553],[29.769947,-95.645278],[29.769928,-95.644977],[29.769891,-95.644768],[29.769891,-95.644687],[29.769986,-95.64439],[29.769975,-95.644325],[29.769788,-95.644046],[29.769718,-95.643585],[29.769686,-95.643475],[29.769209,-95.64359],[29.769225,-95.643711],[29.769162,-95.643773],[29.769113,-95.643851],[29.76912,-95.643942],[29.76915,-95.644041],[29.769199,-95.644113],[29.769255,-95.644138],[29.769334,-95.644116],[29.769344,-95.643598],[29.769281,-95.643199],[29.768997,-95.642389] ] }); // track 25 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #26
+				t = 26; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 29 - 6.60m'; trk[t].info.desc = 'Length: 10.62 km (6.601 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.76898,-95.64232],[29.76878,-95.64147],[29.76879,-95.64126],[29.76864,-95.64049],[29.76886,-95.63952],[29.76944,-95.63768],[29.76995,-95.63584],[29.77025,-95.63486],[29.77042,-95.63449],[29.77064,-95.63417],[29.7709,-95.63392],[29.77119,-95.63376],[29.77308,-95.63324],[29.7734,-95.63289],[29.77357,-95.63254],[29.7736,-95.63231],[29.77348,-95.62879],[29.77339,-95.62797],[29.77349,-95.62754],[29.7734,-95.62701],[29.77342,-95.626],[29.77335,-95.62529],[29.77324,-95.62504],[29.77235,-95.62373],[29.77226,-95.62367],[29.77199,-95.62368],[29.7719,-95.62359],[29.77153,-95.62304],[29.77141,-95.62264],[29.77099,-95.62209],[29.771,-95.62188],[29.7717,-95.62122],[29.77177,-95.62119],[29.77188,-95.62126],[29.77199,-95.62145],[29.77203,-95.62172],[29.77195,-95.62175],[29.77081,-95.61983],[29.77058,-95.6193],[29.76989,-95.61831],[29.76977,-95.61792],[29.7697,-95.61784],[29.76923,-95.61794],[29.76907,-95.61813],[29.76852,-95.61818],[29.76722,-95.61844],[29.76703,-95.61835],[29.76679,-95.61851],[29.76597,-95.61871],[29.76571,-95.61873],[29.76553,-95.61868],[29.76518,-95.61884],[29.76487,-95.6187],[29.7646,-95.61868],[29.76447,-95.61861],[29.76383,-95.61799],[29.7637,-95.61776],[29.7637,-95.61747],[29.76345,-95.61727],[29.76274,-95.61591],[29.76253,-95.61538],[29.76206,-95.61449],[29.76116,-95.61258],[29.76101,-95.61222],[29.76099,-95.61189],[29.76116,-95.61121],[29.76133,-95.61081],[29.76145,-95.6102],[29.76201,-95.6082],[29.76221,-95.60722],[29.76204,-95.60584],[29.76211,-95.60484],[29.76209,-95.60394],[29.76207,-95.60404],[29.76222,-95.60349],[29.76211,-95.60321],[29.76215,-95.60302],[29.76209,-95.60254],[29.76215,-95.60225],[29.76184,-95.60123],[29.76185,-95.60092],[29.76167,-95.60032],[29.76144,-95.60009],[29.76131,-95.59979],[29.76053,-95.59758],[29.75976,-95.59566],[29.75976,-95.59519],[29.7597,-95.59502],[29.75953,-95.59487],[29.75954,-95.59339],[29.7597,-95.59296],[29.75973,-95.59275],[29.75973,-95.59252],[29.75965,-95.59211],[29.75972,-95.59175],[29.75971,-95.59121],[29.75992,-95.59061],[29.75991,-95.59033],[29.76003,-95.59003],[29.76027,-95.58972],[29.76043,-95.5897],[29.76028,-95.58955],[29.76037,-95.58919],[29.76056,-95.58903],[29.76072,-95.58863],[29.76082,-95.58852],[29.76328,-95.58721],[29.76386,-95.58691],[29.76431,-95.58678],[29.76448,-95.58667],[29.76491,-95.58629],[29.7651,-95.5862],[29.76577,-95.58522],[29.76605,-95.58503],[29.76613,-95.58472],[29.76612,-95.58428],[29.76618,-95.58409],[29.76614,-95.5822],[29.76624,-95.58179],[29.76624,-95.58163],[29.76612,-95.58117],[29.76624,-95.5809],[29.76656,-95.58065],[29.76665,-95.58029],[29.76659,-95.58006],[29.76662,-95.57996],[29.76683,-95.57975],[29.76715,-95.57908],[29.76726,-95.57843],[29.76703,-95.57753],[29.76669,-95.57686],[29.7665,-95.57624],[29.76655,-95.5761],[29.76651,-95.57609],[29.76539,-95.57615],[29.7649,-95.57607],[29.76394,-95.57581],[29.76335,-95.57574],[29.7626,-95.57581],[29.76211,-95.57596],[29.7614,-95.57633],[29.76045,-95.57649],[29.75775,-95.57645],[29.75714,-95.57636],[29.75654,-95.57618],[29.75596,-95.57588],[29.75538,-95.57545],[29.75449,-95.57449],[29.75397,-95.57404],[29.7516,-95.57266],[29.75047,-95.57231],[29.7496,-95.57223],[29.74808,-95.57221] ] }); // track 26 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #27
+				t = 27; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 30 - 4.70m'; trk[t].info.desc = 'Length: 7.548 km (4.69 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.74808,-95.57221],[29.7480966,-95.5718769],[29.7480806,-95.5712274],[29.7480121,-95.5706663],[29.7479383,-95.570245],[29.74762,-95.56885],[29.74755,-95.56826],[29.74754,-95.56625],[29.74732,-95.56451],[29.74728,-95.56382],[29.7473,-95.56211],[29.74742,-95.56123],[29.74767,-95.56009],[29.74775,-95.55856],[29.7477,-95.55832],[29.74772,-95.5562],[29.74753,-95.55456],[29.7475,-95.55389],[29.74754,-95.5531],[29.74768,-95.55204],[29.74767,-95.55094],[29.7475,-95.54868],[29.74764,-95.54665],[29.74772,-95.53935],[29.74768,-95.53856],[29.74765,-95.53861],[29.74751,-95.53798],[29.7473,-95.53737],[29.74686,-95.53648],[29.74662,-95.53585],[29.74645,-95.53504],[29.74641,-95.53411],[29.74654,-95.53322],[29.74667,-95.53275],[29.7471,-95.53177],[29.74753,-95.53118],[29.7479,-95.53078],[29.74828,-95.53047],[29.74969,-95.52951],[29.75021,-95.529],[29.75083,-95.52806],[29.75106,-95.52744],[29.75123,-95.52655],[29.75126,-95.52606],[29.75119,-95.52526],[29.75118,-95.52271],[29.75119,-95.51859],[29.75125,-95.51714],[29.75123,-95.51527],[29.75126,-95.51468],[29.75139,-95.51396],[29.75177,-95.51286],[29.75189,-95.51225],[29.75194,-95.50936],[29.75186,-95.50838],[29.75172,-95.50833],[29.75165,-95.50808],[29.75117,-95.50605],[29.75113,-95.50572],[29.7512,-95.50566],[29.75062,-95.50316],[29.75054,-95.50249],[29.75056,-95.49968],[29.750546,-95.49943],[29.750518,-95.499143],[29.750471,-95.498781],[29.750327,-95.498102],[29.750234,-95.497681],[29.75019,-95.497483],[29.750187,-95.49748] ] }); // track 27 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #28
+				t = 28; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 31 - 5.68m'; trk[t].info.desc = 'Length: 9.142 km (5.681 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.75018,-95.49747],[29.75003,-95.49656],[29.75,-95.49602],[29.75003,-95.49433],[29.75017,-95.49311],[29.75018,-95.49207],[29.74994,-95.4901],[29.74996,-95.48878],[29.75686,-95.48888],[29.75685,-95.48865],[29.75667,-95.48826],[29.75659,-95.48796],[29.75657,-95.48756],[29.75662,-95.48548],[29.75678,-95.48415],[29.75687,-95.47607],[29.75711,-95.47507],[29.75798,-95.47342],[29.75739,-95.4727],[29.7564,-95.47177],[29.75563,-95.47114],[29.75396,-95.46998],[29.75396,-95.46988],[29.75426,-95.46899],[29.75444,-95.468],[29.75463,-95.46303],[29.76144,-95.46327],[29.76218,-95.46326],[29.76248,-95.46265],[29.76311,-95.46195],[29.7633,-95.46167],[29.76343,-95.46146],[29.76363,-95.46083],[29.76377,-95.45979],[29.76396,-95.45915],[29.7647,-95.45782],[29.76495,-95.45723],[29.76533,-95.45663],[29.76548,-95.4565],[29.7669,-95.45442],[29.76718,-95.45363],[29.76734,-95.45347],[29.76753,-95.45292],[29.7675,-95.4526],[29.76776,-95.45185],[29.76788,-95.45096],[29.76794,-95.45031],[29.76785,-95.44882],[29.76773,-95.44811],[29.767444,-95.447497],[29.767423,-95.447542],[29.767451,-95.447718],[29.767523,-95.447888],[29.767596,-95.447977],[29.767681,-95.448052],[29.767807,-95.448119],[29.767955,-95.448175],[29.768122,-95.448178],[29.768233,-95.448139],[29.768344,-95.44806],[29.768445,-95.447957],[29.768537,-95.447807],[29.76858,-95.447681],[29.7686,-95.447577],[29.7686,-95.447465],[29.768578,-95.44734],[29.768523,-95.447192],[29.768466,-95.447094],[29.768391,-95.447009],[29.768341,-95.446948],[29.768239,-95.446589],[29.768727,-95.446397],[29.768893,-95.446228],[29.769047,-95.445993],[29.769239,-95.445807],[29.769306,-95.445674],[29.769652,-95.445307],[29.769831,-95.445061],[29.770226,-95.444714],[29.770656,-95.444474],[29.770892,-95.444243],[29.771026,-95.444117],[29.771182,-95.443986],[29.772051,-95.443479],[29.772582,-95.443232],[29.773022,-95.443274],[29.773163,-95.443233],[29.774379,-95.442417],[29.774554,-95.44235],[29.774901,-95.442254],[29.774999,-95.442221],[29.775095,-95.442174],[29.775283,-95.442016],[29.77546,-95.441837],[29.775648,-95.441699],[29.775822,-95.441639],[29.776011,-95.44165],[29.776105,-95.441627],[29.776306,-95.44144],[29.776614,-95.441118],[29.776953,-95.440717],[29.777015,-95.440522],[29.777107,-95.440311],[29.777273,-95.440035],[29.777398,-95.439747],[29.777515,-95.439411],[29.777618,-95.439079],[29.777634,-95.438749],[29.777639,-95.438479],[29.77769,-95.438126],[29.777639,-95.43789],[29.777618,-95.437716],[29.777624,-95.437605],[29.777571,-95.437215],[29.77751,-95.436834],[29.777186,-95.435459],[29.777103,-95.435491],[29.77694,-95.435475],[29.776784,-95.434992],[29.776493,-95.434295],[29.776269,-95.433921] ] }); // track 28 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #29
+				t = 29; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 32 - 5.05m'; trk[t].info.desc = 'Length: 8.134 km (5.054 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.7762623,-95.4339],[29.7757223,-95.43318],[29.7749323,-95.43257],[29.7744323,-95.43235],[29.7736823,-95.43219],[29.7728623,-95.43207],[29.7723923,-95.43209],[29.7720923,-95.43196],[29.7713623,-95.43154],[29.7701023,-95.43051],[29.7701723,-95.43012],[29.7698523,-95.4296],[29.7697123,-95.42926],[29.7695923,-95.4285],[29.7696323,-95.42794],[29.7697923,-95.42738],[29.7672523,-95.42732],[29.7673623,-95.42295],[29.7676023,-95.40409],[29.7676923,-95.40181],[29.7635623,-95.40175],[29.7634623,-95.40173],[29.7634023,-95.40153],[29.7633323,-95.40148],[29.7632223,-95.40145],[29.7624893,-95.40103],[29.7620303,-95.4008799],[29.7612546,-95.4006975],[29.7613012,-95.4005327],[29.7612825,-95.400402],[29.7612359,-95.4002713],[29.7612692,-95.3996485],[29.7614138,-95.3990262],[29.7617552,-95.3981773],[29.7617532,-95.3976559],[29.7617791,-95.3973882],[29.7618282,-95.3970819],[29.7618445,-95.3968006],[29.7619334,-95.3966097],[29.7621565,-95.3963958],[29.7622843,-95.3961965],[29.7623261,-95.3960947],[29.7623401,-95.3959878],[29.7623401,-95.3958777],[29.7622886,-95.3957839],[29.7621774,-95.3956537],[29.7620371,-95.3955155],[29.761839,-95.3953791],[29.761666,-95.3952327],[29.7615771,-95.3950174],[29.7615348,-95.3944695],[29.7616348,-95.3936948],[29.7619043,-95.3932112],[29.7620537,-95.3929758],[29.7622542,-95.3925704],[29.7622764,-95.3922096],[29.7622219,-95.3914545],[29.7622098,-95.3912157],[29.7621399,-95.3909611],[29.7620353,-95.3907516],[29.7619371,-95.3905994],[29.7618072,-95.3905021],[29.7616414,-95.3903922],[29.7614856,-95.3900841],[29.7612945,-95.3896683],[29.7612688,-95.3894749],[29.7612573,-95.3890032],[29.7612275,-95.3886866],[29.7611389,-95.3883621],[29.7610924,-95.3880379],[29.7610892,-95.387748],[29.7611014,-95.387584],[29.7611738,-95.3874237],[29.7612575,-95.3871525],[29.761341,-95.3867685],[29.761371,-95.386538],[29.7613897,-95.3862543],[29.7613966,-95.3860633],[29.761402,-95.3858569],[29.7613991,-95.3851058],[29.7614245,-95.3844032],[29.7614251,-95.3837001],[29.7613827,-95.3829972],[29.7613826,-95.3826441],[29.7614115,-95.3825079],[29.7614241,-95.3823691],[29.7613888,-95.3820083],[29.761395,-95.3814102],[29.7614401,-95.381107],[29.7614417,-95.3807849],[29.761432,-95.380345],[29.7613551,-95.3793696],[29.7613307,-95.3792722],[29.7610214,-95.3785388],[29.7608032,-95.3782156],[29.7606404,-95.3779737],[29.76051,-95.3774004],[29.760426,-95.3772661],[29.7603098,-95.3768045],[29.7602851,-95.3766032],[29.7602907,-95.376359],[29.7602677,-95.3760817],[29.760282,-95.3758446],[29.7602862,-95.3749268],[29.760305,-95.374262],[29.7603051,-95.3737465],[29.7602123,-95.3734358],[29.7598951,-95.3728937],[29.7598042,-95.3726034],[29.7596761,-95.3723076],[29.7596085,-95.3720031],[29.7596386,-95.3719038],[29.759615,-95.3716567],[29.759511,-95.3715894],[29.7589782,-95.3720118],[29.758919,-95.3719333],[29.7588626,-95.3719624],[29.7583033,-95.3710447],[29.7575172,-95.3697456],[29.7562023,-95.370716] ] }); // track 29 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #30
+				t = 30; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 33 - 3.69m'; trk[t].info.desc = 'Length: 5.94 km (3.691 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.75616,-95.37078],[29.75602,-95.37081],[29.75592,-95.37074],[29.7542,-95.36781],[29.75263,-95.36529],[29.75134,-95.36313],[29.74479,-95.36835],[29.74464,-95.36841],[29.74433,-95.3687],[29.74287,-95.36984],[29.74272,-95.3699],[29.74157,-95.37083],[29.74146,-95.37098],[29.73887,-95.37303],[29.73798,-95.37372],[29.737418,-95.37413],[29.73714,-95.37439],[29.73598,-95.37527],[29.7359,-95.37538],[29.72159,-95.38671],[29.72155,-95.38683],[29.7224,-95.38836],[29.7219,-95.38873],[29.72107,-95.38885],[29.72095,-95.3889],[29.72093,-95.38901],[29.72108,-95.38954],[29.72124,-95.38988],[29.72159,-95.39037],[29.72162,-95.39058],[29.721745,-95.390621],[29.72184,-95.3907],[29.721913,-95.390832],[29.72192,-95.39094],[29.721021,-95.39094],[29.72101,-95.39061],[29.71865,-95.39056] ] }); // track 30 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #31
+				t = 31; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 34 - 4.69m'; trk[t].info.desc = 'Length: 7.565 km (4.701 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.71864,-95.39054],[29.718703,-95.38932],[29.718717,-95.388987],[29.718761,-95.388652],[29.718887,-95.388389],[29.719169,-95.388066],[29.719421,-95.387862],[29.719542,-95.387648],[29.719644,-95.387283],[29.719267,-95.387059],[29.718517,-95.386865],[29.717669,-95.386789],[29.717119,-95.386897],[29.716581,-95.387029],[29.716243,-95.387176],[29.716001,-95.387401],[29.71588,-95.387573],[29.715782,-95.38769],[29.715642,-95.38777],[29.715586,-95.387851],[29.715563,-95.38791],[29.715717,-95.388398],[29.715708,-95.388527],[29.715633,-95.388747],[29.715556,-95.388845],[29.715479,-95.388907],[29.71534,-95.388983],[29.715195,-95.388998],[29.715046,-95.389004],[29.714892,-95.389015],[29.714645,-95.389133],[29.714468,-95.389165],[29.71396,-95.389197],[29.713588,-95.389256],[29.713322,-95.389321],[29.713126,-95.389417],[29.712758,-95.389605],[29.712348,-95.389836],[29.711831,-95.390114],[29.7115,-95.390302],[29.711216,-95.390474],[29.710904,-95.390662],[29.710713,-95.390753],[29.71041,-95.390871],[29.710261,-95.390946],[29.710051,-95.391032],[29.709884,-95.39101],[29.709756,-95.390972],[29.70963,-95.390905],[29.709422,-95.390731],[29.709194,-95.390506],[29.709096,-95.390288],[29.709026,-95.390061],[29.70897,-95.389578],[29.708975,-95.389203],[29.709031,-95.38894],[29.709264,-95.388328],[29.709394,-95.387931],[29.709651,-95.387534],[29.709907,-95.387239],[29.710228,-95.387003],[29.7099714,-95.3863839],[29.7100869,-95.3862927],[29.7101272,-95.3862846],[29.7101741,-95.386298],[29.710215,-95.3861545],[29.7102536,-95.3859037],[29.710135,-95.3848531],[29.7102525,-95.3848183],[29.710387,-95.3848038],[29.710648,-95.384713],[29.711188,-95.384289],[29.71191,-95.383752],[29.7125699,-95.3832334],[29.7127895,-95.383055],[29.7129332,-95.382899],[29.7130235,-95.3827854],[29.7130546,-95.3827131],[29.7130713,-95.3825638],[29.71304,-95.3822665],[29.7129538,-95.3819381],[29.7129001,-95.3817204],[29.7128491,-95.38153],[29.7127549,-95.3812188],[29.712691,-95.3809014],[29.7126331,-95.380495],[29.712552,-95.3802804],[29.7124429,-95.3801116],[29.712074,-95.379702],[29.711945,-95.3793973],[29.711866,-95.3791552],[29.7118165,-95.378789],[29.7118404,-95.3783853],[29.711971,-95.378055],[29.712185,-95.377476],[29.712311,-95.377031],[29.7123701,-95.3768632],[29.7124269,-95.3765505],[29.7125882,-95.3758557],[29.7127977,-95.3753864],[29.7130566,-95.3749414],[29.7133002,-95.3743609],[29.713588,-95.373549],[29.71363,-95.373292],[29.713625,-95.372991],[29.713546,-95.372567],[29.713413,-95.3721736],[29.7133101,-95.371972],[29.713238,-95.371886],[29.713099,-95.371629],[29.712912,-95.371334],[29.712675,-95.371114],[29.712535,-95.37106],[29.712274,-95.370958],[29.712022,-95.370905],[29.71178,-95.370883],[29.711454,-95.37091],[29.71034,-95.37099],[29.710247,-95.37099],[29.710149,-95.370921],[29.710047,-95.370883],[29.709823,-95.370883],[29.709683,-95.370819],[29.709553,-95.370722],[29.70938,-95.370668],[29.709213,-95.370491],[29.709078,-95.370223],[29.70904,-95.370014],[29.709017,-95.369869],[29.708873,-95.369601],[29.708789,-95.36945],[29.708775,-95.369351],[29.708784,-95.369252],[29.708873,-95.368968],[29.709189,-95.368126],[29.709334,-95.367863],[29.709441,-95.367251],[29.70946,-95.366801],[29.709572,-95.365996],[29.709721,-95.364328],[29.709809,-95.363266],[29.709809,-95.362992],[29.709795,-95.362708],[29.7098,-95.362197],[29.709749,-95.361688],[29.709707,-95.361291],[29.709627,-95.360825],[29.709618,-95.360567],[29.709655,-95.360337],[29.709735,-95.359591],[29.709814,-95.359156],[29.709907,-95.358856],[29.710028,-95.358507],[29.710112,-95.358255],[29.710145,-95.358008],[29.710107,-95.357772],[29.709898,-95.357467],[29.70979,-95.357279],[29.709525,-95.357064],[29.709301,-95.356834],[29.709227,-95.356544],[29.709199,-95.356201],[29.709148,-95.355911],[29.709059,-95.355316],[29.709012,-95.354613],[29.70904,-95.353636],[29.709082,-95.353057],[29.709138,-95.352687],[29.709371,-95.351984],[29.709637,-95.351147],[29.709935,-95.350402],[29.710098,-95.349908],[29.710247,-95.349425],[29.710336,-95.349023],[29.710457,-95.348589],[29.710606,-95.347902],[29.71068,-95.347371],[29.710727,-95.347049],[29.71082,-95.346765],[29.711007,-95.346432],[29.711463,-95.34582],[29.711906,-95.345236],[29.712092,-95.344898],[29.71219,-95.344571],[29.712209,-95.344302],[29.712157,-95.343889],[29.712069,-95.343342],[29.711938,-95.342865],[29.711794,-95.342269],[29.711738,-95.342119],[29.711617,-95.341947],[29.711524,-95.341615],[29.711477,-95.341528],[29.711403,-95.341445],[29.711188,-95.341212],[29.710946,-95.340971],[29.710732,-95.340708],[29.710569,-95.340381],[29.710415,-95.340016],[29.710336,-95.339743] ] }); // track 31 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #32
+				t = 32; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 35 - 3.72m'; trk[t].info.desc = 'Length: 5.99 km (3.722 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.710336,-95.339716],[29.710331,-95.339533],[29.710415,-95.339238],[29.710601,-95.338975],[29.710783,-95.338809],[29.711128,-95.338385],[29.711291,-95.337978],[29.711421,-95.337307],[29.711193,-95.337216],[29.710597,-95.336932],[29.710061,-95.336663],[29.709884,-95.336556],[29.709739,-95.336379],[29.709565,-95.336094],[29.709429,-95.33595],[29.709353,-95.335893],[29.709304,-95.335797],[29.708966,-95.335687],[29.708912,-95.335512],[29.70901,-95.33541],[29.709071,-95.335295],[29.709145,-95.334949],[29.709224,-95.334541],[29.709397,-95.333702],[29.709523,-95.333098],[29.709618,-95.332825],[29.709765,-95.332235],[29.709863,-95.332023],[29.709963,-95.331878],[29.710103,-95.331409],[29.710149,-95.331148],[29.710152,-95.330786],[29.710233,-95.330738],[29.710284,-95.330518],[29.710249,-95.330405],[29.710368,-95.330073],[29.710527,-95.329531],[29.710597,-95.32919],[29.710725,-95.328616],[29.71089,-95.327871],[29.711081,-95.327042],[29.711212,-95.326449],[29.711342,-95.325867],[29.711375,-95.325631],[29.7114,-95.325331],[29.711405,-95.325065],[29.71137,-95.324665],[29.711316,-95.324317],[29.711151,-95.323729],[29.71096,-95.323078],[29.710643,-95.321991],[29.710548,-95.321683],[29.710461,-95.321321],[29.710389,-95.321026],[29.710364,-95.320841],[29.710359,-95.32079],[29.710345,-95.320441],[29.710305,-95.320366],[29.710082,-95.320213],[29.709961,-95.320119],[29.709774,-95.319958],[29.709448,-95.319588],[29.709252,-95.319314],[29.709141,-95.319121],[29.70891,-95.318628],[29.708807,-95.31825],[29.708733,-95.31796],[29.708628,-95.317472],[29.708549,-95.317018],[29.708495,-95.3166],[29.708302,-95.315447],[29.708146,-95.314468],[29.708006,-95.313676],[29.707808,-95.312931],[29.707698,-95.312655],[29.707468,-95.312048],[29.707221,-95.311421],[29.706995,-95.310855],[29.706736,-95.310208],[29.706583,-95.309836],[29.706187,-95.308956],[29.705793,-95.30832],[29.705618,-95.308079],[29.705525,-95.30795],[29.705315,-95.307679],[29.70521,-95.307722],[29.705136,-95.307757],[29.705119,-95.307789],[29.704691,-95.307961],[29.704167,-95.308173],[29.703885,-95.308274],[29.704432,-95.310007],[29.704651,-95.310737],[29.701271,-95.31211],[29.700954,-95.312252],[29.700791,-95.312376],[29.700635,-95.31248],[29.700565,-95.312526],[29.70032,-95.31263],[29.699505,-95.312955],[29.698948,-95.313159],[29.698277,-95.31343],[29.697799,-95.313617],[29.697683,-95.313663],[29.697585,-95.313676],[29.697422,-95.313674],[29.697384,-95.31376],[29.697329,-95.31413],[29.697329,-95.314202],[29.697387,-95.314189],[29.697431,-95.314154],[29.697424,-95.314146],[29.69735,-95.314175],[29.69728,-95.314154],[29.696918,-95.313985],[29.696376,-95.313727],[29.696313,-95.313717],[29.696273,-95.313717],[29.696119,-95.313223],[29.69577,-95.31215],[29.695406,-95.310943],[29.695034,-95.309744],[29.694787,-95.308956],[29.694302,-95.307403],[29.693831,-95.305922],[29.693708,-95.305962],[29.693622,-95.305997],[29.693491,-95.305992],[29.693062,-95.304643],[29.693062,-95.30464] ] }); // track 32 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #33
+				t = 33; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 36 - 3.74m'; trk[t].info.desc = 'Length: 6.032 km (3.748 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.693066,-95.304621],[29.693069,-95.304563],[29.693089,-95.304531],[29.693245,-95.304404],[29.69328,-95.304357],[29.693288,-95.304262],[29.69327,-95.304048],[29.693229,-95.303875],[29.692876,-95.302771],[29.692503,-95.301585],[29.692224,-95.300687],[29.692007,-95.299973],[29.691923,-95.299713],[29.691769,-95.299434],[29.69149,-95.299077],[29.691408,-95.2989],[29.691313,-95.298619],[29.691087,-95.297953],[29.690779,-95.296969],[29.690574,-95.296315],[29.690411,-95.295834],[29.690292,-95.295596],[29.690108,-95.295311],[29.689942,-95.295142],[29.689877,-95.295083],[29.689861,-95.295038],[29.689884,-95.294971],[29.690155,-95.294407],[29.690695,-95.2933],[29.690807,-95.293021],[29.690972,-95.292578],[29.691142,-95.292031],[29.691268,-95.291519],[29.691354,-95.291082],[29.691429,-95.290626],[29.691476,-95.290556],[29.691485,-95.290508],[29.691457,-95.290376],[29.691504,-95.290153],[29.691555,-95.289966],[29.691667,-95.289665],[29.691739,-95.28952],[29.691723,-95.289464],[29.691667,-95.289357],[29.691564,-95.289212],[29.691511,-95.289064],[29.691483,-95.288906],[29.691487,-95.288426],[29.691499,-95.287967],[29.691515,-95.287053],[29.691525,-95.286436],[29.691553,-95.286063],[29.691601,-95.285763],[29.691671,-95.285532],[29.691779,-95.285261],[29.691963,-95.284974],[29.692072,-95.284837],[29.692228,-95.284926],[29.69231,-95.285007],[29.692337,-95.285044],[29.69234,-95.285074],[29.692328,-95.285095],[29.692312,-95.285109],[29.69229,-95.285107],[29.692262,-95.285091],[29.692226,-95.285056],[29.692217,-95.285026],[29.692228,-95.284998],[29.69241,-95.284759],[29.692615,-95.284491],[29.692702,-95.284365],[29.692793,-95.284242],[29.692831,-95.284189],[29.692852,-95.284129],[29.692849,-95.284075],[29.692833,-95.284018],[29.6928,-95.283971],[29.692736,-95.283939],[29.692664,-95.283929],[29.692596,-95.283928],[29.692579,-95.283963],[29.692586,-95.284028],[29.69268,-95.284095],[29.692995,-95.284334],[29.69325,-95.284519],[29.693489,-95.284645],[29.693566,-95.284655],[29.693747,-95.284464],[29.694017,-95.284121],[29.694133,-95.283953],[29.694212,-95.283827],[29.694255,-95.283729],[29.694286,-95.283614],[29.694312,-95.283473],[29.694325,-95.283353],[29.694336,-95.283068],[29.694342,-95.282851],[29.694356,-95.282801],[29.694485,-95.282675],[29.694522,-95.28258],[29.694563,-95.28236],[29.694566,-95.282225],[29.694575,-95.282044],[29.694584,-95.281625],[29.694605,-95.28109],[29.694612,-95.280684],[29.694675,-95.277708],[29.694665,-95.276759],[29.694703,-95.274892],[29.694754,-95.27221],[29.694796,-95.272145],[29.695101,-95.272145],[29.695392,-95.272156],[29.69546,-95.272124],[29.695451,-95.272014],[29.695299,-95.271831],[29.695001,-95.271448],[29.694859,-95.271204],[29.694691,-95.270887],[29.694535,-95.270506],[29.694432,-95.270184],[29.694358,-95.2699],[29.694311,-95.269594],[29.694281,-95.269262],[29.694267,-95.268892],[29.694283,-95.268548],[29.694332,-95.268175],[29.69439,-95.26791],[29.694416,-95.267596],[29.694407,-95.267365],[29.694363,-95.267124],[29.694295,-95.266928],[29.694148,-95.266652],[29.693941,-95.266394],[29.6943,-95.26592],[29.694843,-95.265201],[29.695218,-95.264648],[29.694959,-95.264431],[29.69491,-95.264372],[29.694889,-95.264372],[29.694852,-95.264313],[29.694679,-95.264168],[29.694465,-95.263962],[29.694109,-95.263632],[29.693629,-95.263184],[29.692923,-95.262516],[29.692149,-95.261797],[29.691869,-95.261537],[29.691375,-95.261086],[29.691161,-95.26088],[29.690795,-95.260539],[29.690115,-95.259909],[29.689779,-95.259598],[29.689313,-95.259163],[29.689304,-95.259043],[29.689278,-95.25897],[29.689101,-95.258793],[29.688617,-95.258345],[29.688444,-95.258182],[29.688372,-95.258163],[29.688323,-95.258117],[29.68829,-95.258037],[29.688092,-95.25786],[29.687901,-95.25768],[29.687212,-95.257039],[29.686829,-95.256728],[29.686801,-95.25665],[29.686571,-95.256446],[29.685837,-95.255727],[29.685725,-95.255698],[29.685492,-95.255473],[29.68521,-95.255215] ] }); // track 33 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #34
+				t = 34; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 37 - 3.02m'; trk[t].info.desc = 'Length: 4.869 km (3.026 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.685201,-95.255202],[29.685625,-95.254577],[29.685963,-95.254072],[29.686161,-95.253729],[29.686457,-95.253206],[29.686615,-95.252962],[29.686948,-95.252493],[29.687351,-95.251919],[29.687494,-95.251701],[29.687731,-95.251377],[29.687824,-95.251253],[29.687992,-95.251009],[29.688099,-95.25087],[29.688281,-95.250591],[29.688407,-95.250417],[29.688521,-95.250207],[29.688535,-95.250113],[29.688705,-95.249735],[29.688803,-95.249234],[29.688833,-95.248861],[29.688826,-95.24848],[29.688775,-95.248054],[29.688687,-95.24771],[29.688498,-95.247246],[29.688316,-95.246943],[29.688074,-95.246635],[29.687908,-95.24649],[29.687661,-95.246246],[29.68741,-95.245999],[29.687193,-95.24575],[29.686927,-95.245328],[29.686853,-95.245192],[29.686811,-95.245044],[29.686662,-95.24473],[29.686566,-95.244516],[29.686506,-95.244371],[29.686473,-95.244269],[29.68641,-95.244127],[29.686333,-95.24381],[29.68621,-95.243075],[29.686067,-95.242209],[29.685986,-95.242011],[29.685827,-95.241777],[29.685653,-95.241643],[29.685518,-95.241592],[29.685161,-95.241477],[29.684455,-95.241246],[29.684168,-95.241117],[29.684008,-95.240991],[29.683875,-95.240884],[29.683651,-95.24061],[29.683551,-95.240508],[29.683399,-95.240433],[29.683406,-95.238969],[29.683418,-95.238202],[29.683418,-95.237397],[29.683427,-95.236305],[29.683437,-95.235297],[29.683441,-95.234259],[29.68346,-95.233079],[29.683467,-95.23173],[29.683476,-95.230635],[29.683474,-95.230083],[29.683411,-95.22956],[29.683355,-95.228768],[29.683355,-95.22817],[29.683376,-95.227905],[29.683392,-95.227256],[29.683397,-95.226489],[29.683397,-95.225515],[29.683395,-95.224936],[29.683404,-95.224327],[29.683413,-95.223664],[29.683411,-95.223283],[29.683416,-95.222889],[29.68343,-95.222133],[29.68343,-95.221615],[29.683437,-95.221256],[29.683441,-95.220537],[29.683441,-95.220196],[29.683451,-95.219571],[29.68346,-95.219171],[29.683467,-95.218579],[29.683465,-95.217994],[29.683483,-95.217256],[29.683455,-95.217018],[29.683315,-95.216712],[29.683192,-95.216556],[29.682999,-95.216428],[29.682996,-95.216355],[29.683043,-95.21617],[29.683034,-95.215902],[29.683041,-95.215237],[29.683055,-95.214668],[29.683061,-95.214008],[29.683068,-95.213367],[29.683071,-95.212884],[29.683085,-95.211581],[29.683089,-95.210822],[29.683089,-95.210575],[29.683089,-95.210406],[29.683103,-95.210159],[29.683101,-95.209851],[29.683101,-95.209583],[29.683117,-95.209489],[29.683103,-95.209352] ] }); // track 34 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #35
+				t = 35; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 38 - 2.97m'; trk[t].info.desc = 'Length: 4.786 km (2.974 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.683108,-95.209334],[29.68312,-95.209282],[29.683115,-95.209133],[29.683123,-95.209097],[29.68314,-95.209083],[29.683369,-95.209086],[29.683509,-95.209085],[29.683512,-95.20854],[29.683518,-95.208209],[29.683519,-95.207757],[29.683523,-95.207502],[29.683528,-95.206952],[29.683528,-95.206612],[29.683533,-95.206145],[29.683531,-95.205904],[29.683539,-95.205847],[29.683531,-95.205751],[29.683535,-95.205487],[29.683539,-95.205336],[29.683553,-95.205237],[29.683558,-95.205072],[29.683562,-95.204702],[29.683564,-95.204245],[29.683565,-95.204034],[29.683568,-95.203846],[29.683569,-95.2036],[29.683576,-95.203217],[29.683573,-95.202901],[29.68358,-95.20241],[29.683583,-95.201882],[29.683587,-95.201493],[29.683589,-95.201076],[29.683586,-95.200967],[29.683611,-95.200652],[29.68361,-95.20002],[29.683616,-95.199548],[29.683629,-95.198947],[29.683632,-95.19834],[29.683641,-95.197818],[29.683643,-95.197586],[29.683625,-95.197404],[29.683587,-95.197208],[29.683495,-95.196956],[29.683399,-95.196786],[29.683284,-95.196618],[29.683107,-95.196406],[29.682781,-95.196018],[29.682466,-95.195647],[29.682294,-95.195423],[29.682233,-95.195333],[29.682156,-95.195188],[29.68208,-95.195017],[29.681988,-95.194746],[29.681945,-95.19451],[29.681927,-95.194262],[29.681924,-95.194136],[29.681943,-95.194011],[29.681931,-95.19376],[29.681915,-95.193285],[29.681888,-95.193224],[29.681896,-95.193016],[29.681912,-95.192962],[29.681931,-95.192643],[29.681937,-95.192286],[29.681959,-95.192131],[29.681964,-95.191935],[29.681953,-95.191805],[29.68197,-95.191654],[29.681974,-95.191326],[29.681979,-95.190792],[29.681988,-95.190504],[29.681999,-95.190177],[29.682,-95.189801],[29.681986,-95.189647],[29.681994,-95.189212],[29.681987,-95.189006],[29.681997,-95.188821],[29.682001,-95.188363],[29.682,-95.187945],[29.682005,-95.187466],[29.682008,-95.187115],[29.682015,-95.186722],[29.682015,-95.186535],[29.682011,-95.186471],[29.682015,-95.186236],[29.682021,-95.185874],[29.682023,-95.185574],[29.682026,-95.185247],[29.68203,-95.184809],[29.682019,-95.184543],[29.682014,-95.184332],[29.681991,-95.183936],[29.682234,-95.183885],[29.682641,-95.183887],[29.682731,-95.183885],[29.682838,-95.183865],[29.683004,-95.183798],[29.683135,-95.183727],[29.683332,-95.183611],[29.683429,-95.183538],[29.68348,-95.183459],[29.683606,-95.183332],[29.683828,-95.183083],[29.683892,-95.18302],[29.683953,-95.182999],[29.68408,-95.182965],[29.684237,-95.182961],[29.684514,-95.182969],[29.685026,-95.182979],[29.685478,-95.182972],[29.685753,-95.182984],[29.685758,-95.182436],[29.685809,-95.18213],[29.685823,-95.181666],[29.685822,-95.181021],[29.685829,-95.180464],[29.685833,-95.179839],[29.685831,-95.179141],[29.685839,-95.178596],[29.685758,-95.178549],[29.685847,-95.178018],[29.685846,-95.177464],[29.68585,-95.176961],[29.685855,-95.176417],[29.68586,-95.175933],[29.685861,-95.175432],[29.685865,-95.17494],[29.685867,-95.174331],[29.685876,-95.173761],[29.685881,-95.173249],[29.68589,-95.172517],[29.685979,-95.172521],[29.686229,-95.17251],[29.686346,-95.172487],[29.686467,-95.172454],[29.686594,-95.172422],[29.686779,-95.172337],[29.686926,-95.172253],[29.687064,-95.172158],[29.687184,-95.172039],[29.687304,-95.168527],[29.687321,-95.168487],[29.687354,-95.168456],[29.688372,-95.168432],[29.68861,-95.168413],[29.68864,-95.168398],[29.688659,-95.167588],[29.688659,-95.167307],[29.688659,-95.167305] ] }); // track 35 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #36
+				t = 36; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 39 - 3.89m'; trk[t].info.desc = 'Length: 6.257 km (3.888 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.68866,-95.1673],[29.68873,-95.16376],[29.68932,-95.16327],[29.68921,-95.16288],[29.68925,-95.16212],[29.69931,-95.16236],[29.69937,-95.16155],[29.69937,-95.15836],[29.7016,-95.15837],[29.70171,-95.15828],[29.7017,-95.15299],[29.70174,-95.15048],[29.70175,-95.15054],[29.70168,-95.14954],[29.70134,-95.14789],[29.70126,-95.14714],[29.70132,-95.14118],[29.70088,-95.13845],[29.70098,-95.13122],[29.70094,-95.13071],[29.70081,-95.13018],[29.70016,-95.12865],[29.69995,-95.12797],[29.69991,-95.1277],[29.699875,-95.127421],[29.69987,-95.12718],[29.699882,-95.126249],[29.699896,-95.125171],[29.699912,-95.12413],[29.699924,-95.122824],[29.699943,-95.122623],[29.699961,-95.12251],[29.699982,-95.121515],[29.699982,-95.120928],[29.700006,-95.120386],[29.700008,-95.119999],[29.700024,-95.119061],[29.700036,-95.118393],[29.700043,-95.117902] ] }); // track 36 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #37
+				t = 37; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 40 - 4.97m'; trk[t].info.desc = 'Length: 7.992 km (4.966 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.700043,-95.117885],[29.700073,-95.115826],[29.700087,-95.115243],[29.700127,-95.115026],[29.700136,-95.114409],[29.700145,-95.113666],[29.700348,-95.105368],[29.700495,-95.09385],[29.700507,-95.093791],[29.700527,-95.093735],[29.700555,-95.093697],[29.70059,-95.093689],[29.70162,-95.093837],[29.701702,-95.093845],[29.701986,-95.093866],[29.702263,-95.093853],[29.702643,-95.093783],[29.702999,-95.093681],[29.706816,-95.092225],[29.709788,-95.091015],[29.71277,-95.08985],[29.713061,-95.089765],[29.71335,-95.08973],[29.722917,-95.089795],[29.727727,-95.089848],[29.730385,-95.089878],[29.731656,-95.089894],[29.732341,-95.089902],[29.732402,-95.089725],[29.73301,-95.089481],[29.733669,-95.089119],[29.734819,-95.088526],[29.735255,-95.088314],[29.736268,-95.087872],[29.738057,-95.086909],[29.739843,-95.08597],[29.744039,-95.083749],[29.746131,-95.082639],[29.748222,-95.08152],[29.74838,-95.08135],[29.74856,-95.08098],[29.74876,-95.08076] ] }); // track 37 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #38
+				t = 38; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Epilogue - .10m'; trk[t].info.desc = 'Length: 0.165 km (0.102 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.74878,-95.080753],[29.748818,-95.080647],[29.74886,-95.080318],[29.748908,-95.080101],[29.748959,-95.079932],[29.749009,-95.079834],[29.749064,-95.07977],[29.749165,-95.079869],[29.749206,-95.079951],[29.749233,-95.080046],[29.749257,-95.080149],[29.74932,-95.080332] ] }); // track 38 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #39
+				t = 39; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 14 - 6.68m'; trk[t].info.desc = 'Length: 10.75 km (6.681 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6958629,-96.6250611],[29.6961904,-96.6229896],[29.6966377,-96.6201465],[29.6970478,-96.6175863],[29.6974672,-96.6149417],[29.6977712,-96.6130038],[29.6980392,-96.6113193],[29.6984201,-96.6089348],[29.6987661,-96.6068132],[29.698942,-96.6057873],[29.6991878,-96.6043375],[29.6995222,-96.6023339],[29.7003877,-96.5971398],[29.700821,-96.5944898],[29.7013942,-96.590488],[29.7018741,-96.5866953],[29.7025358,-96.5826076],[29.7032068,-96.578992],[29.7036494,-96.5765083],[29.7039849,-96.574384],[29.7046512,-96.5701461],[29.7050799,-96.567421],[29.7056437,-96.5639019],[29.7053408,-96.5637892],[29.7020605,-96.5631616],[29.7008537,-96.5629578],[29.7005415,-96.5628934],[29.6996701,-96.5627968],[29.6984679,-96.5628183],[29.6984492,-96.5627539],[29.6984586,-96.5626091],[29.6989059,-96.5607691],[29.6992274,-96.5593475],[29.699479,-96.558398],[29.7001035,-96.5563595],[29.7009189,-96.5537095],[29.7018415,-96.5507483],[29.702205,-96.5495145],[29.7021677,-96.5494126],[29.7020419,-96.5492839],[29.7019999,-96.5491819],[29.7020046,-96.548785],[29.7020092,-96.5469664],[29.7020745,-96.5419078],[29.7020931,-96.540733],[29.7020931,-96.5404326],[29.7016971,-96.5404218],[29.6976617,-96.5403897],[29.6948751,-96.5402931],[29.6946188,-96.5402663],[29.6939944,-96.540159],[29.6936542,-96.5400034],[29.6923215,-96.5394133],[29.6919393,-96.5392578],[29.6911751,-96.5389627],[29.689819,-96.5384156],[29.6891992,-96.5381742],[29.6891805,-96.5380883],[29.6892271,-96.5379488],[29.6892831,-96.537922],[29.6894415,-96.5373963],[29.6894415,-96.5372729],[29.6893856,-96.5371764],[29.6891852,-96.5370691],[29.6889289,-96.5369618],[29.688817,-96.5369511],[29.6887098,-96.5369738],[29.6886424,-96.5370678],[29.6885704,-96.537277] ] }); // track 39 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #40
+				t = 40; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 15 - 3.70m'; trk[t].info.desc = 'Length: 5.96 km (3.704 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6885596,-96.5372971],[29.6884186,-96.5377182],[29.6883906,-96.5377584],[29.6883603,-96.5377839],[29.6883161,-96.5377893],[29.6882578,-96.5377785],[29.6877825,-96.5375894],[29.686156,-96.5369403],[29.6849303,-96.53642],[29.6831733,-96.5357065],[29.6809456,-96.5347892],[29.680405,-96.5345693],[29.6797105,-96.5343386],[29.6790254,-96.5341401],[29.6784522,-96.5340114],[29.6779208,-96.5339094],[29.6770726,-96.53377],[29.6765459,-96.5336895],[29.6753481,-96.5335071],[29.6745371,-96.5333784],[29.673302,-96.5331906],[29.6718617,-96.5329546],[29.6707664,-96.5327829],[29.6698575,-96.5326488],[29.6686502,-96.5324557],[29.666879,-96.5321767],[29.6662963,-96.5320748],[29.6651263,-96.5319031],[29.6629495,-96.5315759],[29.6623435,-96.5314794],[29.6614811,-96.5313077],[29.6610523,-96.5311843],[29.6605115,-96.5309912],[29.6598309,-96.530664],[29.6591177,-96.5302455],[29.6586422,-96.5298969],[29.6580222,-96.5293497],[29.6574069,-96.5286523],[29.6570806,-96.5282285],[29.6566191,-96.5275311],[29.6562368,-96.5268123],[29.6558406,-96.5259218],[29.6552299,-96.5245378],[29.6549455,-96.5239102],[29.6545679,-96.5231323],[29.6541577,-96.5224135],[29.6537101,-96.5217268],[29.6532346,-96.5211099],[29.6527358,-96.5205306],[29.652195,-96.5199834],[29.6518407,-96.5196776],[29.6510948,-96.5190876],[29.6496216,-96.518122],[29.6488104,-96.5175909],[29.6478826,-96.5169901],[29.6477707,-96.5171725],[29.6476775,-96.5172529],[29.6475376,-96.5172207],[29.6465866,-96.5168291],[29.6451506,-96.5162444],[29.6418823,-96.5149087] ] }); // track 40 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #41
+				t = 41; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 16 - 6.82m'; trk[t].info.desc = 'Length: 10.97 km (6.819 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.6418823,-96.5149087],[29.6405931,-96.5143937],[29.6384181,-96.5134871],[29.6367302,-96.5128005],[29.6356252,-96.512323],[29.6349444,-96.512028],[29.6346787,-96.5119207],[29.6345294,-96.5118295],[29.6343103,-96.5116256],[29.6339466,-96.5112287],[29.6338067,-96.5111375],[29.6327156,-96.510644],[29.6297967,-96.5093136],[29.6271014,-96.50823],[29.6242709,-96.5071142],[29.6214543,-96.5059984],[29.6197661,-96.5053278],[29.6185163,-96.5048075],[29.6175603,-96.504432],[29.6171639,-96.5042657],[29.6169307,-96.5041476],[29.6154197,-96.5033484],[29.6123417,-96.5017873],[29.6115862,-96.5013742],[29.6097813,-96.5004677],[29.6084101,-96.4997435],[29.6074446,-96.4992499],[29.6060921,-96.4985472],[29.6046649,-96.4978176],[29.6025706,-96.4967394],[29.6009848,-96.4959186],[29.600677,-96.4957255],[29.6003178,-96.4953554],[29.6000193,-96.4949745],[29.5998514,-96.4947921],[29.5996695,-96.4946634],[29.5984894,-96.4939392],[29.5972859,-96.4932042],[29.595644,-96.4921957],[29.5927846,-96.4904308],[29.5904709,-96.4890093],[29.5879613,-96.4874643],[29.5873455,-96.4870888],[29.5860533,-96.4862841],[29.5833382,-96.4846212],[29.5812156,-96.4833337],[29.580987,-96.4831728],[29.580959,-96.4830279],[29.581001,-96.4828938],[29.5825872,-96.4791334],[29.5839167,-96.4760113],[29.584052,-96.4757055],[29.584038,-96.4754856],[29.5838421,-96.4752334],[29.5825265,-96.4735866],[29.5806791,-96.4713174],[29.5790369,-96.4692897],[29.5777026,-96.4676964],[29.5771381,-96.4670634],[29.5769469,-96.4669025],[29.5762797,-96.4664733],[29.574978,-96.4656365],[29.5741149,-96.4650786],[29.5734384,-96.4646763],[29.5732938,-96.464569],[29.5731958,-96.4643705],[29.5730045,-96.4636838],[29.5725473,-96.4620155],[29.5723793,-96.4615327],[29.5722813,-96.4614415],[29.5720294,-96.4613825],[29.5706344,-96.4611626],[29.5707417,-96.4601594],[29.570723,-96.4598429],[29.570849,-96.4588827],[29.570933,-96.4582604],[29.5712642,-96.4560074],[29.5712922,-96.4557552],[29.5710356,-96.4557016] ] }); // track 41 segment 1
+				GV_Draw_Track(t);
+				
+				// Track #42
+				t = 42; trk[t] = {info:[],segments:[]};
+				trk[t].info.name = 'Leg 17 - 5.55m'; trk[t].info.desc = 'Length: 8.934 km (5.551 mi)'; trk[t].info.clickable = true;
+				trk[t].info.color = '#00e6e6'; trk[t].info.width = 3; trk[t].info.opacity = 0.9;
+				trk[t].info.outline_color = 'black'; trk[t].info.outline_width = 0; trk[t].info.fill_color = '#00e6e6'; trk[t].info.fill_opacity = 0;
+				trk[t].segments.push({ points:[ [29.5710356,-96.4557016],[29.5702168,-96.4555299],[29.5701655,-96.4554924],[29.5701585,-96.4553797],[29.5704127,-96.454339],[29.570639,-96.453478],[29.5708537,-96.4527217],[29.5711056,-96.4517802],[29.5712549,-96.4511713],[29.5714042,-96.4504874],[29.5714975,-96.4499751],[29.5716048,-96.449267],[29.5717285,-96.4482558],[29.5723187,-96.443578],[29.5731305,-96.4369798],[29.573877,-96.4312398],[29.5742502,-96.4281499],[29.5743808,-96.4273131],[29.5745022,-96.4267445],[29.5746701,-96.4261007],[29.57495,-96.4253819],[29.5752673,-96.4247704],[29.5755566,-96.4242983],[29.5762377,-96.4233541],[29.5798953,-96.4181936],[29.5826385,-96.4143634],[29.585167,-96.4108443],[29.5857547,-96.4099538],[29.5862026,-96.4092457],[29.5865944,-96.4084303],[29.5869676,-96.4074647],[29.5872382,-96.4065528],[29.5874994,-96.4052761],[29.5881152,-96.401639],[29.5893374,-96.3946223],[29.5898599,-96.3915217],[29.5899625,-96.3906527],[29.5900091,-96.3898265],[29.5899625,-96.3883781],[29.5897386,-96.3856423],[29.5893187,-96.380192],[29.5888429,-96.3739264],[29.5885509,-96.3700086] ] }); // track 42 segment 1
+				GV_Draw_Track(t);
+				
+				t = 1; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 2; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 3; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 4; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 5; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 6; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 7; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 8; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 9; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 10; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 11; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 12; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 13; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 14; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 15; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 16; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 17; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 18; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 19; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 20; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 21; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 22; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 23; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 24; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 25; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 26; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 27; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 28; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 29; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 30; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 31; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 32; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 33; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 34; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 35; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 36; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 37; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 38; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 39; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 40; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 41; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				t = 42; GV_Add_Track_to_Tracklist({bullet:'- ',name:trk[t].info.name,desc:trk[t].info.desc,color:trk[t].info.color,number:t});
+				
+				
+				
+				// This set of options instructs the "GV_Finish_Map" function to load markers from an external file
+				gv_options.dynamic_data = [
+					{
+					url:'https://docs.google.com/spreadsheets/d/15dRv19iblGyk0fzOyPU9WGzCJnllq19SD0WvORB-fcA/pubhtml', reload_on_move:false,
+					field_alias:{}, // e.g.: field_alias:{name:'id',desc:'comment',folder:'category'}
+					synthesize_fields:{ // you can include YOUR document's field names in {curly brackets}; this is like field_alias, but more powerful
+						name:'',
+						desc:'',
+						label:'',
+						folder:''
+					},
+					ignore_styles:false,
+					track_options:{color:'#e60000',width:'3',opacity:'0.9'},
+					autozoom:false, zoom_default:9, zoom_adjustment:0 // e.g., to zoom out one step, set zoom_adjustment to -1
+					}
+				];
+				
+				GV_Finish_Map();
+
+google.maps.event.addListener(gmap, "bounds_changed", function(){
+var z = gmap.getZoom();
+if (z > 11) {
+GV_Toggle_All_Labels(true); // force labels to show
+} else {
+GV_Toggle_All_Labels(false); // force labels to hide
+}
+});
+}
+			GV_Map(); // execute the above code
+
+			// http://www.gpsvisualizer.com/map_input?center_point=29.6305%2C%20-96.0628&drawing_title=TIR-2016%20Status%2C%20v.%208&form=google&google_js=function%20setCookie%28cname%2Ccvalue%29%20%7B%0D%0A%20%20%20%20document.cookie%20%3D%20cname%2B%22%3D%22%2Bcvalue%2B%22%3B%20%22%3B%0D%0A%7D%0D%0A%0D%0Afunction%20getCookie%28cname%29%20%7B%0D%0A%20%20%20%20var%20name%20%3D%20cname%20%2B%20%22%3D%22%3B%0D%0A%20%20%20%20var%20ca%20%3D%20document.cookie.split%28%27%3B%27%29%3B%0D%0A%20%20%20%20for%28var%20i%3D0%3B%20i%3Cca.length%3B%20i%2B%2B%29%20%7B%0D%0A%20%20%20%20%20%20%20%20var%20c%20%3D%20ca%5Bi%5D%3B%0D%0A%20%20%20%20%20%20%20%20while%20%28c.charAt%280%29%3D%3D%27%20%27%29%20c%20%3D%20c.substring%281%29%3B%0D%0A%20%20%20%20%20%20%20%20if%20%28c.indexOf%28name%29%20%3D%3D%200%29%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20c.substring%28name.length%2C%20c.length%29%3B%0D%0A%20%20%20%20%20%20%20%20%7D%0D%0A%20%20%20%20%7D%0D%0A%20%20%20%20return%20%22%22%3B%0D%0A%7D%0D%0A%0D%0A%0D%0Afunction%20clearCookie%28%29%20%7B%0D%0A%2F%2F%20comment%20out%20the%20following%20line%20if%20you%20want%20the%20user%27s%20prior%20selection%20to%20remain%20valid%20until%20the%20Cookie%20timeout%20%09%0D%0A%09document.cookie%20%3D%20%22exchangename2%3D%3B%20expires%3DThu%2C%2001%20Jan%201970%2000%3A00%3A00%20UTC%22%3B%20%0D%0A%2F%2F%09checkCookie%28%29%3B%0D%0A%20%20%20%20%20%20%20var%20exchange%20%3D%20prompt%28%22Enter%20a%20Texas%20Independence%20Relay%20exchange%20to%20zoom%20in%20on%20%280%20%3D%20start%3B%2040%20%3D%20finish%29%3A%22%2C%22%22%29%3B%0D%0A%20%20%20%20%20%20%20if%20%28exchange%20%21%3D%20%22%22%20%26%26%20exchange%20%21%3D%20null%29%20%7B%0D%0A%20%20%20%20%20%20%20%20%20%20%20%09setCookie%28%22exchangename2%22%2C%20exchange%29%3B%0D%0A%09%09gv_options.center%5B0%5D%20%3D%20lat%5Bexchange%5D%3B%0D%0A%09%09gv_options.center%5B1%5D%20%3D%20lon%5Bexchange%5D%3B%0D%0A%09%09location.reload%28true%29%3B%20%0D%0A%20%20%20%20%20%20%20%7D%0D%0A%0D%0A%7D%0D%0A%0D%0A%0D%0Afunction%20checkCookie%28%29%20%7B%0D%0A%20%20%20%20var%20exchange%3DgetCookie%28%22exchangename2%22%29%3B%0D%0A%20%20%20%20if%20%28exchange%20%3D%3D%20%22%22%29%0D%0A%09%7B%0D%0A%09var%20togg%3DgetCookie%28%22toggname2%22%29%3B%0D%0A%09if%20%28togg%3D%3D%22%22%29%0D%0A%09%7B%0D%0A%09%09document.cookie%20%3D%20%22toggname2%3D1%22%3B%20%0D%0A%09%09exchange%3D20%3B%0D%0A%09%09gv_options.zoom%20%3D%209%3B%0D%0A%09%7D%0D%0A%09else%0D%0A%09%7B%0D%0A%09%09if%20%28togg%3D%3D%221%22%29%0D%0A%09%09%7B%0D%0A%09%09%2F%2Fdocument.cookie%20%3D%20%22toggname2%3D2%22%3B%20%0D%0A%09%09document.cookie%20%3D%20%22toggname2%3D%3B%20expires%3DThu%2C%2001%20Jan%201970%2000%3A00%3A00%20UTC%22%3B%20%0D%0A%09%09exchange%3DMath.floor%28%28new%20Date%28%29-new%20Date%28%22February%2024%2C%202016%2007%3A00%20AM%22%29%29%2F1000%2F60%2F10%2F%28200%2F39%29%29%3B%0D%0A%09%09if%20%28exchange%3C0%29%20%7B%20exchange%3D0%3B%20%7D%20else%20%7B%20if%20%28exchange%20%3E40%29%20%7B%20exchange%3D40%3B%20%7D%7D%0D%0A%09%09gv_options.zoom%20%3D%2011%3B%0D%0A%09%09%7D%0D%0A%09%7D%0D%0A%09%7D%0D%0A%20%20%20%20else%0D%0A%09%7B%0D%0A%09gv_options.zoom%20%3D%2012%3B%0D%0A%09%7D%0D%0A%0D%0Agv_options.center%5B0%5D%20%3D%20lat%5Bexchange%5D%3B%0D%0Agv_options.center%5B1%5D%20%3D%20lon%5Bexchange%5D%3B%0D%0A%0D%0A%7D%0D%0A%0D%0A%0D%0Afunction%20getLocation%28%29%20%7B%0D%0A%20%20%20%20if%20%28navigator.geolocation%29%20%7B%0D%0A%20%20%20%20%20%20%20%20navigator.geolocation.getCurrentPosition%28showPosition%2C%20showError%29%3B%0D%0A%20%20%20%20%7D%20else%20%7B%0D%0A%20%20%20%20%20%20%20%20x.innerHTML%20%3D%20%22Geolocation%20is%20not%20supported%20by%20this%20browser.%22%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0Afunction%20getP%28%29%0D%0A%7B%0D%0Attvn%3DgetCookie%28%22ttvn2%22%29%3B%0D%0Attvn%3Dprompt%28%22Welcome%21%20Enter%20your%20TIR%20administrators%27%20password.%20Contact%20Jay%20if%20you%27re%20not%20sure%2Cor%2C%20hit%20cancel.%22%2Cttvn%29%3B%0D%0Aif%28ttvn.toUpperCase%28%29%21%3D%22TIR2016A%22%20%7C%7C%20ttvn%3D%3Dnull%20%7C%7C%20ttvn%3D%3D%22%22%29%0D%0A%7B%0D%0Awindow.alert%28%22Returning%20to%20map...%22%29%3B%0D%0A%7D%0D%0Aelse%0D%0A%7B%0D%0Awindow.alert%28%22Authenticated%21%20Next%2C%20please%20enter%20the%20next%20runners%27%20exchange%20information.%22%29%3B%0D%0AsetCookie%28%22ttvn2%22%2C%20ttvn%29%3B%0D%0AgetLocation%28%29%3B%0D%0A%7D%0D%0A%7D%0D%0A%0D%0A%0D%0Afunction%20tfc2%28dt%29%20%0D%0A%7B%0D%0Awindow.alert%28%22Beta%20forecast%3A%20%22%2Bdt%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20msgme%28ms%29%0D%0A%7B%0D%0Awindow.alert%28ms%29%3B%0D%0A%7D%0D%0A%0D%0Afunction%20showPosition%28position%29%20%7B%0D%0A%20%20%20%20%09var%20latlon%20%3D%20position.coords.latitude%20%2B%20%22%2C%22%20%2B%20position.coords.longitude%3B%0D%0A%09var%20teamnbr%3D0%3B%0D%0A%09var%20low_exch%3D0%3B%20%0D%0A%09var%20low_dist%3D9999%3B%0D%0A%0D%0A%0D%0Afor%20%28i%20%3D%200%3B%20i%20%3C%2041%3B%20i%2B%2B%29%20%7B%0D%0A%09trial_dist%3D3959%2A%28%282%2AMath.asin%28Math.sqrt%28%28%28Math.sin%28%28Math.PI%2F180%2Aposition.coords.latitude-Math.PI%2F180%2Alat%5Bi%5D%29%2F2%29%29%2A%28Math.sin%28%28Math.PI%2F180%2Aposition.coords.latitude-Math.PI%2F180%2Alat%5Bi%5D%29%2F2%29%29%29%2BMath.cos%28Math.PI%2F180%2Aposition.coords.latitude%29%2AMath.cos%28Math.PI%2F180%2Alat%5Bi%5D%29%2A%20%28Math.sin%28%28Math.PI%2F180%2A%28position.coords.longitude%29-Math.PI%2F180%2A%28lon%5Bi%5D%29%29%2F2%29%2AMath.sin%28%28Math.PI%2F180%2A%28position.coords.longitude%29-Math.PI%2F180%2A%28lon%5Bi%5D%29%29%2F2%29%29%29%29%29%29%3B%0D%0A%09if%20%28trial_dist%3Clow_dist%29%20%7B%09low_dist%3Dtrial_dist%3B%20low_exch%3Di%3B%09%7D%0D%0A%7D%0D%0Aif%20%28low_dist%20%3E%2075%29%0D%0A%7B%0D%0Awindow.alert%28%22You%20must%20be%20within%2075%20miles%20to%20submit%20the%20closest%20exchange%20%28TIR-%22%2Blow_exch%2B%22.%29%20You%20are%20now%20%22%2Blow_dist.toPrecision%283%29%2B%22%20miles%20away%20from%20it%21%22%29%3B%0D%0A%7D%0D%0Aelse%0D%0A%7B%0D%0Avar%20teamnbr%3DgetCookie%28%22teamnbr2%22%29%3B%0D%0A%0D%0Ateamnbr%3Dprompt%28%22%231%2F3-Enter%20your%20team%20number%20for%20exchange%20TIR-%22%2Blow_exch%2B%22%20%28%22%2Blow_dist.toPrecision%283%29%2B%20%22%20miles%20away%29%2C%20or%2C%20cancel%20to%20abort.%22%2Cteamnbr%29%3B%0D%0A%0D%0Aif%20%28teamnbr%3D%3Dnull%7C%7Cteamnbr%3D%3D%22%22%29%0D%0A%7B%0D%0Awindow.alert%28%22Returning%20to%20map%20without%20a%20submission...%22%29%3B%0D%0A%7D%0D%0Aelse%0D%0A%7B%0D%0AsetCookie%28%22teamnbr2%22%2C%20teamnbr%29%3B%0D%0Avar%20fname%3D%22%22%3B%0D%0Afname%3Dprompt%28%22%232%2F3-OPTIONALLY%20for%20the%20status%20map%20enter%20the%20new%20runner%27s%20first%20name%2C%20using%20appropriate%20language.%22%2Cfname%29%3B%0D%0Avar%20cr%3Dconfirm%28%22%233%2F3-Confirm%20when%20team%20%23%22%2Bteamnbr%2B%22%27s%20exchange%20has%20occurred%20at%20TIR-%22%2Blow_exch%2B%22%20%28or%2C%20hit%20cancel%20to%20abort.%29%22%29%3B%0D%0Aif%20%28cr%3D%3Dfalse%29%0D%0A%7B%0D%0Awindow.alert%28%22Returning%20to%20map%20without%20a%20submission...%22%29%3B%0D%0A%7D%0D%0Aelse%0D%0A%7B%0D%0Aif%20%28ttvn%3D%3D%22%22%29%0D%0A%7B%0D%0Adocument.location%20%3D%20%22https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2F18Oi7GpAXStHIcW9kAYwPx9IGA0zwn6F3xk8fcSJZo3E%2FformResponse%3Fifq%26entry.2097186704%3D%22%2Blow_exch%2B%22%26entry.1494294730%3D%22%2Bteamnbr%2B%22%26entry.1435344197%3D%22%2Bfname%2B%22%26entry.782756942%3D%22%2Buserip%2B%22%26submit%3DSubmit%22%3B%0D%0A%7D%0D%0Aelse%0D%0A%7B%0D%0Adocument.location%20%3D%20%22https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2F1NROj8XMgPz_Ab_XJKfbkH-DV2bByqij9cTx8PFhz00w%2FformResponse%3Fifq%26entry.764296780%3D%22%2Blow_exch%2B%22%26entry.906078405%3D%22%2Bteamnbr%2B%22%26entry.1318649979%3D%22%2Bfname%2B%22%26entry.557329055%3D%22%2Buserip%2B%22%26submit%3DSubmit%22%3B%0D%0A%7D%0D%0A%7D%0D%0A%7D%0D%0A%7D%0D%0A%7D%0D%0A%0D%0Afunction%20showError%28error%29%20%7B%0D%0A%20%20%20%20switch%28error.code%29%20%7B%0D%0A%20%20%20%20%20%20%20%20case%20error.PERMISSION_DENIED%3A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20x.innerHTML%20%3D%20%22User%20denied%20the%20request%20for%20Geolocation.%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0D%0A%20%20%20%20%20%20%20%20case%20error.POSITION_UNAVAILABLE%3A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20x.innerHTML%20%3D%20%22Location%20information%20is%20unavailable.%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0D%0A%20%20%20%20%20%20%20%20case%20error.TIMEOUT%3A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20x.innerHTML%20%3D%20%22The%20request%20to%20get%20user%20location%20timed%20out.%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0D%0A%20%20%20%20%20%20%20%20case%20error.UNKNOWN_ERROR%3A%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20x.innerHTML%20%3D%20%22An%20unknown%20error%20occurred.%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20break%3B%0D%0A%20%20%20%20%7D%0D%0A%7D%0D%0A%0D%0A%0D%0A%0D%0AcheckCookie%28%29%3B%0D%0A%09%09&google_zoom_level=9&hue1=180&hue2=180&legend_html=%0D%0A%3Cb%3E%3Ci%3ETIC-TOC%3A%3C%2Fb%3E%3C%2Fi%3E%20%3Ca%20href%3D%22https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F23401807%2FTIRresults-Overall.html%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3EAll%3C%2Fa%3E%20%20%3Ca%20href%3D%22https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F23401807%2FTIRresults-Men.html%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3EMen%3C%2Fa%3E%0D%0A%3Ca%20href%3D%22https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F23401807%2FTIRresults-Women.html%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3EWomen%3C%2Fa%3E%20%20%3Ca%20href%3D%22https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F23401807%2FTIRresults-Mixed.html%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3EMix%3C%2Fa%3E%20%20%3Ca%20href%3D%22https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F23401807%2FTIRresults-Corporate.html%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3ECorp%3C%2Fa%3E%20%20%3Ca%20href%3D%22https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F23401807%2FTIRresults-TeamView.html%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3ETeams%3C%2Fa%3E%20%20%3Ca%20href%3D%22javascript%3AgetP%28%29%3B%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3EAdmin%3C%2Fa%3E%20%20%3Ca%20href%3D%22javascript%3AclearCookie%28%29%3B%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3EFocus%3C%2Fa%3E%20%20%3Ca%20href%3D%22javascript%3AgetLocation%28%29%3B%22%2B%22%22%22%20target%3D%22%22_blank%22%22%3EExch%3C%2Fa%3E%3Cbr%3E%0D%0A%3C%21--%20%0D%0ANOTE%3A%20IN%20THE%20EVENT%20OF%20A%20MAJOR%20WEATHER%20OR%20SECURITY%20THREAT%20FACING%20THE%20TIR%20THE%20FOLLOWING%20SCROLL%20%0D%0ACAN%20BE%20ACTIVATED%20BY%20REMOVING%20THE%20COMMENT%20SECTION%20ABOVE%20AND%20BELOW%2C%20AND%20EDITING%20THE%20%27EXTERNAL%27%0D%0AFILE%20FOUND%20IN%20THE%20PUBLIC%20DROPBOX.%20%0D%0A%3Ciframe%20id%3D%22datamain%22%20src%3D%22https%3A%2F%2Fdl.dropboxusercontent.com%2Fu%2F23401807%2Fexternal.htm%22%20width%3D%22680px%22%20height%3D%2235px%22%20marginwidth%3D%220%22%20marginheight%3D%220%22%20hspace%3D%220%22%20vspace%3D%220%22%20frameborder%3D%220%22%20scrolling%3D%22no%22%3E%3C%2Fiframe%3E%0D%0A--%3E%0D%0A%3Cfont%20face%3D%22Arial%22%20size%3D%224%22%3E%3Ca%20href%3D%22mailto%3Ajay%40texasindependencerelay.com%3Fsubject%3DTic-Toc%20team%20photo%20and%20video%20link%22%20target%3D%22_top%22%3ESend%20us%20your%20photo%21%3C%2Fa%3E%20%20%20%20%3Ca%20href%3D%22https%3A%2F%2Fwww.facebook.com%2FTexasIndependenceRelay%22%20target%3D%22_top%22%3ELike%20us%20on%20Facebook%3C%2Fa%3E%3C%2Ffont%3E&show_wpt=0&trk_list=0&units=us&wpt_list=name_border&add_elevation=auto
+		</script>
+		
+		
+		
+	</body>
+
+</html>
